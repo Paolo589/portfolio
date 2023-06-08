@@ -93,13 +93,20 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 					src={obj.url} className="gallery-img" layout="fill" />
 				{obj.description && <p className='post-content-description'>{obj.description}</p>}</div>
 		if (obj && obj.type && obj.type == "video")
-			return <div key={i}><ReactPlayer
-				muted
-				className="video_player"
-				src={obj.url}
-				playsinline
-				loop
-			/>
+			return <div className="player-wrapper">
+				{loader && <Rings wrapperClass="loader video_loader" color="#008069" ariaLabel="loading-indicator" />}
+				<ReactPlayer
+					className='react-player'
+					muted
+					width='100%'
+					height='100%'
+					url={obj.url}
+					playsinline
+					playing
+					loop
+					onReady={() => setLoader(false)}
+				/>
+
 				{obj.description && <p className='post-content-description'>{obj.description}</p>}</div>
 		else
 			return obj && <div key={i} className='post-content-container' dangerouslySetInnerHTML={{ __html: obj }} />
@@ -144,11 +151,12 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 			{content?.acf?.videotop3 && renderVideo(content?.acf?.videotop3)}
 			{content?.acf?.videotop4 && renderVideo(content?.acf?.videotop4)}
 			{content?.acf?.galleria &&
-				content?.acf?.galleria.map((el: any) =>
-					<div key={el.id} className="post-img-container" >
-						<Image blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} src={el.url} className="gallery-img" layout="fill" placeholder="blur" />
-						{el.description && <p className='post-content-description'>{el.description}</p>}
-					</div>
+				content?.acf?.galleria.map((el: any, i: number) =>
+					contentRender(el, i)
+					// <div key={el.id} className="post-img-container" >
+					// 	<Image blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} src={el.url} className="gallery-img" layout="fill" placeholder="blur" />
+					// 	{el.description && <p className='post-content-description'>{el.description}</p>}
+					// </div>
 				)}
 			{content?.acf?.videobottom && renderVideo(content?.acf?.videobottom)}
 			{content?.acf?.videobottom2 && renderVideo(content?.acf?.videobottom2)}
