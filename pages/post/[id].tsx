@@ -75,7 +75,7 @@ const Post: NextPage<Props> = ({ posts, infos }) => {
       <ContentLayout content={item} />
       <div className='all-work-container'>
      
-      <h2>All Works</h2>
+      <h2>All Workss</h2>
       <div className='divider'></div>
        <ul className="card-list">
        {posts?.map(item => (
