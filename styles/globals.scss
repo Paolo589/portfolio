@@ -313,11 +313,24 @@ html {
   width: 100%;
   object-fit: cover;
 }
+.card-content .player-wrapper {
+  position: relative;
+ 
+  padding-top: 100% /* Player ratio: 100 / (1280 / 720) */;
+  margin-bottom: 30px;
+ 
+  height: 100%;
+  video{
+    object-fit: cover;
+  }
+}
 
 .player-wrapper {
   position: relative;
+ 
   padding-top: 100% /* Player ratio: 100 / (1280 / 720) */;
   margin-bottom: 30px;
+
 }
 .react-player {
   position: absolute;

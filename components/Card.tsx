@@ -46,7 +46,7 @@ const Card: React.FC<Props> = ({ item, scrollTop = false }) => {
 			key='10000000000'
 			initial={{ opacity: 0, }} animate={{ opacity: 1 }} exit={{ opacity: 0}}  transition={{ velocity: 50 }}
 			className="player-wrapper">
-				{/* {loader && <Rings wrapperClass="loader video_loader" color="#008069" ariaLabel="loading-indicator" />} */}
+				 {loader && <Rings wrapperClass="loader video_loader" color="#008069" ariaLabel="loading-indicator" />} 
 				<ReactPlayer
 					
 					className='react-player'
