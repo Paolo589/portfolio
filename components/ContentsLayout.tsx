@@ -49,7 +49,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 
 	const lay = contentToArray()
 
-	console.log({ lay }); // ["hello", "this is", "javascript!"]
+	
 
 	const consentWindow = () => {
 		return <div

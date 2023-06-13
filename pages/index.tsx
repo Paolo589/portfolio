@@ -15,7 +15,7 @@ interface Props {
 
 const Casa: NextPage<Props> = ({ post ,infos}) => {
   const { data ,info } = useAppSelector(cartSelector)
-  console.log({post})
+ 
 
   const dispatch = useAppDispatch()
 
@@ -32,7 +32,7 @@ const Casa: NextPage<Props> = ({ post ,infos}) => {
        dispatch(setInfo(infos))
  }, [])
 
-  console.log({info})
+
   return (
     <div className="root">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ velocity: 50 }} id="card-list-container" >

@@ -17,7 +17,7 @@ interface Props {
 
 const PrivacyPolicy: NextPage<Props> = ({ post, infos }) => {
     const { data, info } = useAppSelector(cartSelector)
-    console.log({ post })
+   
 
     const dispatch = useAppDispatch()
 
