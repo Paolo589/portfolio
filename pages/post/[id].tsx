@@ -102,10 +102,10 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   // You can use any data fetching library
 
   const infourl =
-    "https://www.paolominopoli.com/portfolio/wp-json/wp/v2/informazioni?_embed&per_page=100";
+    "https://www.dariovettura.com/dance/wp-json/wp/v2/informazioni?_embed&per_page=100";
 
   const url =
-    "https://www.paolominopoli.com/portfolio/wp-json/wp/v2/posts?_embed&per_page=100";
+    "https://www.dariovettura.com/dance/wp-json/wp/v2/posts?_embed&per_page=100";
 
   //const result = await Axios.get(url);
   //const menu =  result.data
