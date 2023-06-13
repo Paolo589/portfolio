@@ -78,7 +78,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 			}}>
 				<p>This content is hosted by Youtube.com. By showing the external content you accept the <a style={{ textDecoration: "underline" }} href="https://www.youtube.com/t/terms">term and condition</a> of Youtube.com </p>
 				<Button className="open-model-btn" onClick={() => { localStorage.setItem('ytmy', "true"); setCookieConsent(true) }}>Show video</Button>
-				{/* <p>Your choice will be saved in a cookie managed by paolominopoli.vercel.app untile you have closed your browser</p> */}
+				{/* <p>Your choice will be saved in a cookie managed by paolominopoli.com untile you have closed your browser</p> */}
 			</div>
 
 		</div>

@@ -24,17 +24,17 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       titleTemplate='Paolo Minopoli | %s'
       defaultTitle="Paolo Minopoli"
       description="3D Designer"
-      canonical="https://paolominopoli.vercel.app/"
+      canonical="https://paolominopoli.com/"
       openGraph={{
         type: 'website',
-        url: "https://paolominopoli.vercel.app/",
+        url: "https://paolominopoli.com/",
         title: "Paolo Minopoli",
         description: "3D Designer",
         images: [
           {
             width: 400,
             height: 400,
-            url: "https://paolominopoli.vercel.app/avatar-paolo.png",
+            url: "https://paolominopoli.com/avatar-paolo.png",
             alt: "Paolo Minopoli",
           },
         ],

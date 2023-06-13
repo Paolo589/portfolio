@@ -43,23 +43,23 @@ const PrivacyPolicy: NextPage<Props> = ({ post, infos }) => {
                 PRIVACY POLICY
                 I - INFORMAZIONI RELATIVE ALLA PRIVACY POLICY DEL SITO
                 1. In questa sezione sono contenute le informazioni relative alle modalità di gestione
-                di paolominopoli.vercel.app in riferimento al trattamento dei dati degli utenti di
-                paolominopoli.vercel.app.
+                di paolominopoli.com in riferimento al trattamento dei dati degli utenti di
+                paolominopoli.com.
                 </p>
                 <p style={{ fontSize:"17px", margin: "0px 15px 0px 15px", padding: "45px", color: "#fff", width: "100%" }}>
                 2. La presente informativa ha valore anche ai fini dell&apos;articolo 13 del Regolamento
                 (UE) n. 2016/679, relativo alla protezione delle persone fisiche con riguardo al
                 trattamento dei dati personali nonché alla libera circolazione di tali dati, per i soggetti
-                che interagiscono con paolominopoli.vercel.app ed è raggiungibile all&apos;indirizzo
+                che interagiscono con paolominopoli.com ed è raggiungibile all&apos;indirizzo
                 corrispondente alla pagina iniziale:
-                www.paolominopoli.vercel.app
+                www.paolominopoli.com
                 </p>
                 <p style={{ fontSize:"17px", margin: "0px 15px 0px 15px", padding: "45px", color: "#fff", width: "100%" }}>
-                3. L&apos;informativa è resa solo per paolominopoli.vercel.app e non anche per altri
+                3. L&apos;informativa è resa solo per paolominopoli.com e non anche per altri
                 siti web eventualmente consultati dall&apos;utente tramite link in esso contenuti.
                 4. Scopo del presente documento è fornire indicazioni circa le modalità, i tempi e la
                 natura delle informazioni che i titolari del trattamento devono fornire agli utenti al
-                momento della connessione alle pagine web di paolominopoli.vercel.app,
+                momento della connessione alle pagine web di paolominopoli.com,
                 indipendentemente dagli scopi del collegamento stesso, secondo la legislazione
                 Italiana ed Europea.
                 </p>
@@ -84,7 +84,7 @@ const PrivacyPolicy: NextPage<Props> = ({ post, infos }) => {
                 servizio o altro organismo che tratta dati personali per conto del titolare del
                 trattamento.
                 2. Ai sensi dell&apos;articolo 28 del regolamento (UE) n. 2016/679, su nomina del titolare
-                del dati, il responsabile del trattamento dei dati del sito paolominopoli.vercel.app è: Paolo Minopoli.
+                del dati, il responsabile del trattamento dei dati del sito paolominopoli.com è: Paolo Minopoli.
 
                 2. In caso di necessità, i dati connessi al servizio newsletter possono essere trattati
                 dal responsabile del trattamento o soggetti da esso incaricati a tal fine presso la
@@ -93,7 +93,7 @@ const PrivacyPolicy: NextPage<Props> = ({ post, infos }) => {
                 <p style={{ fontSize:"17px", margin: "0px 15px 0px 15px", padding: "45px", color: "#fff", width: "100%" }}>
                 III - COOKIES
                 1 - Tipo di Cookies
-                1. Il sito paolominopoli.vercel.app utilizza cookies per rendere l&apos;esperienza di navigazione
+                1. Il sito paolominopoli.com utilizza cookies per rendere l&apos;esperienza di navigazione
                 dell&apos;utente più facile ed intuitiva: i cookies sono piccole stringhe di testo utilizzate per
                 memorizzare alcune informazioni che possono riguardare l&apos;utente, le sue preferenze
                 o il dispositivo di accesso a Internet (computer, tablet o cellulare) e vengono utilizzate
@@ -157,7 +157,7 @@ const PrivacyPolicy: NextPage<Props> = ({ post, infos }) => {
                 4. Potranno essere installati cookies di terze parti analitici. Essi sono inviati da domini
                 di predette terze parti esterni al sito.
                 5. I cookies analitici di terze parti sono impiegati per rilevare informazioni sul
-                comportamento degli utenti su paolominopoli.vercel.app. La rilevazione avviene in forma
+                comportamento degli utenti su paolominopoli.com. La rilevazione avviene in forma
                 anonima, al fine di monitorare le prestazioni e migliorare l&apos;usabilità del sito. I cookies
                 di profilazione di terze parti sono utilizzati per creare profili relativi agli utenti, al fine di
                 proporre messaggi pubblicitari in linea con le scelte manifestate dagli utenti
@@ -249,7 +249,7 @@ const PrivacyPolicy: NextPage<Props> = ({ post, infos }) => {
                 V. DIRITTI DELL&apos;UTENTE
                 
                 1. L&apos;art. 13, c. 2 del Regolamento (UE) 2016/679 elenca i diritti dell&apos;utente.
-                2. Il sito paolominopoli.vercel.app intende pertanto informare l&apos;utente sull&apos;esistenza dei diritti
+                2. Il sito paolominopoli.com intende pertanto informare l&apos;utente sull&apos;esistenza dei diritti
                 dell&apos;utente, in base ai seguenti articoli del Regolamento (UE) 2016/679:
                 8/9
                 a) In base all&apos;art. 15, del diritto dell&apos;interessato di chiedere al titolare l&apos;accesso ai
