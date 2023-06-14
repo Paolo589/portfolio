@@ -49,7 +49,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 
 	const lay = contentToArray()
 
-	
+
 
 	const consentWindow = () => {
 		return <div
@@ -94,15 +94,17 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 				{obj.description && <p className='post-content-description'>{obj.description}</p>}</div>
 		if (obj && obj.type && obj.type == "video")
 			return <div className="player-wrapper">
-				{loader && <Rings wrapperClass="loader video_loader" color="#008069" ariaLabel="loading-indicator" />}
+				{/* {loader && <Rings wrapperClass="loader video_loader" color="#008069" ariaLabel="loading-indicator" />} */}
 				<ReactPlayer
 					className='react-player'
 					muted
+					
 					width='100%'
 					height='100%'
 					url={obj.url}
 					playsinline
-					playing
+					 playing
+					controls
 					loop
 					onReady={() => setLoader(false)}
 				/>
@@ -116,6 +118,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 		return cookieConsent ? <div className="player-wrapper">
 			{loader && <Rings wrapperClass="loader video_loader" color="#008069" ariaLabel="loading-indicator" />}
 			<ReactPlayer
+				disableRemotePlayback
 				className='react-player'
 				muted
 				width='100%'
