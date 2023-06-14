@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Rings } from "react-loader-spinner";
 import ReactPlayer from "react-player";
+import Atropos from "atropos/react";
 
 
 interface Props {
@@ -79,9 +80,10 @@ const Card: React.FC<Props> = ({ item, scrollTop = false }) => {
 		>
 			<Link href={`/post/${item?.id}`} scroll={scrollTop} >
 				<a>
-					<div
+					<Atropos
 						className="card-content-container">
-						<div 	className={`card-content ${neon ? "neon" : "NOneon"}`}>
+						<div 
+						className={`card-content ${neon ? "neon" : "NOneon"}`}>
 
 						
 								{hover && !!videoinHover(item?.acf?.galleria) ?
@@ -102,10 +104,11 @@ const Card: React.FC<Props> = ({ item, scrollTop = false }) => {
 							
 						</div>
 
-					</div>
+					</Atropos>
 
 				</a>
 			</Link>
+		
 
 		</motion.li>
 	);

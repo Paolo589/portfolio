@@ -1,4 +1,5 @@
 import '../styles/globals.scss'
+import 'atropos/css'
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import type { AppProps } from 'next/app'
 import { Provider } from "react-redux"
