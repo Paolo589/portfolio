@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           {
             width: 400,
             height: 400,
-            url: "https://www.paolominopoli.com/avatar-paolo.png",
+            url: "https://paolominopoli.vercel.app/avatar-paolo.png",
             alt: "Paolo Minopoli",
           },
         ],
