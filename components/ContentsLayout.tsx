@@ -103,7 +103,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 					height='100%'
 					url={obj.url}
 					playsinline
-					 playing
+					//  playing
 					controls
 					loop
 					onReady={() => setLoader(false)}
