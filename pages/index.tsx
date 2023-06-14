@@ -54,9 +54,9 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   
 
   const url =
-    "https://www.paolominopoli/portfolio/wp-json/wp/v2/posts?_embed&per_page=100";
+    "https://www.paolominopoli.com/portfolio/wp-json/wp/v2/posts?_embed&per_page=100";
     const infourl =
-    "https://www.paolominopoli/portfolio/wp-json/wp/v2/informazioni?_embed&per_page=100";
+    "https://www.paolominopoli.com/portfolio/wp-json/wp/v2/informazioni?_embed&per_page=100";
 
   //const result = await Axios.get(url);
   //const menu =  result.data
