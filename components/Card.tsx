@@ -80,7 +80,7 @@ const Card: React.FC<Props> = ({ item, scrollTop = false }) => {
 		>
 			<Link href={`/post/${item?.id}`} scroll={scrollTop} >
 				<a>
-					<Atropos
+					<div
 						className="card-content-container">
 						<div 
 						className={`card-content ${neon ? "neon" : "NOneon"}`}>
@@ -104,7 +104,7 @@ const Card: React.FC<Props> = ({ item, scrollTop = false }) => {
 							
 						</div>
 
-					</Atropos>
+					</div>
 
 				</a>
 			</Link>
