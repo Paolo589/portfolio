@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Rings } from "react-loader-spinner";
 import ReactPlayer from "react-player";
-import Atropos from "atropos/react";
+
 
 
 interface Props {

@@ -23,7 +23,7 @@ const Footer: React.FC = ({ }) => {
     <div className="avatar-container">
 
 <Avatar >
-  <Image alt="Paolo Minopoli" src="https://paolominopoli.vercel.app/avatar-paolo.png" layout="fill" />
+  <Image alt="Paolo Minopoli" src="https://paolominopoli.com/avatar-paolo.png" layout="fill" />
 </Avatar>
 </div>
 <span style={{ marginTop: "10px",zIndex:"10" }}> <Logo ></Logo></span>

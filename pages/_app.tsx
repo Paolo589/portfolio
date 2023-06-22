@@ -1,5 +1,4 @@
 import '../styles/globals.scss'
-import 'atropos/css'
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import type { AppProps } from 'next/app'
 import { Provider } from "react-redux"
@@ -35,7 +34,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           {
             width: 400,
             height: 400,
-            url: "https://paolominopoli.vercel.app/avatar-paolo.png",
+            url: "https://paolominopoli.com/avatar-paolo.png",
             alt: "Paolo Minopoli",
           },
         ],
