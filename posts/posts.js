@@ -12,17 +12,18 @@
 
 export const posts = [
   {
-    id: 2,
-    title: "Capitan America",
-    slug: "captain-america",
-    anteprima_img: "01-Capitan/Cap_01.jpg",
-    anteprima_video: "01-Capitan/Cap_02.mp4",
+    id: 3,
+    title: "Silas",
+    slug: "silas",
+    anteprima_img: "06-Silas/Silas_02.jpg",
+    anteprima_video: "06-Silas/Silas_01.mp4",
     galleria: [
-      "01-Capitan/Cap_01.jpg",
-      "01-Capitan/Cap_02.mp4",
-      "01-Capitan/Cap_03.mp4",
+      "06-Silas/Silas_01.mp4",
+      "06-Silas/Silas_02.jpg",
+      "06-Silas/Silas_03.jpg",
     ],
   },
+
   {
     id: 1,
     title: "Spider Gwen",
@@ -36,6 +37,19 @@ export const posts = [
       "02-Spider/Gwen_04.jpg",
       "02-Spider/Gwen_05.jpg",
       "02-Spider/Gwen_06.jpg",
+    ],
+  },
+
+  {
+    id: 2,
+    title: "Capitan America",
+    slug: "captain-america",
+    anteprima_img: "01-Capitan/Cap_01.jpg",
+    anteprima_video: "01-Capitan/Cap_02.mp4",
+    galleria: [
+      "01-Capitan/Cap_01.jpg",
+      "01-Capitan/Cap_02.mp4",
+      "01-Capitan/Cap_03.mp4",
     ],
   },
 ];
