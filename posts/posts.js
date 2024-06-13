@@ -11,18 +11,6 @@
 // quindi "01-Captitan/Cap_01.jpg"
 
 export const posts = [
-  {
-    id: 3,
-    title: "Silas",
-    slug: "silas",
-    anteprima_img: "06-Silas/Silas_02.jpg",
-    anteprima_video: "06-Silas/Silas_01.mp4",
-    galleria: [
-      "06-Silas/Silas_01.mp4",
-      "06-Silas/Silas_02.jpg",
-      "06-Silas/Silas_03.jpg",
-    ],
-  },
 
   {
     id: 1,
@@ -50,6 +38,33 @@ export const posts = [
       "01-Capitan/Cap_01.jpg",
       "01-Capitan/Cap_02.mp4",
       "01-Capitan/Cap_03.mp4",
+    ],
+  },
+
+  {
+    id: 3,
+    title: "Silas",
+    slug: "silas",
+    anteprima_img: "06-Silas/Silas_02.jpg",
+    anteprima_video: "06-Silas/Silas_01.mp4",
+    galleria: [
+      "06-Silas/Silas_01.mp4",
+      "06-Silas/Silas_02.jpg",
+      "06-Silas/Silas_03.jpg",
+    ],
+  },
+
+  {
+    id: 4,
+    title: "Ryu",
+    slug: "ryu",
+    anteprima_img: "07-Ryu/Ryu_03.jpg",
+    anteprima_video: "07-Ryu/Ryu_01.mp4",
+    galleria: [
+      "07-Ryu/Ryu_01.mp4",
+      "07-Ryu/Ryu_02.jpg",
+      "07-Ryu/Ryu_03.jpg",
+      "07-Ryu/Ryu_04.jpg",
     ],
   },
 ];
