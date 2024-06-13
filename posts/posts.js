@@ -220,4 +220,18 @@ export const posts = [
       "15-DarkwingDuck/DD_05.jpg",
     ],
   },
+
+  {
+    id: 16,
+    title: "Darth Maul Oni Mask",
+    slug: "darth-maul-oni-mask",
+    anteprima_img: "13-DarthMaul/DarthMaul_03.jpg",
+    anteprima_video: "13-DarthMaul/DarthMaul_04.mp4",
+    galleria: [
+      "13-DarthMaul/DarthMaul_04.mp4",
+      "13-DarthMaul/DarthMaul_01.jpg",
+      "13-DarthMaul/DarthMaul_02.jpg",
+      "13-DarthMaul/DarthMaul_03.jpg",
+    ],
+  },
 ];
