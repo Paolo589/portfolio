@@ -206,4 +206,18 @@ export const posts = [
       "14-BaseballFuries.jpg",
     ],
   },
+
+  {
+    id: 15,
+    title: "Darkwing Duck",
+    slug: "darkwing-duck",
+    anteprima_img: "15-DarkwingDuck/DD_02.jpg",
+    anteprima_video: "15-DarkwingDuck/DD_01.mp4",
+    galleria: [
+      "15-DarkwingDuck/DD_01.mp4",
+      "15-DarkwingDuck/DD_03.jpg",
+      "15-DarkwingDuck/DD_04.jpg",
+      "15-DarkwingDuck/DD_05.jpg",
+    ],
+  },
 ];
