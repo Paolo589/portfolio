@@ -267,4 +267,15 @@ export const posts = [
       "19-NBAGNOLI/NBAGNOLI.jpg",
     ],
   },
+
+  {
+    id: 20,
+    title: "The Hero's Rest",
+    slug: "the-hero-s-rest",
+    anteprima_img: "20-TheLegendofZelda/Heros_Rest.jpg",
+    anteprima_video: "20-TheLegendofZelda/Heros_Rest.jpg",
+    galleria: [
+      "20-TheLegendofZelda/Heros_Rest.jpg",
+    ],
+  },
 ];
