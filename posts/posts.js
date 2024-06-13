@@ -244,4 +244,15 @@ export const posts = [
       "17-Aletheia3300/Ale3300.jpg",
     ],
   },
+
+  {
+    id: 18,
+    title: "Aletheia - Anime nell'Universo di Itrhon",
+    slug: "aletheia-aui",
+    anteprima_img: "18-AletheiaAUI/AletheiaAUI.jpg",
+    anteprima_video: "18-AletheiaAUI/AletheiaAUI.jpg",
+    galleria: [
+      "18-AletheiaAUI/AletheiaAUI.jpg",
+    ],
+  },
 ];
