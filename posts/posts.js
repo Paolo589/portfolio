@@ -233,4 +233,15 @@ export const posts = [
       "16-Mauro/Mauro_04.jpg",
     ],
   },
+
+  {
+    id: 17,
+    title: "Aletheia 3300",
+    slug: "aletheia-3300",
+    anteprima_img: "17-Aletheia3300/Ale3300.jpg",
+    anteprima_video: "17-Aletheia3300/Ale3300.jpg",
+    galleria: [
+      "17-Aletheia3300/Ale3300.jpg",
+    ],
+  },
 ];
