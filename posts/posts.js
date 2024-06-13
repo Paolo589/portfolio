@@ -174,7 +174,7 @@ export const posts = [
     title: "Venom",
     slug: "venom",
     anteprima_img: "12-Venom/Venom_01.jpg",
-    anteprima_video: "12-Venom/Venom_01.jpg",
+    anteprima_video: "",
     galleria: [
       "12-Venom/Venom_01.jpg",
       "12-Venom/Venom_02.jpg",
@@ -201,7 +201,7 @@ export const posts = [
     title: "Baseball Furies",
     slug: "baseball-furies",
     anteprima_img: "14-BaseballFuries.jpg",
-    anteprima_video: "14-BaseballFuries.jpg",
+    anteprima_video: "",
     galleria: [
       "14-BaseballFuries.jpg",
     ],
@@ -239,7 +239,7 @@ export const posts = [
     title: "Aletheia 3300",
     slug: "aletheia-3300",
     anteprima_img: "17-Aletheia3300/Ale3300.jpg",
-    anteprima_video: "17-Aletheia3300/Ale3300.jpg",
+    anteprima_video: "",
     galleria: [
       "17-Aletheia3300/Ale3300.jpg",
     ],
@@ -250,7 +250,7 @@ export const posts = [
     title: "Aletheia - Anime nell'Universo di Itrhon",
     slug: "aletheia-aui",
     anteprima_img: "18-AletheiaAUI/AletheiaAUI.jpg",
-    anteprima_video: "18-AletheiaAUI/AletheiaAUI.jpg",
+    anteprima_video: "",
     galleria: [
       "18-AletheiaAUI/AletheiaAUI.jpg",
     ],
@@ -273,7 +273,7 @@ export const posts = [
     title: "The Hero's Rest",
     slug: "the-hero-s-rest",
     anteprima_img: "20-TheLegendofZelda/Heros_Rest.jpg",
-    anteprima_video: "20-TheLegendofZelda/Heros_Rest.jpg",
+    anteprima_video: "",
     galleria: [
       "20-TheLegendofZelda/Heros_Rest.jpg",
     ],
@@ -297,9 +297,20 @@ export const posts = [
     title: "Goodfellas",
     slug: "goodfellas",
     anteprima_img: "22-Goodfellas/Goodfellas.jpeg",
-    anteprima_video: "22-Goodfellas/Goodfellas.jpeg",
+    anteprima_video: "",
     galleria: [
       "22-Goodfellas/Goodfellas.jpeg",
+    ],
+  },
+
+  {
+    id: 23,
+    title: "SaulGoodman",
+    slug: "saulgoodman",
+    anteprima_img: "22-SaulGoodman/SaulGoodman.png",
+    anteprima_video: "",
+    galleria: [
+      "22-SaulGoodman/SaulGoodman.png",
     ],
   },
 ];
