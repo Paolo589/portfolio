@@ -181,4 +181,18 @@ export const posts = [
       "12-Venom/Venom_03.jpg",
     ],
   },
+
+  {
+    id: 13,
+    title: "Darth Maul Oni Mask",
+    slug: "darth-maul-oni-mask",
+    anteprima_img: "13-DarthMaul/DarthMaul_03.jpg",
+    anteprima_video: "13-DarthMaul/DarthMaul_04.mp4",
+    galleria: [
+      "13-DarthMaul/DarthMaul_04.mp4",
+      "13-DarthMaul/DarthMaul_01.jpg",
+      "13-DarthMaul/DarthMaul_02.jpg",
+      "13-DarthMaul/DarthMaul_03.jpg",
+    ],
+  },
 ];
