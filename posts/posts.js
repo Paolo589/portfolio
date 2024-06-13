@@ -314,5 +314,14 @@ export const posts = [
     ],
   },
 
-  
+  {
+    id: 24,
+    title: "Stormtrooper",
+    slug: "stormtrooper",
+    anteprima_img: "24-Stormtrooper/Stormtrooper.jpg",
+    anteprima_video: "",
+    galleria: [
+      "24-Stormtrooper/Stormtrooper.jpg",
+    ],
+  },
 ];
