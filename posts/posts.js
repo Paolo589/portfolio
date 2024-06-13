@@ -195,4 +195,15 @@ export const posts = [
       "13-DarthMaul/DarthMaul_03.jpg",
     ],
   },
+
+  {
+    id: 14,
+    title: "Baseball Furies",
+    slug: "baseball-furies",
+    anteprima_img: "14-BaseballFuries.jpg",
+    anteprima_video: "14-BaseballFuries.jpg",
+    galleria: [
+      "14-BaseballFuries.jpg",
+    ],
+  },
 ];
