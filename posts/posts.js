@@ -135,4 +135,18 @@ export const posts = [
       "09-BatRob/BatRob_06.jpg",
     ],
   },
+
+  {
+    id: 10,
+    title: "Homelander",
+    slug: "homelander",
+    anteprima_img: "10-Homelander/Homelander_03.jpg",
+    anteprima_video: "10-Homelander/Homelander_01.mp4",
+    galleria: [
+      "10-Homelander/Homelander_01.mp4",
+      "10-Homelander/Homelander_02.jpg",
+      "10-Homelander/Homelander_03.jpg",
+      "10-Homelander/Homelander_04.mp4",
+    ],
+  },
 ];
