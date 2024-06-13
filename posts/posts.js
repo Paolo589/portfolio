@@ -278,4 +278,17 @@ export const posts = [
       "20-TheLegendofZelda/Heros_Rest.jpg",
     ],
   },
+
+  {
+    id: 21,
+    title: "Marv - Sin City",
+    slug: "marv",
+    anteprima_img: "21-Marv/Marv_02.jpg",
+    anteprima_video: "21-Marv/Marv_01.mp4",
+    galleria: [
+      "21-Marv/Marv_01.mp4",
+      "21-Marv/Marv_02.jpg",
+      "21-Marv/Marv_03.jpg",
+    ],
+  },
 ];
