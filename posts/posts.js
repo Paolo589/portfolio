@@ -149,4 +149,23 @@ export const posts = [
       "10-Homelander/Homelander_04.mp4",
     ],
   },
+
+  {
+    id: 11,
+    title: "Mario vs Bowser",
+    slug: "mario-vs-bowser",
+    anteprima_img: "11-MarioBowser/MariovBowser_05.jpg",
+    anteprima_video: "11-MarioBowser/MariovBowser_01.mp4",
+    galleria: [
+      "11-MarioBowser/MariovBowser_01.mp4",
+      "11-MarioBowser/MariovBowser_02.mp4",
+      "11-MarioBowser/MariovBowser_03.jpg",
+      "11-MarioBowser/MariovBowser_04.jpg",
+      "11-MarioBowser/MariovBowser_05.jpg",
+      "11-MarioBowser/MariovBowser_06.jpg",
+      "11-MarioBowser/MariovBowser_07.jpg",
+      "11-MarioBowser/MariovBowser_08.jpg",
+      "11-MarioBowser/MariovBowser_09.jpg",
+    ],
+  },
 ];
