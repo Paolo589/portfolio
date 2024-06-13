@@ -69,6 +69,19 @@ export const posts = [
   },
 
   {
+    id: 5,
+    title: "RichardHTT",
+    slug: "richardhtt",
+    anteprima_img: "05-RichardHTT/Htt_02.jpg",
+    anteprima_video: "05-RichardHTT/Htt_01.mp4",
+    galleria: [
+      "05-RichardHTT/Htt_01.mp4",
+      "05-RichardHTT/Htt_02.jpg",
+      "05-RichardHTT/Htt_03.jpg",
+    ],
+  },
+
+  {
     id: 3,
     title: "Silas",
     slug: "silas",
