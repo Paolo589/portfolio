@@ -119,4 +119,20 @@ export const posts = [
       "08-Ghost/GhostRider_02.jpg",
     ],
   },
+
+  {
+    id: 9,
+    title: "Batman, Robin and Clayface",
+    slug: "batman-robin-and-clayface",
+    anteprima_img: "09-BatRob/BatRob_02.jpg",
+    anteprima_video: "09-BatRob/BatRob_01.mp4",
+    galleria: [
+      "09-BatRob/BatRob_01.mp4",
+      "09-BatRob/BatRob_02.jpg",
+      "09-BatRob/BatRob_03.jpg",
+      "09-BatRob/BatRob_04.jpg",
+      "09-BatRob/BatRob_05.jpg",
+      "09-BatRob/BatRob_06.jpg",
+    ],
+  },
 ];
