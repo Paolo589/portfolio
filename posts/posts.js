@@ -32,8 +32,8 @@ export const posts = [
     anteprima_img: "02-Spider/Gwen_03.jpg",
     anteprima_video: "02-Spider/Gwen_01.mp4",
     galleria: [
-      "02-Spider/Gwen_02.mp4",
       "02-Spider/Gwen_01.mp4",
+      "02-Spider/Gwen_02.mp4",
       "02-Spider/Gwen_03.jpg",
       "02-Spider/Gwen_04.jpg",
       "02-Spider/Gwen_05.jpg",
