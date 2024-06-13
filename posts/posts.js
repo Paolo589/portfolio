@@ -255,4 +255,16 @@ export const posts = [
       "18-AletheiaAUI/AletheiaAUI.jpg",
     ],
   },
+
+  {
+    id: 19,
+    title: "NBAGNOLI",
+    slug: "nbagnoli",
+    anteprima_img: "19-NBAGNOLI/NBAGNOLI.jpg",
+    anteprima_video: "19-NBAGNOLI/NBAGNOLI.mp4",
+    galleria: [
+      "19-NBAGNOLI/NBAGNOLI.mp4",
+      "19-NBAGNOLI/NBAGNOLI.jpg",
+    ],
+  },
 ];
