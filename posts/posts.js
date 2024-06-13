@@ -291,4 +291,15 @@ export const posts = [
       "21-Marv/Marv_03.jpg",
     ],
   },
+
+  {
+    id: 22,
+    title: "Goodfellas",
+    slug: "goodfellas",
+    anteprima_img: "22-Goodfellas/Goodfellas.jpeg",
+    anteprima_video: "22-Goodfellas/Goodfellas.jpeg",
+    galleria: [
+      "22-Goodfellas/Goodfellas.jpeg",
+    ],
+  },
 ];
