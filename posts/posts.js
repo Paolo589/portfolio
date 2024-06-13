@@ -168,4 +168,17 @@ export const posts = [
       "11-MarioBowser/MariovBowser_09.jpg",
     ],
   },
+
+  {
+    id: 12,
+    title: "Venom",
+    slug: "venom",
+    anteprima_img: "12-Venom/Venom_01.jpg",
+    anteprima_video: "12-Venom/Venom_01.jpg",
+    galleria: [
+      "12-Venom/Venom_01.jpg",
+      "12-Venom/Venom_02.jpg",
+      "12-Venom/Venom_03.jpg",
+    ],
+  },
 ];
