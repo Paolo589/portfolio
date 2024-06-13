@@ -21,7 +21,7 @@ export const posts = [
     galleria: [
       "01-Capitan/Cap_01.jpg",
       "01-Capitan/Cap_02.mp4",
-      "01-Capitan/Cap_03.mp4",
+      "01-Capitan/Cap_03.jpg",
     ],
   },
 
