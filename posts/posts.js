@@ -14,6 +14,19 @@ export const posts = [
 
   {
     id: 1,
+    title: "Capitan America",
+    slug: "captain-america",
+    anteprima_img: "01-Capitan/Cap_01.jpg",
+    anteprima_video: "01-Capitan/Cap_02.mp4",
+    galleria: [
+      "01-Capitan/Cap_01.jpg",
+      "01-Capitan/Cap_02.mp4",
+      "01-Capitan/Cap_03.mp4",
+    ],
+  },
+
+  {
+    id: 2,
     title: "Spider Gwen",
     slug: "spider-gwen",
     anteprima_img: "02-Spider/Gwen_03.jpg",
@@ -29,15 +42,16 @@ export const posts = [
   },
 
   {
-    id: 2,
-    title: "Capitan America",
-    slug: "captain-america",
-    anteprima_img: "01-Capitan/Cap_01.jpg",
-    anteprima_video: "01-Capitan/Cap_02.mp4",
+    id: 3,
+    title: "Link - Twilight Princess",
+    slug: "link-tp",
+    anteprima_img: "03-Link/Link_02.jpg",
+    anteprima_video: "03-Link/Link_01.mp4",
     galleria: [
-      "01-Capitan/Cap_01.jpg",
-      "01-Capitan/Cap_02.mp4",
-      "01-Capitan/Cap_03.mp4",
+      "03-Link/Link_01.mp4",
+      "03-Link/Link_02.jpg",
+      "03-Link/Link_03.jpg",
+      "03-Link/Link_04.jpg",
     ],
   },
 
