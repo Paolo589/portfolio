@@ -95,7 +95,7 @@ export const posts = [
   },
 
   {
-    id: 4,
+    id: 7,
     title: "Ryu",
     slug: "ryu",
     anteprima_img: "07-Ryu/Ryu_03.jpg",
