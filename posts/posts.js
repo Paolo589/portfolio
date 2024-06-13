@@ -324,4 +324,15 @@ export const posts = [
       "24-Stormtrooper/Stormtrooper.jpg",
     ],
   },
+
+  {
+    id: 25,
+    title: "Charmeleon",
+    slug: "charmeleon",
+    anteprima_img: "25-Charmeleon/Charmeleon.jpg",
+    anteprima_video: "",
+    galleria: [
+      "25-Charmeleon/Charmeleon.jpg",
+    ],
+  },
 ];
