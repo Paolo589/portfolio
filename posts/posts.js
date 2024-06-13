@@ -56,6 +56,19 @@ export const posts = [
   },
 
   {
+    id: 4,
+    title: "Goddess Bastet",
+    slug: "godess-bastet",
+    anteprima_img: "04-Goddess/Goddess_Bastet_03.jpg",
+    anteprima_video: "04-Goddess/Goddess_Bastet_01.mp4",
+    galleria: [
+      "04-Goddess/Goddess_Bastet_01.mp4",
+      "04-Goddess/Goddess_Bastet_02.jpg",
+      "04-Goddess/Goddess_Bastet_03.jpg",
+    ],
+  },
+
+  {
     id: 3,
     title: "Silas",
     slug: "silas",
