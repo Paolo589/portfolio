@@ -107,4 +107,16 @@ export const posts = [
       "07-Ryu/Ryu_04.jpg",
     ],
   },
+
+  {
+    id: 8,
+    title: "Ghost Rider",
+    slug: "ghost-rider",
+    anteprima_img: "08-Ghost/GhostRider_02.jpg",
+    anteprima_video: "08-Ghost/GhostRider_01.mp4",
+    galleria: [
+      "08-Ghost/GhostRider_01.mp4",
+      "08-Ghost/GhostRider_02.jpg",
+    ],
+  },
 ];
