@@ -82,7 +82,7 @@ export const posts = [
   },
 
   {
-    id: 3,
+    id: 6,
     title: "Silas",
     slug: "silas",
     anteprima_img: "06-Silas/Silas_02.jpg",
