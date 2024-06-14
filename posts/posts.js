@@ -523,4 +523,15 @@ export const posts = [
   ],
 },
 
+{
+  id: 42,
+  title: "Geeulio",
+  slug: "geeulio",
+  anteprima_img: "42-Geeulio/Gee_02.jpg",
+  anteprima_video: "42-Geeulio/Gee_01.mp4",
+  galleria: [
+    "42-Geeulio/Gee_01.mp4",
+  ],
+},
+
 ];
