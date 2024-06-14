@@ -403,4 +403,16 @@ export const posts = [
       "31-BirrificioFlegreo/Birrificio.jpg",
     ],
   },
+
+  {
+    id: 32,
+    title: "Elliot Stabler",
+    slug: "elliot-stabler",
+    anteprima_img: "32-ElliotStabler/Elliot_01.jpg",
+    anteprima_video: "",
+    galleria: [
+      "32-ElliotStabler/Elliot_01.jpg",
+      "32-ElliotStabler/Elliot_02.jpg",
+    ],
+  },
 ];
