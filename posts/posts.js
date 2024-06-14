@@ -392,4 +392,15 @@ export const posts = [
       "30-DarthVader/dvsmooth2.jpg",
     ],
   },
+
+  {
+    id: 31,
+    title: "Birrificio Flegreo",
+    slug: "birrificio-flegreo",
+    anteprima_img: "31-BirrificioFlegreo/Birrificio.jpg",
+    anteprima_video: "",
+    galleria: [
+      "31-BirrificioFlegreo/Birrificio.jpg",
+    ],
+  },
 ];
