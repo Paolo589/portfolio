@@ -479,4 +479,15 @@ export const posts = [
   ],
 },
 
+{
+  id: 38,
+  title: "Gollum",
+  slug: "gollum",
+  anteprima_img: "38-Gollum/Gollum_02.jpg",
+  anteprima_video: "38-Gollum/Gollum_01.mp4",
+  galleria: [
+    "38-Gollum/Gollum_01.mp4",
+  ],
+},
+
 ];
