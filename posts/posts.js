@@ -359,4 +359,16 @@ export const posts = [
       "27-BatmanDK/Bat_02.jpg",
     ],
   },
+
+  {
+    id: 28,
+    title: "Patri Balanovsky DTIYS",
+    slug: "patri-balanovsky-dtiys",
+    anteprima_img: "28-PatriBalanovsky/PBDTIYS_01.jpg",
+    anteprima_video: "",
+    galleria: [
+      "28-PatriBalanovsky/PBDTIYS_01.jpg",
+      "28-PatriBalanovsky/PBDTIYS_02.jpg",
+    ],
+  },
 ];
