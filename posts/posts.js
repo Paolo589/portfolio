@@ -451,4 +451,21 @@ export const posts = [
   ],
 },
 
+{
+  id: 36,
+  title: "Abstract",
+  slug: "abstract",
+  anteprima_img: "36-Abstract/Abstract_06.jpg",
+  anteprima_video: "",
+  galleria: [
+    "36-Abstract/Abstract_01.jpg",
+    "36-Abstract/Abstract_02.jpg",
+    "36-Abstract/Abstract_03.jpg",
+    "36-Abstract/Abstract_04.jpg",
+    "36-Abstract/Abstract_05.jpg",
+    "36-Abstract/Abstract_07.jpg",
+    "36-Abstract/Abstract_06.jpg",
+  ],
+},
+
 ];
