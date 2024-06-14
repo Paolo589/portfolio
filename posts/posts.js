@@ -15,7 +15,7 @@ export const posts = [
   {
     id: 1,
     title: "Capitan America",
-    sottotitolo: "original concept by Jeff Harvey"
+    sottotitolo: "original concept by Jeff Harvey",
     slug: "capitan-america",
     anteprima_img: "01-Capitan/Cap_01.jpg",
     anteprima_video: "01-Capitan/Cap_02.mp4",
