@@ -368,7 +368,17 @@ export const posts = [
     anteprima_video: "",
     galleria: [
       "28-PatriBalanovsky/PBDTIYS_01.jpg",
-      "28-PatriBalanovsky/PBDTIYS_02.jpg",
+    ],
+  },
+
+  {
+    id: 29,
+    title: "Malta Door",
+    slug: "malta-door",
+    anteprima_img: "29-MaltaDoor/PBDTIYS_01.jpg",
+    anteprima_video: "",
+    galleria: [
+      "29-MaltaDoor/MaltaDoor.jpg",
     ],
   },
 ];
