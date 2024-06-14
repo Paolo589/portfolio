@@ -337,6 +337,18 @@ export const posts = [
   },
 
   {
+    id: 26,
+    title: "Halloween",
+    slug: "halloween",
+    anteprima_img: "26-Halloween/Halloween_01.jpg",
+    anteprima_video: "",
+    galleria: [
+      "26-Halloween/Halloween_01.jpg",
+      "26-Halloween/Halloween_02.jpg",
+    ],
+  },
+
+  {
     id: 27,
     title: "Batman - the Dark Knight",
     slug: "batman-tdk",
