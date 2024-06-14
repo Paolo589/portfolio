@@ -534,4 +534,26 @@ export const posts = [
   ],
 },
 
+{
+  id: 43,
+  title: "Orc",
+  slug: "orc",
+  anteprima_img: "42-Orc/Orc.jpeg",
+  anteprima_video: "",
+  galleria: [
+    "42-Orc/Orc.jpeg",
+  ],
+},
+
+{
+  id: 44,
+  title: "Unrequited Love",
+  slug: "unrequited-love",
+  anteprima_img: "44-Vamp/Vamp_01.jpg",
+  anteprima_video: "",
+  galleria: [
+    "44-Vamp/_02.jpg",
+  ],
+},
+
 ];
