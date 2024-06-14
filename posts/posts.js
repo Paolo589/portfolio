@@ -375,7 +375,7 @@ export const posts = [
     id: 29,
     title: "Malta Door",
     slug: "malta-door",
-    anteprima_img: "29-MaltaDoor/PBDTIYS_01.jpg",
+    anteprima_img: "29-MaltaDoor/MaltaDoor.jpg",
     anteprima_video: "",
     galleria: [
       "29-MaltaDoor/MaltaDoor.jpg",
@@ -413,6 +413,17 @@ export const posts = [
     galleria: [
       "32-ElliotStabler/Elliot_01.jpg",
       "32-ElliotStabler/Elliot_02.jpg",
+    ],
+  },
+
+  {
+    id: 33,
+    title: "Bic Lighter",
+    slug: "bic-lighter",
+    anteprima_img: "33-BicLighter/BIC.jpg",
+    anteprima_video: "",
+    galleria: [
+      "33-BicLighter/BIC.jpg",
     ],
   },
 ];
