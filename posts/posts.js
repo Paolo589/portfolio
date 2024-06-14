@@ -512,4 +512,15 @@ export const posts = [
   ],
 },
 
+{
+  id: 41,
+  title: "A beautiful blue girl with gold earrings",
+  slug: "blue-girl",
+  anteprima_img: "41-BlueGirl/BlueGirl_02.jpg",
+  anteprima_video: "41-BlueGirl/BlueGirl_01.mp4",
+  galleria: [
+    "41-BlueGirl/BlueGirl_01.mp4",
+  ],
+},
+
 ];
