@@ -381,4 +381,15 @@ export const posts = [
       "29-MaltaDoor/MaltaDoor.jpg",
     ],
   },
+
+  {
+    id: 30,
+    title: "Darth Vader",
+    slug: "darth-vader",
+    anteprima_img: "30-DarthVader/dvsmooth2.jpg",
+    anteprima_video: "",
+    galleria: [
+      "30-DarthVader/dvsmooth2.jpg",
+    ],
+  },
 ];
