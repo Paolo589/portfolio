@@ -468,4 +468,15 @@ export const posts = [
   ],
 },
 
+{
+  id: 37,
+  title: "Disappointed Guy",
+  slug: "disappointed-guy",
+  anteprima_img: "37-Null/Null_02.jpg",
+  anteprima_video: "37-Null/Null_01.mp4",
+  galleria: [
+    "37-Null/Null_01.mp4",
+  ],
+},
+
 ];
