@@ -501,4 +501,15 @@ export const posts = [
   ],
 },
 
+{
+  id: 40,
+  title: "A big dude with some hefty staches",
+  slug: "big-dude",
+  anteprima_img: "40-BigDude/BigDude_02.jpg",
+  anteprima_video: "40-BigDude/BigDude_01.mp4",
+  galleria: [
+    "40-BigDude/BigDude_01.mp4",
+  ],
+},
+
 ];
