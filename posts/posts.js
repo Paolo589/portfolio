@@ -426,4 +426,17 @@ export const posts = [
       "33-BicLighter/BIC.jpg",
     ],
   },
+
+  {
+    id: 34,
+    title: "Medical Stuff",
+    slug: "medical-stuff",
+    anteprima_img: "34-MedicalStuff/MS_02.jpg",
+    anteprima_video: "",
+    galleria: [
+      "34-MedicalStuff/MS_01.jpg",
+      "34-MedicalStuff/MS_02.jpg",
+      "34-MedicalStuff/MS_03.jpg",
+    ],
+  },
 ];
