@@ -448,7 +448,6 @@ export const posts = [
   anteprima_video: "",
   galleria: [
     "35-LowPolyAnimals/LPA_02.jpg",
-
   ],
 },
 
