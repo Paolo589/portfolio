@@ -335,4 +335,16 @@ export const posts = [
       "25-Charmeleon/Charmeleon.jpg",
     ],
   },
+
+  {
+    id: 27,
+    title: "Batman - the Dark Knight",
+    slug: "batman-tdk",
+    anteprima_img: "27-BatmanDK/Bat_01.jpg",
+    anteprima_video: "",
+    galleria: [
+      "27-BatmanDK/Bat_01.jpg",
+      "27-BatmanDK/Bat_02.jpg",
+    ],
+  },
 ];
