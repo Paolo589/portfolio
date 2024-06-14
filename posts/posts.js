@@ -439,4 +439,17 @@ export const posts = [
       "34-MedicalStuff/MS_03.jpg",
     ],
   },
+
+  { 
+  id: 35,
+  title: "Low Poly Animals",
+  slug: "low-poly-animals",
+  anteprima_img: "35-LowPolyAnimals/LPA_01.jpg",
+  anteprima_video: "",
+  galleria: [
+    "35-LowPolyAnimals/LPA_02.jpg",
+
+  ],
+},
+
 ];
