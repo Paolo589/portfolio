@@ -11,7 +11,6 @@
 // quindi "01-Captitan/Cap_01.jpg"
 
 export const posts = [
-
   {
     id: 1,
     title: "Capitan America",
@@ -115,10 +114,7 @@ export const posts = [
     slug: "ghost-rider",
     anteprima_img: "08-Ghost/GhostRider_02.jpg",
     anteprima_video: "08-Ghost/GhostRider_01.mp4",
-    galleria: [
-      "08-Ghost/GhostRider_01.mp4",
-      "08-Ghost/GhostRider_02.jpg",
-    ],
+    galleria: ["08-Ghost/GhostRider_01.mp4", "08-Ghost/GhostRider_02.jpg"],
   },
 
   {
@@ -201,11 +197,9 @@ export const posts = [
     id: 14,
     title: "Baseball Furies",
     slug: "baseball-furies",
-    anteprima_img: "14-BaseballFuries.jpg",
+    anteprima_img: "14-BaseballFuries/Baseball_Furies.jpg",
     anteprima_video: "",
-    galleria: [
-      "14-BaseballFuries.jpg",
-    ],
+    galleria: ["14-BaseballFuries/Baseball_Furies.jpg"],
   },
 
   {
@@ -241,9 +235,7 @@ export const posts = [
     slug: "aletheia-3300",
     anteprima_img: "17-Aletheia3300/Ale3300.jpg",
     anteprima_video: "",
-    galleria: [
-      "17-Aletheia3300/Ale3300.jpg",
-    ],
+    galleria: ["17-Aletheia3300/Ale3300.jpg"],
   },
 
   {
@@ -252,9 +244,7 @@ export const posts = [
     slug: "aletheia-aui",
     anteprima_img: "18-AletheiaAUI/AletheiaAUI.jpg",
     anteprima_video: "",
-    galleria: [
-      "18-AletheiaAUI/AletheiaAUI.jpg",
-    ],
+    galleria: ["18-AletheiaAUI/AletheiaAUI.jpg"],
   },
 
   {
@@ -263,10 +253,7 @@ export const posts = [
     slug: "nbagnoli",
     anteprima_img: "19-NBAGNOLI/NBAGNOLI.jpg",
     anteprima_video: "19-NBAGNOLI/NBAGNOLI.mp4",
-    galleria: [
-      "19-NBAGNOLI/NBAGNOLI.mp4",
-      "19-NBAGNOLI/NBAGNOLI.jpg",
-    ],
+    galleria: ["19-NBAGNOLI/NBAGNOLI.mp4", "19-NBAGNOLI/NBAGNOLI.jpg"],
   },
 
   {
@@ -275,9 +262,7 @@ export const posts = [
     slug: "the-hero-s-rest",
     anteprima_img: "20-TheLegendofZelda/Heros_Rest.jpg",
     anteprima_video: "",
-    galleria: [
-      "20-TheLegendofZelda/Heros_Rest.jpg",
-    ],
+    galleria: ["20-TheLegendofZelda/Heros_Rest.jpg"],
   },
 
   {
@@ -299,20 +284,16 @@ export const posts = [
     slug: "goodfellas",
     anteprima_img: "22-Goodfellas/Goodfellas.jpeg",
     anteprima_video: "",
-    galleria: [
-      "22-Goodfellas/Goodfellas.jpeg",
-    ],
+    galleria: ["22-Goodfellas/Goodfellas.jpeg"],
   },
 
   {
     id: 23,
     title: "SaulGoodman",
     slug: "saulgoodman",
-    anteprima_img: "22-SaulGoodman/SaulGoodman.png",
+    anteprima_img: "23-SaulGoodman/SaulGoodman.png",
     anteprima_video: "",
-    galleria: [
-      "22-SaulGoodman/SaulGoodman.png",
-    ],
+    galleria: ["23-SaulGoodman/SaulGoodman.png"],
   },
 
   {
@@ -321,9 +302,7 @@ export const posts = [
     slug: "stormtrooper",
     anteprima_img: "24-Stormtrooper/Stormtrooper.jpg",
     anteprima_video: "",
-    galleria: [
-      "24-Stormtrooper/Stormtrooper.jpg",
-    ],
+    galleria: ["24-Stormtrooper/Stormtrooper.jpg"],
   },
 
   {
@@ -332,9 +311,7 @@ export const posts = [
     slug: "charmeleon",
     anteprima_img: "25-Charmeleon/Charmeleon.jpg",
     anteprima_video: "",
-    galleria: [
-      "25-Charmeleon/Charmeleon.jpg",
-    ],
+    galleria: ["25-Charmeleon/Charmeleon.jpg"],
   },
 
   {
@@ -355,10 +332,7 @@ export const posts = [
     slug: "batman-tdk",
     anteprima_img: "27-BatmanDK/Bat_01.jpg",
     anteprima_video: "",
-    galleria: [
-      "27-BatmanDK/Bat_01.jpg",
-      "27-BatmanDK/Bat_02.jpg",
-    ],
+    galleria: ["27-BatmanDK/Bat_01.jpg", "27-BatmanDK/Bat_02.jpg"],
   },
 
   {
@@ -367,9 +341,7 @@ export const posts = [
     slug: "patri-balanovsky-dtiys",
     anteprima_img: "28-PatriBalanovsky/PBDTIYS_01.jpg",
     anteprima_video: "",
-    galleria: [
-      "28-PatriBalanovsky/PBDTIYS_01.jpg",
-    ],
+    galleria: ["28-PatriBalanovsky/PBDTIYS_01.jpg"],
   },
 
   {
@@ -378,9 +350,7 @@ export const posts = [
     slug: "malta-door",
     anteprima_img: "29-MaltaDoor/MaltaDoor.jpg",
     anteprima_video: "",
-    galleria: [
-      "29-MaltaDoor/MaltaDoor.jpg",
-    ],
+    galleria: ["29-MaltaDoor/MaltaDoor.jpg"],
   },
 
   {
@@ -389,9 +359,7 @@ export const posts = [
     slug: "darth-vader",
     anteprima_img: "30-DarthVader/dvsmooth2.jpg",
     anteprima_video: "",
-    galleria: [
-      "30-DarthVader/dvsmooth2.jpg",
-    ],
+    galleria: ["30-DarthVader/dvsmooth2.jpg"],
   },
 
   {
@@ -400,9 +368,7 @@ export const posts = [
     slug: "birrificio-flegreo",
     anteprima_img: "31-BirrificioFlegreo/Birrificio.jpg",
     anteprima_video: "",
-    galleria: [
-      "31-BirrificioFlegreo/Birrificio.jpg",
-    ],
+    galleria: ["31-BirrificioFlegreo/Birrificio.jpg"],
   },
 
   {
@@ -423,9 +389,7 @@ export const posts = [
     slug: "bic-lighter",
     anteprima_img: "33-BicLighter/BIC.jpg",
     anteprima_video: "",
-    galleria: [
-      "33-BicLighter/BIC.jpg",
-    ],
+    galleria: ["33-BicLighter/BIC.jpg"],
   },
 
   {
@@ -441,120 +405,106 @@ export const posts = [
     ],
   },
 
-  { 
-  id: 35,
-  title: "Low Poly Animals",
-  slug: "low-poly-animals",
-  anteprima_img: "35-LowPolyAnimals/LPA_01.jpg",
-  anteprima_video: "",
-  galleria: [
-    "35-LowPolyAnimals/LPA_02.jpg",
-  ],
-},
+  {
+    id: 35,
+    title: "Low Poly Animals",
+    slug: "low-poly-animals",
+    anteprima_img: "35-LowPolyAnimals/LPA_01.jpg",
+    anteprima_video: "",
+    galleria: ["35-LowPolyAnimals/LPA_02.jpg"],
+  },
 
-{
-  id: 36,
-  title: "Abstract",
-  slug: "abstract",
-  anteprima_img: "36-Abstract/Abstract_06.jpg",
-  anteprima_video: "",
-  galleria: [
-    "36-Abstract/Abstract_01.jpg",
-    "36-Abstract/Abstract_02.jpg",
-    "36-Abstract/Abstract_03.jpg",
-    "36-Abstract/Abstract_04.jpg",
-    "36-Abstract/Abstract_05.jpg",
-    "36-Abstract/Abstract_07.jpg",
-    "36-Abstract/Abstract_06.jpg",
-  ],
-},
+  {
+    id: 36,
+    title: "Abstract",
+    slug: "abstract",
+    anteprima_img: "36-Abstract/Abstract_06.jpg",
+    anteprima_video: "",
+    galleria: [
+      "36-Abstract/Abstract_01.jpg",
+      "36-Abstract/Abstract_02.jpg",
+      "36-Abstract/Abstract_03.jpg",
+      "36-Abstract/Abstract_04.jpg",
+      "36-Abstract/Abstract_05.jpg",
+      "36-Abstract/Abstract_07.jpg",
+      "36-Abstract/Abstract_06.jpg",
+    ],
+  },
 
-{
-  id: 37,
-  title: "Disappointed Guy",
-  slug: "disappointed-guy",
-  anteprima_img: "37-Null/Null_02.jpg",
-  anteprima_video: "37-Null/Null_01.mp4",
-  galleria: [
-    "37-Null/Null_01.mp4",
-  ],
-},
+  {
+    id: 37,
+    title: "Disappointed Guy",
+    slug: "disappointed-guy",
+    anteprima_img: "37-Null/Null_02.jpg",
+    anteprima_video: "37-Null/Null_01.mp4",
+    galleria: ["37-Null/Null_01.mp4"],
+  },
 
-{
-  id: 38,
-  title: "Gollum",
-  slug: "gollum",
-  anteprima_img: "38-Gollum/Gollum_02.jpg",
-  anteprima_video: "38-Gollum/Gollum_01.mp4",
-  galleria: [
-    "38-Gollum/Gollum_01.mp4",
-  ],
-},
+  {
+    id: 38,
+    title: "Gollum",
+    slug: "gollum",
+    anteprima_img: "38-Gollum/Gollum_02.jpg",
+    anteprima_video: "38-Gollum/Gollum_01.mp4",
+    galleria: ["38-Gollum/Gollum_01.mp4"],
+  },
 
-{
-  id: 39,
-  title: "A big cuddly guy and a kitten",
-  slug: "big-guy",
-  anteprima_img: "39-BigGuy/BigGuy_02.jpg",
-  anteprima_video: "39-BigGuy/BigGuy_01.mp4",
-  galleria: [
-    "39-BigGuy/BigGuy_01.mp4",
-  ],
-},
+  {
+    id: 39,
+    title: "A big cuddly guy and a kitten",
+    slug: "big-guy",
+    anteprima_img: "39-BigGuy/BigGuy_02.jpg",
+    anteprima_video: "39-BigGuy/BigGuy_01.mp4",
+    galleria: ["39-BigGuy/BigGuy_01.mp4"],
+  },
 
-{
-  id: 40,
-  title: "A big dude with some hefty staches",
-  slug: "big-dude",
-  anteprima_img: "40-BigDude/BigDude_02.jpg",
-  anteprima_video: "40-BigDude/BigDude_01.mp4",
-  galleria: [
-    "40-BigDude/BigDude_01.mp4",
-  ],
-},
+  {
+    id: 40,
+    title: "A big dude with some hefty staches",
+    slug: "big-dude",
+    anteprima_img: "40-BigDude/BigDude_02.jpg",
+    anteprima_video: "40-BigDude/BigDude_01.mp4",
+    galleria: ["40-BigDude/BigDude_01.mp4"],
+  },
 
-{
-  id: 41,
-  title: "A beautiful blue girl with gold earrings",
-  slug: "blue-girl",
-  anteprima_img: "41-BlueGirl/BlueGirl_02.jpg",
-  anteprima_video: "41-BlueGirl/BlueGirl_01.mp4",
-  galleria: [
-    "41-BlueGirl/BlueGirl_01.mp4",
-  ],
-},
+  {
+    id: 41,
+    title: "A beautiful blue girl with gold earrings",
+    slug: "blue-girl",
+    anteprima_img: "41-BlueGirl/BlueGirl_02.jpg",
+    anteprima_video: "41-BlueGirl/BlueGirl_01.mp4",
+    galleria: ["41-BlueGirl/BlueGirl_01.mp4"],
+  },
 
-{
-  id: 42,
-  title: "Geeulio",
-  slug: "geeulio",
-  anteprima_img: "42-Geeulio/Gee_02.jpg",
-  anteprima_video: "42-Geeulio/Gee_01.mp4",
-  galleria: [
-    "42-Geeulio/Gee_01.mp4",
-  ],
-},
+  {
+    id: 42,
+    title: "Geeulio",
+    slug: "geeulio",
+    anteprima_img: "42-Geeulio/Gee_02.jpg",
+    anteprima_video: "42-Geeulio/Gee_01.mp4",
+    galleria: ["42-Geeulio/Gee_01.mp4"],
+  },
 
-{
-  id: 43,
-  title: "Orc",
-  slug: "orc",
-  anteprima_img: "42-Orc/Orc.jpeg",
-  anteprima_video: "",
-  galleria: [
-    "42-Orc/Orc.jpeg",
-  ],
-},
+  {
+    id: 43,
+    title: "Orc",
+    slug: "orc",
+    anteprima_img: "43-Orc/Orc.jpeg",
+    anteprima_video: "",
+    galleria: ["43-Orc/Orc.jpeg"],
+  },
 
-{
-  id: 44,
-  title: "Unrequited Love",
-  slug: "unrequited-love",
-  anteprima_img: "44-Vamp/Vamp_01.jpg",
-  anteprima_video: "",
-  galleria: [
-    "44-Vamp/_02.jpg",
-  ],
-},
-
+  {
+    id: 44,
+    title: "Unrequited Love",
+    slug: "unrequited-love",
+    anteprima_img: "44-Vamp/Vamp_01.jpg",
+    anteprima_video: "",
+    galleria: ["44-Vamp/_02.jpg"],
+  },
 ];
+
+export const info = {
+  text: ["Hi, I’m Paolo, a 3D artist living in Naples, Italy. ","It all started back in my university days when i used to model engineering stuff like car parts, engines and clutches.","  Then I realised that making nerdy sculpts was way more fun and so I decided to switch to the art you see me doing nowadays!"],
+  social: { linkedin: "/" ,  instagram: "/" ,  gmail: "/" },
+};

@@ -60,6 +60,17 @@ li {
   border: 1px solid $divider-color;
 }
 
+.background{
+  height: 250%;
+  width: 100%;
+  background-image: radial-gradient(hsla(0, 0%, 100%, .293) 1px, transparent 0);
+  background-size: 10px 10px;
+  background-position: -19px -19px;
+  position: fixed;
+    -webkit-mask-image: radial-gradient(ellipse at 0% 0, #000 0, transparent 75%);
+    mask-image: radial-gradient(ellipse at 0% 0, #000 0, transparent 75%);
+}
+
 // HEADER// HEADER// HEADER// HEADER// HEADER// HEADER// HEADER// HEADER// HEADER
 // HEADER// HEADER// HEADER// HEADER// HEADER// HEADER// HEADER// HEADER// HEADER
 // HEADER// HEADER// HEADER// HEADER// HEADER// HEADER// HEADER// HEADER// HEADER
@@ -407,7 +418,7 @@ html {
     padding: 10px;
     padding-top: 25px;
     z-index: 1;
-    background-color: $sidebar-bg-color;
+    background-color: transparent;
     position: fixed;
     width: 360px;
     height: 100vh;
@@ -422,6 +433,7 @@ html {
   }
   .header {
     justify-content: start;
+    display: none;
   }
 
   .footer {

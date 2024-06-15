@@ -43,6 +43,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     />
 
     <Header></Header>
+    <div className="background"></div>
     <Sidebar></Sidebar>
     <CookieConsent
       contentStyle={{ margin: "0px", position: "relative" }}

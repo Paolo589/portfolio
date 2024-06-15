@@ -1,8 +1,8 @@
 import { Avatar } from "@mui/material"
 import Image from "next/image"
 import Link from "next/link"
-import { cartSelector } from "../../store/cart.slice"
-import { useAppSelector } from "../../store/hooks"
+import { info} from "../../posts/posts"
+
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -16,7 +16,8 @@ interface Props {
 const InfoTab: React.FC<Props> = ({ }) => {
 
 
-    const { info } = useAppSelector(cartSelector)
+    const infos = info.text
+    const social:any = info.social
 
 
     return <div
@@ -30,19 +31,19 @@ const InfoTab: React.FC<Props> = ({ }) => {
         <span style={{ marginTop: "10px" ,zIndex:"10"}}> <Logo ></Logo></span>
         <div style={{ display: "flex",  marginTop: "10px" }}>
 
-            <Link  href={info[0]?.acf.instagram ? info[0]?.acf.instagram : "/"} >
+            <Link  href={social['instagram']} >
                 <InstagramIcon className="social-link-icon"  />
             </Link>
-            <Link  href={info[0]?.acf.linkedin ? info[0]?.acf.linkedin : "/"}>
+            <Link  href={social['linkedin']}>
                 <LinkedInIcon className="social-link-icon" ></LinkedInIcon>
             </Link>
-            <Link   href={info[0]?.acf.email ? info[0]?.acf.email : "/"}>
+            <Link   href={social['gmail']}>
                 <MailOutlineRoundedIcon className="social-link-icon" ></MailOutlineRoundedIcon>
             </Link>
         </div>
 
 
-        <div style={{ padding: "18px", marginTop: "0px" }} className='post-content-container' dangerouslySetInnerHTML={{ __html: info[0]?.content.rendered }} />
+        <div style={{ padding: "18px", marginTop: "0px" }} className='post-content-container' >{infos.map(el=> <p>{el}</p>)}</div>
 
     </div>
 }

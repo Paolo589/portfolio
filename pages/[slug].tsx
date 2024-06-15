@@ -1,32 +1,35 @@
 
-import { Divider } from '@mui/material'
-import { AnimatePresence, motion } from 'framer-motion'
-import { GetStaticPaths, GetStaticPropsResult, NextPage } from 'next'
-import { imageOptimizer } from 'next/dist/server/image-optimizer'
+
+import { motion } from 'framer-motion'
+import {  GetStaticProps, } from 'next'
+
+import {getAllPostIds} from '../posts/getAllPostIds'
+import {getPostData} from '../posts/getPost'
 import Image from 'next/image'
+import {posts} from '../posts/posts'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import CardNew from '../components/CardNew'
 import ContentsLayoutNew from '../components/ContentsLayoutNew'
-import Swipe3DModel from '../components/Swipe3DModel'
-import { cartSelector, setInfo } from '../store/cart.slice'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+
 
 interface Props {
 
-  posts?: any[],
-  infos?: any[]
+postData:any
 
 }
+interface Params {
+  id: string;
+}
 
-const Post: NextPage<Props> = ({ posts, infos }) => {
+
+const Post: React.FC<Props> = ({ postData }) => {
+
   const router = useRouter()
-  const { id } = router.query
+  let url = "/"
 
-  const { data } = useAppSelector(cartSelector)
-  // const [item,setItem] = React.useState(data.find(item => item.id === parseInt(id)))
-  const item =
-    posts?.find(item => item.id.toString() === id);
+  const item = postData
+   
 
 
   async function navigate() {
@@ -36,7 +39,6 @@ const Post: NextPage<Props> = ({ posts, infos }) => {
     }, undefined, { scroll: false });
   }
 
-  const dispatch = useAppDispatch()
 
 
   React.useEffect(() => {
@@ -46,12 +48,12 @@ const Post: NextPage<Props> = ({ posts, infos }) => {
     };
   }, [])
 
-  useEffect(() => {
-    dispatch(setInfo(infos))
-  },
-    [])
-
-  return<>
+  // useEffect(() => {
+  //   dispatch(setInfo(infos))
+  // },
+  //   [])
+console.log(item)
+  return <>
   <div className="root">
 
     <motion.div key={item?.id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0}}  transition={{ velocity: 50 }} className="post-container">
@@ -60,66 +62,50 @@ const Post: NextPage<Props> = ({ posts, infos }) => {
           <div className="card-content post-content">
             <div className="card-image-container" >
               <Image layout='fill'
-                className="card-image" src={item?.acf?.anteprima ? item?.acf?.anteprima : "/"} alt="" />
+                className="card-image" src={item.anteprima_img ? url + item.anteprima_img : "/"} alt="" />
             </div>
           </div>
         </div>
       </div>
       <div style={{ display: "flex", gap: "30px" }}>
-        <h1>{item?.title.rendered}</h1>
+        <h1>{item.title}</h1>
+       {item.sottotitolo && <h4>{item.sottotitolo}</h4>}
       </div>
-      {item?.acf?.embed && <Swipe3DModel embed={item.acf.embed}></Swipe3DModel>}
-      <div className='post-content-container' dangerouslySetInnerHTML={{ __html: item?.content.rendered }} />
-      {/* {item?.acf?.galleria && item?.acf?.galleria?.map((el: string | undefined, i: any) =>
-        <Image key={i} src={el} alt="" style={{ width: "100%", height: "auto" }} />)} */}
-      <ContentsLayoutNew content={item} />
+      {/* {item?.acf?.embed && <Swipe3DModel embed={item.acf.embed}></Swipe3DModel>} */}
+      {/* <div className='post-content-container' dangerouslySetInnerHTML={{ __html: item?.content.rendered }} />
+      {item?.acf?.galleria && item?.acf?.galleria?.map((el: string | undefined, i: any) =>
+        <Image key={i} src={el} alt="" style={{ width: "100%", height: "auto" }} />)}  */}
+   <ContentsLayoutNew content={item.galleria} />
       <div className='all-work-container'>
      
       <h2>All Works </h2>
       <div className='divider'></div>
-       <ul className="card-list">
-       {posts?.map(item => (
-         <CardNew key={item.id} item={item} scrollTop/>
-       ))}
-     </ul>
-     </div>
+      <ul className="card-list">
+          {posts?.map(item => (
+            <CardNew key={item.id} item={item} />
+          ))}
+        </ul>
+      </div>
     </motion.div>
  
   </div>
   
  </> 
 }
-export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
-
+export async function getStaticPaths() {
+  const paths = getAllPostIds();
   return {
-    paths: [], //indicates that no page needs be created at build time
-    fallback: 'blocking' //indicates the type of fallback
-  }
+    paths,
+    fallback: false,
+  };
 }
 
-export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
 
-  const infourl =
-    "https://www.paolopiez.com/portfolio/wp-json/wp/v2/informazioni?_embed&per_page=100";
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 
-  const url =
-    "https://www.paolopiez.com/portfolio/wp-json/wp/v2/posts?_embed&per_page=100";
 
-  //const result = await Axios.get(url);
-  //const menu =  result.data
-  const infores = await fetch(infourl, { method: 'GET' });
-  const res = await fetch(url, {
-    method: 'GET',
 
-    credentials: "same-origin", //include, same-origin
-    headers: { Accept: 'application/json', 'Content-Type': 'application/json', },
-  });
-
-  const posts = await res.json();
-  const infos = await infores.json()
-
+  const postData:any = getPostData(params?.slug);
   //  const res = await fetch('https://.../posts')
   // const posts = await res.json()
 
@@ -127,8 +113,7 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   // will receive `posts` as a prop at build time
   return {
     props: {
-      posts,
-      infos
+     postData
 
     },
     revalidate: 10,
