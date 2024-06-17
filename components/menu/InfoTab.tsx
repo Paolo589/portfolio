@@ -43,7 +43,7 @@ const InfoTab: React.FC<Props> = ({ }) => {
         </div>
 
 
-        <div style={{ padding: "18px", marginTop: "0px" }} className='post-content-container' >{infos.map(el=> <p>{el}</p>)}</div>
+        <div style={{ padding: "18px", marginTop: "0px" }} className='post-content-container' >{infos.map((el,i)=> <p key={i}>{el}</p>)}</div>
 
     </div>
 }
