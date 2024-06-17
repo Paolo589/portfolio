@@ -299,6 +299,7 @@ export const posts = [
     anteprima_video: "15-DarkwingDuck/DD_01.mp4",
     galleria: [
       "15-DarkwingDuck/DD_01.mp4",
+      "15-DarkwingDuck/DD_02.jpg",
       "15-DarkwingDuck/DD_03.jpg",
       "15-DarkwingDuck/DD_04.jpg",
       "15-DarkwingDuck/DD_05.jpg",
