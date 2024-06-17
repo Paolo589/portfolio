@@ -21,6 +21,52 @@ export const posts = [
   },
 
   {
+    id: 37,
+    title: "Disappointed Guy",
+    slug: "disappointed-guy",
+    anteprima_img: "37-Null/Null_02.jpg",
+    anteprima_video: "37-Null/Null_01.mp4",
+    galleria: ["37-Null/Null_01.mp4"],
+  },
+
+  {
+    id: 40,
+    title: "A big dude with some hefty staches",
+    slug: "big-dude",
+    anteprima_img: "40-BigDude/BigDude_02.jpg",
+    anteprima_video: "40-BigDude/BigDude_01.mp4",
+    galleria: ["40-BigDude/BigDude_01.mp4"],
+  },
+
+  {
+    id: 42,
+    title: "Geeulio",
+    slug: "geeulio",
+    anteprima_img: "42-Geeulio/Gee_02.jpg",
+    anteprima_video: "42-Geeulio/Gee_01.mp4",
+    galleria: ["42-Geeulio/Gee_01.mp4"],
+  },
+
+  {
+    id: 38,
+    title: "Gollum",
+    slug: "gollum",
+    anteprima_img: "38-Gollum/Gollum_02.jpg",
+    anteprima_video: "38-Gollum/Gollum_01.mp4",
+    galleria: ["38-Gollum/Gollum_01.mp4"],
+  },
+
+  {
+    id: 41,
+    title: "A beautiful blue girl with gold earrings",
+    slug: "blue-girl",
+    anteprima_img: "41-BlueGirl/BlueGirl_02.jpg",
+    anteprima_video: "41-BlueGirl/BlueGirl_01.mp4",
+    galleria: ["41-BlueGirl/BlueGirl_01.mp4"],
+  },
+
+
+  {
     id: 1,
     title: "Capitan America",
     sottotitolo: "original concept by Jeff Harvey",
@@ -78,6 +124,22 @@ export const posts = [
   },
 
   {
+    id: 9,
+    title: "Batman, Robin and Clayface",
+    slug: "batman-robin-and-clayface",
+    anteprima_img: "09-BatRob/BatRob_02.jpg",
+    anteprima_video: "09-BatRob/BatRob_01.mp4",
+    galleria: [
+      "09-BatRob/BatRob_01.mp4",
+      "09-BatRob/BatRob_02.jpg",
+      "09-BatRob/BatRob_03.jpg",
+      "09-BatRob/BatRob_04.jpg",
+      "09-BatRob/BatRob_05.jpg",
+      "09-BatRob/BatRob_06.jpg",
+    ],
+  },
+
+  {
     id: 5,
     title: "RichardHTT",
     slug: "richardhtt",
@@ -127,19 +189,21 @@ export const posts = [
   },
 
   {
-    id: 9,
-    title: "Batman, Robin and Clayface",
-    slug: "batman-robin-and-clayface",
-    anteprima_img: "09-BatRob/BatRob_02.jpg",
-    anteprima_video: "09-BatRob/BatRob_01.mp4",
-    galleria: [
-      "09-BatRob/BatRob_01.mp4",
-      "09-BatRob/BatRob_02.jpg",
-      "09-BatRob/BatRob_03.jpg",
-      "09-BatRob/BatRob_04.jpg",
-      "09-BatRob/BatRob_05.jpg",
-      "09-BatRob/BatRob_06.jpg",
-    ],
+    id: 44,
+    title: "Unrequited Love",
+    slug: "unrequited-love",
+    anteprima_img: "44-Vamp/Vamp_01.jpg",
+    anteprima_video: "",
+    galleria: ["44-Vamp/_02.jpg"],
+  },
+
+  {
+    id: 43,
+    title: "Orc",
+    slug: "orc",
+    anteprima_img: "43-Orc/Orc.jpeg",
+    anteprima_video: "",
+    galleria: ["43-Orc/Orc.jpeg"],
   },
 
   {
@@ -438,69 +502,6 @@ export const posts = [
       "36-Abstract/Abstract_07.jpg",
       "36-Abstract/Abstract_06.jpg",
     ],
-  },
-
-  {
-    id: 37,
-    title: "Disappointed Guy",
-    slug: "disappointed-guy",
-    anteprima_img: "37-Null/Null_02.jpg",
-    anteprima_video: "37-Null/Null_01.mp4",
-    galleria: ["37-Null/Null_01.mp4"],
-  },
-
-  {
-    id: 38,
-    title: "Gollum",
-    slug: "gollum",
-    anteprima_img: "38-Gollum/Gollum_02.jpg",
-    anteprima_video: "38-Gollum/Gollum_01.mp4",
-    galleria: ["38-Gollum/Gollum_01.mp4"],
-  },
-
-  {
-    id: 40,
-    title: "A big dude with some hefty staches",
-    slug: "big-dude",
-    anteprima_img: "40-BigDude/BigDude_02.jpg",
-    anteprima_video: "40-BigDude/BigDude_01.mp4",
-    galleria: ["40-BigDude/BigDude_01.mp4"],
-  },
-
-  {
-    id: 41,
-    title: "A beautiful blue girl with gold earrings",
-    slug: "blue-girl",
-    anteprima_img: "41-BlueGirl/BlueGirl_02.jpg",
-    anteprima_video: "41-BlueGirl/BlueGirl_01.mp4",
-    galleria: ["41-BlueGirl/BlueGirl_01.mp4"],
-  },
-
-  {
-    id: 42,
-    title: "Geeulio",
-    slug: "geeulio",
-    anteprima_img: "42-Geeulio/Gee_02.jpg",
-    anteprima_video: "42-Geeulio/Gee_01.mp4",
-    galleria: ["42-Geeulio/Gee_01.mp4"],
-  },
-
-  {
-    id: 43,
-    title: "Orc",
-    slug: "orc",
-    anteprima_img: "43-Orc/Orc.jpeg",
-    anteprima_video: "",
-    galleria: ["43-Orc/Orc.jpeg"],
-  },
-
-  {
-    id: 44,
-    title: "Unrequited Love",
-    slug: "unrequited-love",
-    anteprima_img: "44-Vamp/Vamp_01.jpg",
-    anteprima_video: "",
-    galleria: ["44-Vamp/_02.jpg"],
   },
 ];
 
