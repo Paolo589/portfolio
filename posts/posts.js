@@ -208,7 +208,7 @@ export const posts = [
     slug: "unrequited-love",
     anteprima_img: "44-Vamp/Vamp_01.jpg",
     anteprima_video: "",
-    galleria: ["44-Vamp/_02.jpg"],
+    galleria: ["44-Vamp/Vamp_02.jpg"],
   },
 
   {
