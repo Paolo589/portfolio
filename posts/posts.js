@@ -12,6 +12,15 @@
 
 export const posts = [
   {
+    id: 39,
+    title: "A big cuddly guy and a kitten",
+    slug: "big-guy",
+    anteprima_img: "39-BigGuy/BigGuy_02.jpg",
+    anteprima_video: "39-BigGuy/BigGuy_01.mp4",
+    galleria: ["39-BigGuy/BigGuy_01.mp4"],
+  },
+
+  {
     id: 1,
     title: "Capitan America",
     sottotitolo: "original concept by Jeff Harvey",
@@ -447,15 +456,6 @@ export const posts = [
     anteprima_img: "38-Gollum/Gollum_02.jpg",
     anteprima_video: "38-Gollum/Gollum_01.mp4",
     galleria: ["38-Gollum/Gollum_01.mp4"],
-  },
-
-  {
-    id: 39,
-    title: "A big cuddly guy and a kitten",
-    slug: "big-guy",
-    anteprima_img: "39-BigGuy/BigGuy_02.jpg",
-    anteprima_video: "39-BigGuy/BigGuy_01.mp4",
-    galleria: ["39-BigGuy/BigGuy_01.mp4"],
   },
 
   {
