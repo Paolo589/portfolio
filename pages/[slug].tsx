@@ -67,9 +67,9 @@ console.log(item)
           </div>
         </div>
       </div>
-      <div style={{ display: "flex", gap: "30px" }}>
+      <div style={{ display: "flex" ,flexDirection:'column',color:'#fff'}}>
         <h1>{item.title}</h1>
-       {item.sottotitolo && <h4>{item.sottotitolo}</h4>}
+       {item.sottotitolo && <h3 style={{textTransform:"capitalize"}}>{item.sottotitolo}</h3>}
       </div>
       {/* {item?.acf?.embed && <Swipe3DModel embed={item.acf.embed}></Swipe3DModel>} */}
       {/* <div className='post-content-container' dangerouslySetInnerHTML={{ __html: item?.content.rendered }} />
