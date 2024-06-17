@@ -506,5 +506,5 @@ export const posts = [
 
 export const info = {
   text: ["Hi, I’m Paolo, a 3D artist living in Naples, Italy. ","It all started back in my university days when i used to model engineering stuff like car parts, engines and clutches.","  Then I realised that making nerdy sculpts was way more fun and so I decided to switch to the art you see me doing nowadays!"],
-  social: { linkedin: "www.linkedin.com/in/paolo-minopoli-8b0685218" ,  instagram: "www.instagram.com/paolopiez/" ,  gmail: "paolo.minopoli@gmail.com" },
+  social: { linkedin: "http://www.linkedin.com/in/paolo-minopoli-8b0685218" ,  instagram: "http://www.instagram.com/paolopiez/" ,  gmail: "paolo.minopoli@gmail.com" },
 };
