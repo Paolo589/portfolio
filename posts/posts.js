@@ -19,8 +19,8 @@ export const posts = [
     anteprima_img: "45-Twins/Twins_03.jpg",
     anteprima_video: "45-Twins/Twins_01.mp4",
     galleria: [
-      "45-Twins/Twins_01.mp4"
-      "45-Twins/Twins_02.mp4"
+      "45-Twins/Twins_01.mp4",
+      "45-Twins/Twins_02.jpg",
     ],
   },
 
