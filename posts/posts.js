@@ -12,6 +12,20 @@
 
 export const posts = [
   {
+    id: 45,
+    title: "Twins",
+    sottotitolo: "original concept by Otto Schmidt",
+    slug: "twins",
+    anteprima_img: "45-Twins/Twins_03.jpg",
+    anteprima_video: "45-Twins/Twins_01.mp4",
+    galleria: [
+      "45-Twins/Twins_01.mp4"
+      "45-Twins/Twins_02.jpg"
+    ],
+  },
+
+
+  {
     id: 39,
     title: "A big cuddly guy and a kitten",
     sottotitolo: "original concept by Tom Booth",
