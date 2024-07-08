@@ -27,11 +27,8 @@ const Post: React.FC<Props> = ({ postData }) => {
 
   const router = useRouter()
   let url = "/"
-
   const item = postData
    
-
-
   async function navigate() {
     router.push({
       pathname: "/",
@@ -48,14 +45,10 @@ const Post: React.FC<Props> = ({ postData }) => {
     };
   }, [])
 
-  // useEffect(() => {
-  //   dispatch(setInfo(infos))
-  // },
-  //   [])
-console.log(item)
+
+
   return <>
   <div className="root">
-
     <motion.div key={item?.id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0}}  transition={{ velocity: 50 }} className="post-container">
       <div className="hero-post">
         <div className="card-content-container"  >
@@ -77,7 +70,6 @@ console.log(item)
         <Image key={i} src={el} alt="" style={{ width: "100%", height: "auto" }} />)}  */}
    <ContentsLayoutNew content={item.galleria} />
       <div className='all-work-container'>
-     
       <h2>All Works </h2>
       <div className='divider'></div>
       <ul className="card-list">

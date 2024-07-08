@@ -15,7 +15,7 @@ interface Props {
 }
 
 
-const CardNew: React.FC<Props> = ({ item, scrollTop = false }) => {
+const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 
 	const [neon, setNeon] = React.useState(false)
 	const [hover, setHover] = React.useState(false)

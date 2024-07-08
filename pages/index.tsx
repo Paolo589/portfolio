@@ -1,44 +1,25 @@
-import type { GetStaticPropsResult, NextPage } from 'next'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { cartSelector, setData, setInfo } from '../store/cart.slice'
+import type {NextPage } from 'next'
 import React from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import Card from '../components/Card'
+import {  motion } from 'framer-motion'
 import {posts} from '../posts/posts'
 import CardNew from '../components/CardNew'
 
 
 interface Props {
 
-  // post?: any[],
-  // infos?:any[]
-
 }
 
 const Casa: NextPage<Props> = ({}) => {
-  // const { data ,info } = useAppSelector(cartSelector)
  
-
-  const dispatch = useAppDispatch()
-
 
   React.useEffect(() => {
    window.onpopstate = () => { };
   }, [])
   
-  // React.useEffect(() => {
-  //   dispatch(setData(post));
-  // }, [post])
-
-//   React.useEffect(() => {
-//        dispatch(setInfo(infos))
-//  }, [])
-
 
   return (
     <div className="root">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ velocity: 50 }} id="card-list-container" >
-
         <ul className="card-list">
           {posts?.map(item => (
             <CardNew key={item.id} item={item} />
