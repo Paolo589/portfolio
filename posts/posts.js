@@ -15,7 +15,7 @@ export const posts = [
     id: 46,
     title: "Wolverine",
     sottotitolo: "original concept by Brandon Mendoza",
-    slug: "",
+    slug: "wolverine",
     anteprima_img: "46-Wolverine/Wolverine.jpg",
     galleria: ["46-Wolverine/Wolverine.jpg"],
   },
