@@ -19,7 +19,11 @@ const Casa: NextPage<Props> = ({}) => {
 
   return (
     <div className="root">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ velocity: 50 }} id="card-list-container" >
+      <motion.div 
+      initial={{ opacity: 0 }}
+       animate={{ opacity: 1 }} 
+       exit={{ opacity: 0 }} 
+       transition={{ velocity: 50 }} id="card-list-container" >
         <ul className="card-list">
           {posts?.map(item => (
             <CardNew key={item.id} item={item} />

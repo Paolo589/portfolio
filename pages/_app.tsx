@@ -57,11 +57,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       Questo sito usa cookies per migliorare la tua esperienza di navigazione.
       <Link href="/privacy-policy"><span style={{ fontSize: "13px", color: "#008069", textDecoration: "underline" }} >Vedi cookies e privacy policy</span></Link>
     </CookieConsent>
-
-
     <AnimatePresence exitBeforeEnter >
       <Component key={router.route} {...pageProps} />
-
     </AnimatePresence>
     <Footer />
   </Provider>

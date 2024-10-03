@@ -13,6 +13,8 @@ import CardNew from '../components/CardNew'
 import ContentsLayoutNew from '../components/ContentsLayoutNew'
 
 
+
+
 interface Props {
 
 postData:any
@@ -35,6 +37,18 @@ const Post: React.FC<Props> = ({ postData }) => {
 
     }, undefined, { scroll: false });
   }
+
+  // riordina i post in base a dove ci troviamo
+  const reorderPosts = (posts:any, currentPostId:any) => {
+    const currentIndex = posts.findIndex((post:any) => post.id === currentPostId);
+    if (currentIndex !== -1) {
+      const postsAfter = posts.slice(currentIndex + 1);
+      const postsBefore = posts.slice(0, currentIndex + 1);
+      return postsAfter.concat(postsBefore);
+    }
+    return posts;
+  };
+  const reorderedPosts = reorderPosts(posts, item.id);
 
 
 
@@ -73,7 +87,7 @@ const Post: React.FC<Props> = ({ postData }) => {
       <h2>All Works </h2>
       <div className='divider'></div>
       <ul className="card-list">
-          {posts?.map(item => (
+          {reorderedPosts?.map((item:any) => (
             <CardNew key={item.id} item={item} />
           ))}
         </ul>

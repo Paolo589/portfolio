@@ -20,27 +20,27 @@ const Footer: React.FC = ({ }) => {
 
   return <footer className="footer">
     <div className="footer-logo-block">
-    <div className="avatar-container">
+      <div className="avatar-container">
 
-<Avatar >
-  <Image alt="Paolo Minopoli" src="https://paolominopoli.com/avatar-paolo.png" layout="fill" />
-</Avatar>
-</div>
-<span style={{ marginTop: "10px",zIndex:"10" }}> <Logo ></Logo></span>
-<div style={{ display: "flex", marginTop: "10px" }}>
+        <Avatar >
+          <Image alt="Paolo Minopoli" src="https://paolominopoli.com/avatar-paolo.png" layout="fill" />
+        </Avatar>
+      </div>
+      <span style={{ marginTop: "10px", zIndex: "10" }}> <Logo ></Logo></span>
+      <div style={{ display: "flex", marginTop: "10px" }}>
 
-<Link href={info[0]?.acf.instagram ? info[0]?.acf.instagram : "/"} >
-  <InstagramIcon className="social-link-icon" />
-</Link>
-<Link href={info[0]?.acf.linkedin ? info[0]?.acf.linkedin : "/"}>
-  <LinkedInIcon className="social-link-icon" ></LinkedInIcon>
-</Link>
-<Link href={info[0]?.acf.email ? info[0]?.acf.email : "/"}>
-  <MailOutlineRoundedIcon className="social-link-icon" ></MailOutlineRoundedIcon>
-</Link>
-</div>
+        <Link href={info[0]?.acf.instagram ? info[0]?.acf.instagram : "/"} >
+          <InstagramIcon className="social-link-icon" />
+        </Link>
+        <Link href={info[0]?.acf.linkedin ? info[0]?.acf.linkedin : "/"}>
+          <LinkedInIcon className="social-link-icon" ></LinkedInIcon>
+        </Link>
+        <Link href={info[0]?.acf.email ? info[0]?.acf.email : "/"}>
+          <MailOutlineRoundedIcon className="social-link-icon" ></MailOutlineRoundedIcon>
+        </Link>
+      </div>
     </div>
-  
+
     <p
       style={{
         color: "#fff",

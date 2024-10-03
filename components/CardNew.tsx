@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Rings } from "react-loader-spinner";
 import ReactPlayer from "react-player";
+import useScreenSize from "../hooks/useScreenSize"
+import dynamic from "next/dynamic";
 
 
 
@@ -19,7 +21,10 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 
 	const [neon, setNeon] = React.useState(false)
 	const [hover, setHover] = React.useState(false)
+	const [showVideo, setShowVideo] = React.useState(false)
 	const [loader, setLoader] = React.useState(true)
+	const screenSize:any = useScreenSize();
+
   let url = "/"
 
 	const shimmer = (w: number, h: number) => `
@@ -68,14 +73,20 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 
 	}
 
+
+
+
 	return (
 		<motion.li className={`card`}
 			whileHover={{
 				scale: 1.02,
 				transition: { duration: 0.5 },
 			}}
-			onHoverStart={e => { setHover(true) }}
-			onHoverEnd={e => { setHover(false); setLoader(true) }}
+			 viewport={{amount:1,margin:"100px"}}
+			onViewportLeave={()=>{if (screenSize.width < 720) setHover(false); setLoader(true)}}
+			onViewportEnter={()=>{if (screenSize.width < 720)setHover(true)}}
+			onHoverStart={e => {if (screenSize.width > 720) {setHover(true)} }}
+			onHoverEnd={e => {if (screenSize.width > 720) {setHover(false); setLoader(true)} }}
 			onTapStart={() => setNeon(true)}
 			onTapCancel={() => setNeon(false)}
 		>
