@@ -82,7 +82,7 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 				scale: 1.02,
 				transition: { duration: 0.5 },
 			}}
-			 viewport={{amount:1,margin:"100px"}}
+			 viewport={{amount:1,margin:"200px"}}
 			onViewportLeave={()=>{if (screenSize.width < 720) setHover(false); setLoader(true)}}
 			onViewportEnter={()=>{if (screenSize.width < 720)setHover(true)}}
 			onHoverStart={e => {if (screenSize.width > 720) {setHover(true)} }}
