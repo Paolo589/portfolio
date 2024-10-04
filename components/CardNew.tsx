@@ -112,8 +112,8 @@ function hideVideoOnMobile() {
 			viewport={{amount:1}}
 			onViewportLeave={hideVideoOnMobile}
 			onViewportEnter={() => showVideoOnWiewMobile(item.id)}
-			// onHoverStart={e => { if (screenSize.width > 720) { setHover(true); } }}
-			// onHoverEnd={e => { if (screenSize.width > 720) { setHover(false); setLoader(true) } }}
+			onHoverStart={e => { if (screenSize.width > 720) { setHover(true); } }}
+			onHoverEnd={e => { if (screenSize.width > 720) { setHover(false); setLoader(true) } }}
 			onTapStart={() => setNeon(true)}
 			onTapCancel={() => setNeon(false)}
 		>
