@@ -2,10 +2,10 @@ import React from "react";
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Rings,TailSpin } from "react-loader-spinner";
+import { Rings } from "react-loader-spinner";
 import ReactPlayer from "react-player";
 import useScreenSize from "../hooks/useScreenSize"
-import dynamic from "next/dynamic";
+
 
 
 
@@ -65,7 +65,7 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 					playsinline
 					playing
 					loop
-					onReady={() => { setLoader(false); console.log('readi') }}
+					onReady={() => { setLoader(false); }}
 				/>
 			</motion.div>
 			else false
@@ -77,11 +77,11 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 	function showVideoOnWiewMobile(id: any) {
     if (screenSize.width < 720) {
         setMobileLoader(id);
-        console.log(id)
+
         // Avvio del timeout e salvataggio del suo ID
         const newTimeoutId = setTimeout(() => {
             setShowVideo(true);
-        }, 2000);
+        }, 1000);
         
         // Salva l'ID del timeout nello stato
         setTimeoutId(newTimeoutId);
@@ -91,7 +91,7 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 function hideVideoOnMobile() {
 	// Cancella il timeout se esiste
   if (screenSize.width < 720) {
-	console.log("esco" + mobileLoader)
+
 	if (timeoutId) {
 			clearTimeout(timeoutId);
 			setTimeoutId(null); // Resetta lo stato per prevenire ulteriori cancellazioni
@@ -125,7 +125,7 @@ function hideVideoOnMobile() {
 							className={`card-content ${neon ? "neon" : "NOneon"}`}>
 
 
-							{(hover && !!videoinHover(item) ) || showVideo ?
+							{(hover && !!videoinHover(item) ) || (showVideo && !!item.anteprima_video)?
 								videoinHover(item)
 								:
 								<motion.div
