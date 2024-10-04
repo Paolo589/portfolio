@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Rings } from "react-loader-spinner";
+import { Rings,TailSpin } from "react-loader-spinner";
 import ReactPlayer from "react-player";
 import useScreenSize from "../hooks/useScreenSize"
 import dynamic from "next/dynamic";
@@ -23,9 +23,11 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 	const [hover, setHover] = React.useState(false)
 	const [showVideo, setShowVideo] = React.useState(false)
 	const [loader, setLoader] = React.useState(true)
-	const screenSize:any = useScreenSize();
+	const [mobileLoader, setMobileLoader] = React.useState<any>(false)
+	const screenSize: any = useScreenSize();
+	const [timeoutId, setTimeoutId] = React.useState<NodeJS.Timeout | null>(null);
 
-  let url = "/"
+	let url = "/"
 
 	const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -47,24 +49,23 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 			: window.btoa(str)
 
 	const videoinHover = (item: any) => {
-		if (item ) {
+		if (item) {
 			let video = item.anteprima_video
 			if (video) return <motion.div
-			key='10000000000'
-			initial={{ opacity: 0, }} animate={{ opacity: 1 }} exit={{ opacity: 0}}  transition={{ velocity: 50 }}
-			className="player-wrapper">
-				 {loader && <Rings wrapperClass="loader video_loader" color="#008069" ariaLabel="loading-indicator" />} 
+				key='10000000000'
+				initial={{ opacity: 0, }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ velocity: 50 }}
+				className="player-wrapper">
+				{loader && <Rings wrapperClass="loader video_loader" color="#008069" ariaLabel="loading-indicator" />}
 				<ReactPlayer
-					
 					className='react-player'
 					muted
 					width='100%'
 					height='100%'
-					url={url+video}
+					url={url + video}
 					playsinline
 					playing
 					loop
-					onReady={() => setLoader(false)}
+					onReady={() => { setLoader(false); console.log('readi') }}
 				/>
 			</motion.div>
 			else false
@@ -73,6 +74,32 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 
 	}
 
+	function showVideoOnWiewMobile(id: any) {
+    if (screenSize.width < 720) {
+        setMobileLoader(id);
+        console.log(id)
+        // Avvio del timeout e salvataggio del suo ID
+        const newTimeoutId = setTimeout(() => {
+            setShowVideo(true);
+        }, 2000);
+        
+        // Salva l'ID del timeout nello stato
+        setTimeoutId(newTimeoutId);
+    }
+}
+
+function hideVideoOnMobile() {
+	// Cancella il timeout se esiste
+  if (screenSize.width < 720) {
+	console.log("esco" + mobileLoader)
+	if (timeoutId) {
+			clearTimeout(timeoutId);
+			setTimeoutId(null); // Resetta lo stato per prevenire ulteriori cancellazioni
+	}
+	setMobileLoader(null);
+	setShowVideo(false); // Eventualmente nascondi il video
+}
+}
 
 
 
@@ -82,11 +109,11 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 				scale: 1.02,
 				transition: { duration: 0.5 },
 			}}
-			 viewport={{amount:1,margin:"200px"}}
-			// onViewportLeave={()=>{if (screenSize.width < 720) setHover(false); setLoader(true)}}
-			// onViewportEnter={()=>{if (screenSize.width < 720)setHover(true)}}
-			onHoverStart={e => {if (screenSize.width > 720) {setHover(true)} }}
-			onHoverEnd={e => {if (screenSize.width > 720) {setHover(false); setLoader(true)} }}
+			viewport={{amount:1}}
+			onViewportLeave={hideVideoOnMobile}
+			onViewportEnter={() => showVideoOnWiewMobile(item.id)}
+			// onHoverStart={e => { if (screenSize.width > 720) { setHover(true); } }}
+			// onHoverEnd={e => { if (screenSize.width > 720) { setHover(false); setLoader(true) } }}
 			onTapStart={() => setNeon(true)}
 			onTapCancel={() => setNeon(false)}
 		>
@@ -94,34 +121,35 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 				<a>
 					<div
 						className="card-content-container">
-						<div 
-						className={`card-content ${neon ? "neon" : "NOneon"}`}>
+						<div
+							className={`card-content ${neon ? "neon" : "NOneon"}`}>
 
-						
-								{hover && !!videoinHover(item) ?
-									videoinHover(item)
-									:
-									<motion.div 
+
+							{(hover && !!videoinHover(item) ) || showVideo ?
+								videoinHover(item)
+								:
+								<motion.div
 									key='9'
-									initial={{ opacity: 0, }} animate={{ opacity: 1 }} exit={{ opacity: 0}}  transition={{ velocity: 50 }}
+									initial={{ opacity: 0, }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ velocity: 50 }}
 									className="card-image-container" >
+								{mobileLoader === item.id && <Rings height={40} width={40} wrapperClass="loaderMobile video_loader" color="#008069" ariaLabel="loading-indicator" />}	
 									<Image
 										placeholder="blur"
 										blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
 										alt="Paolo Minopoli" layout="fill"
-										className="card-image" src={item.anteprima_img ? url+item.anteprima_img : "/"} />
-										</motion.div>
+										className="card-image" src={item.anteprima_img ? url + item.anteprima_img : "/"} />
+								</motion.div>
 
-								}
-					
-              
+							}
+
+
 						</div>
 
 					</div>
 
 				</a>
 			</Link>
-		
+
 
 		</motion.li>
 	);

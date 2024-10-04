@@ -360,6 +360,15 @@ html {
   height: 100%;
   padding-top: 10px;
 }
+.loaderMobile{
+  position: absolute;
+  height: 60%;
+  width: 60%;
+
+  display: flex;
+
+  z-index: -1;
+}
 .loader {
   position: absolute;
   height: 100%;
