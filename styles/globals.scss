@@ -362,11 +362,10 @@ html {
 }
 .loaderMobile{
   position: absolute;
-  height: 60%;
-  width: 60%;
-
+  height: 100%;
+  width: 100%;
+justify-content: center;
   display: flex;
-
   z-index: -1;
 }
 .loader {
