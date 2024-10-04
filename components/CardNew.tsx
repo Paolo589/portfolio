@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Rings } from "react-loader-spinner";
+import { Rings,ThreeDots } from "react-loader-spinner";
 import ReactPlayer from "react-player";
 import useScreenSize from "../hooks/useScreenSize"
 
@@ -132,7 +132,7 @@ function hideVideoOnMobile() {
 									key='9'
 									initial={{ opacity: 0, }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ velocity: 50 }}
 									className="card-image-container" >
-								{mobileLoader === item.id && <Rings height={40} width={40} wrapperClass="loaderMobile video_loader" color="#008069" ariaLabel="loading-indicator" />}	
+								{mobileLoader === item.id && <ThreeDots height={40} width={40} wrapperClass="loaderMobile video_loader" color="#fff" ariaLabel="loading-indicator" />}	
 									<Image
 										placeholder="blur"
 										blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
