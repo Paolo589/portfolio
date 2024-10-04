@@ -83,8 +83,8 @@ const CardNew: React.FC<Props> = ({ item, scrollTop = true }) => {
 				transition: { duration: 0.5 },
 			}}
 			 viewport={{amount:1,margin:"200px"}}
-			onViewportLeave={()=>{if (screenSize.width < 720) setHover(false); setLoader(true)}}
-			onViewportEnter={()=>{if (screenSize.width < 720)setHover(true)}}
+			// onViewportLeave={()=>{if (screenSize.width < 720) setHover(false); setLoader(true)}}
+			// onViewportEnter={()=>{if (screenSize.width < 720)setHover(true)}}
 			onHoverStart={e => {if (screenSize.width > 720) {setHover(true)} }}
 			onHoverEnd={e => {if (screenSize.width > 720) {setHover(false); setLoader(true)} }}
 			onTapStart={() => setNeon(true)}
