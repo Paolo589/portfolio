@@ -12,6 +12,18 @@
 
 export const posts = [
   {
+    id: 47,
+    title: "Art-Hungry Beast",
+    slug: "fennec",
+    anteprima_img: "47-Fennec/Fennec_01.jpg",
+    anteprima_video: "47-Fennec/Fennec.mp4",
+    galleria: [
+      "47-Fennec/Fennec.mp4",
+      "47-Fennec/Fennec_02.jpg",
+    ],
+  },
+
+  {
     id: 46,
     title: "Wolverine",
     sottotitolo: "original concept by Brandon Mendoza",
