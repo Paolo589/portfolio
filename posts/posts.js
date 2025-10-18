@@ -11,7 +11,19 @@
 // quindi "01-Captitan/Cap_01.jpg"
 
 export const posts = [
-{
+    {
+    id: 49,
+    title: "HotDog",
+    slug: "hotdog",
+    anteprima_img: "49-HotDog/HotDog_01.jpg",
+    galleria: [
+      "49-HotDog/HotDog_01.jpg",
+      "49-HotDog/HotDog_02.jpg",
+    ],
+  },
+
+
+  {
     id: 48,
     title: "Hoodie",
     slug: "hoodie",
