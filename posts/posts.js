@@ -22,7 +22,6 @@ export const posts = [
     ],
   },
 
-
   {
     id: 48,
     title: "Hoodie",
