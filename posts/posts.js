@@ -11,7 +11,7 @@
 // quindi "01-Captitan/Cap_01.jpg"
 
 export const posts = [
-    {
+  {
     id: 49,
     title: "HotDog",
     slug: "hotdog",
