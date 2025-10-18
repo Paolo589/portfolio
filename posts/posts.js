@@ -12,6 +12,16 @@
 
 export const posts = [
   {
+    id: 50,
+    title: "Baby Maul",
+    slug: "babymaul",
+    anteprima_img: "50-BabyMaul/BabyMaul.jpg",
+    galleria: [
+      "50-BabyMaul/BabyMaul.jpg",
+    ],
+  },
+
+  {
     id: 49,
     title: "HotDog",
     slug: "hotdog",
