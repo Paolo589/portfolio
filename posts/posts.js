@@ -11,6 +11,18 @@
 // quindi "01-Captitan/Cap_01.jpg"
 
 export const posts = [
+{
+    id: 48,
+    title: "Hoodie",
+    slug: "hoodie",
+    anteprima_img: "48-Hoodie/Hoodie.jpg",
+    anteprima_video: "48-Hoodie/Hoodie.mp4",
+    galleria: [
+      "48-Hoodie/Hoodie.mp4",
+      "48-Hoodie/Hoodie.jpg",
+    ],
+  },
+
   {
     id: 47,
     title: "Art-Hungry Beast",
