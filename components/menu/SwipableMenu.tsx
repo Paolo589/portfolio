@@ -23,7 +23,7 @@ const SwipableMenu: React.FC<Props> = ({ post }) => {
 	return (
 		<>
 			<Avatar className="menu" onClick={() => setOpen(true)}>
-				<Image alt="Paolo Minopoli" src="https://paolominopoli.com/avatar-paolo.png" layout="fill" />
+				<Image alt="Paolo Minopoli" src="https://paolominopoli.com/avatar-paolo.png" fill sizes="40px" />
 			</Avatar>
 			<SwipeableDrawer
 				className="menu-swipe"

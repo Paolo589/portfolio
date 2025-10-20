@@ -67,7 +67,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 				alt="img"
 				placeholder="blur"
 				blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-				src={content?.acf?.anteprima} className="gallery-img" layout="fill" />
+				src={content?.acf?.anteprima} className="gallery-img" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
 			<div style={{
 				textAlign: "center",
 				padding: "10px",
@@ -90,10 +90,10 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 			return <div className="post-img-container" key={i} >
 				
 				<Image
-					alt="img"
-					placeholder="blur"
-					blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-					src={obj.url} className="gallery-img" layout="fill" />
+				alt="img"
+				placeholder="blur"
+				blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+				src={obj.url} className="gallery-img" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
 				{obj.description && <p className='post-content-description'>{obj.description}</p>}</div>
 		if (obj && obj.type && obj.type == "video")
 			return <div key={"video" + i} className="player-wrapper">

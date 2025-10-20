@@ -40,17 +40,17 @@ const ContentsLayoutNew: React.FC<Props> = ({ content }) => {
 			: window.btoa(str);
 
 	const renderContent = (galleria: any[]) => {
-		return galleria.map(item => {
+		return galleria.map((item, index) => {
 			console.log(item)
 			switch (true) {
 				case item.endsWith('.jpg'):
 				case item.endsWith('.png'):
 				case item.endsWith('.jpeg'):
-					return renderImg(url + item);
+					return <div key={index}>{renderImg(url + item)}</div>;
 				case item.endsWith('.mp4'):
-					return renderVideo(url + item);
+					return <div key={index}>{renderVideo(url + item)}</div>;
 				default:
-					return renderText(item);
+					return <div key={index}>{renderText(item)}</div>;
 			}
 		});
 	};
@@ -63,7 +63,8 @@ const ContentsLayoutNew: React.FC<Props> = ({ content }) => {
 				src={src ? src : "/"} 
 				alt="Gallery image"
 				className="gallery-img" 
-				layout="fill" />
+				fill
+				sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
 		</div>
 	};
 

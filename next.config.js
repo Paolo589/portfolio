@@ -1,8 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images:{
-    domains:['www.paolominopoli.com','www.paolopiez.com','paolominopoli.com']
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.paolominopoli.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.paolopiez.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'paolominopoli.com',
+      },
+    ],
   },
   i18n: {
     locales: ["it"],
