@@ -31,12 +31,12 @@ const Post: React.FC<Props> = ({ postData }) => {
   let url = "/"
   const item = postData
    
-  async function navigate() {
+  const navigate = React.useCallback(async () => {
     router.push({
       pathname: "/",
 
     }, undefined, { scroll: false });
-  }
+  }, [router]);
 
   // riordina i post in base a dove ci troviamo
   const reorderPosts = (posts:any, currentPostId:any) => {
@@ -57,7 +57,7 @@ const Post: React.FC<Props> = ({ postData }) => {
     window.onpopstate = () => {
       navigate()
     };
-  }, [])
+  }, [navigate])
 
 
 

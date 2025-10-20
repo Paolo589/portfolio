@@ -78,7 +78,7 @@ const Card: React.FC<Props> = ({ item, scrollTop = false }) => {
 			onTapStart={() => setNeon(true)}
 			onTapCancel={() => setNeon(false)}
 		>
-			<Link href={`/post/${item?.id}`} scroll={scrollTop} >
+			<Link href={`/post/${item?.id}`} scroll={scrollTop} passHref>
 				
 					<div
 						className="card-content-container">

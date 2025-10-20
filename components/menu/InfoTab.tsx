@@ -31,13 +31,13 @@ const InfoTab: React.FC<Props> = ({ }) => {
         <span style={{ marginTop: "10px" ,zIndex:"10"}}> <Logo ></Logo></span>
         <div style={{ display: "flex",  marginTop: "10px" }}>
 
-            <Link  href={social['instagram']} >
+            <Link  href={social['instagram']} passHref>
                 <InstagramIcon className="social-link-icon"  />
             </Link>
-            <Link  href={social['linkedin']}>
+            <Link  href={social['linkedin']} passHref>
                 <LinkedInIcon className="social-link-icon" ></LinkedInIcon>
             </Link>
-            <Link   href={social['gmail']}>
+            <Link   href={social['gmail']} passHref>
                 <MailOutlineRoundedIcon className="social-link-icon" ></MailOutlineRoundedIcon>
             </Link>
         </div>

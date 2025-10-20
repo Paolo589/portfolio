@@ -29,13 +29,13 @@ const Footer: React.FC = ({ }) => {
       <span style={{ marginTop: "10px", zIndex: "10" }}> <Logo ></Logo></span>
       <div style={{ display: "flex", marginTop: "10px" }}>
 
-        <Link href={info[0]?.acf.instagram ? info[0]?.acf.instagram : "/"} >
+        <Link href={info[0]?.acf.instagram ? info[0]?.acf.instagram : "/"} passHref>
           <InstagramIcon className="social-link-icon" />
         </Link>
-        <Link href={info[0]?.acf.linkedin ? info[0]?.acf.linkedin : "/"}>
+        <Link href={info[0]?.acf.linkedin ? info[0]?.acf.linkedin : "/"} passHref>
           <LinkedInIcon className="social-link-icon" ></LinkedInIcon>
         </Link>
-        <Link href={info[0]?.acf.email ? info[0]?.acf.email : "/"}>
+        <Link href={info[0]?.acf.email ? info[0]?.acf.email : "/"} passHref>
           <MailOutlineRoundedIcon className="social-link-icon" ></MailOutlineRoundedIcon>
         </Link>
       </div>
@@ -68,7 +68,7 @@ const Footer: React.FC = ({ }) => {
 
     <div style={{ marginBottom: '30px', fontSize: '0.9em' }}>
 
-      <Link href="/privacy-policy"><span style={{ cursor: "pointer", color: '#008069', fontWeight: "bold", }}  >Cookies e Privacy Policy </span></Link>
+      <Link href="/privacy-policy" passHref><span style={{ cursor: "pointer", color: '#008069', fontWeight: "bold", }}  >Cookies e Privacy Policy </span></Link>
 
     </div>
   </footer>

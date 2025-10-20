@@ -117,7 +117,7 @@ function hideVideoOnMobile() {
 			onTapStart={() => setNeon(true)}
 			onTapCancel={() => setNeon(false)}
 		>
-			<Link href={`/${item?.slug}`} scroll={scrollTop} >
+			<Link href={`/${item?.slug}`} scroll={scrollTop} passHref>
 			
 					<div
 						className="card-content-container">

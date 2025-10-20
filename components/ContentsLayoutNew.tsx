@@ -60,7 +60,10 @@ const ContentsLayoutNew: React.FC<Props> = ({ content }) => {
 			<Image
 				placeholder="blur"
 				blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-				src={src ? src : "/"} className="gallery-img" layout="fill" />
+				src={src ? src : "/"} 
+				alt="Gallery image"
+				className="gallery-img" 
+				layout="fill" />
 		</div>
 	};
 

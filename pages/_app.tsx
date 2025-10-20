@@ -14,11 +14,6 @@ import Footer from '../components/Footer';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return <Provider store={store}>
-    <Head>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,500&display=swap" rel="stylesheet" />
-    </Head>
     <NextSeo
       title='Portfolio'
       titleTemplate='Paolo Minopoli | %s'
@@ -55,7 +50,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       expires={150}
     >
       Questo sito usa cookies per migliorare la tua esperienza di navigazione.
-      <Link href="/privacy-policy"><span style={{ fontSize: "13px", color: "#008069", textDecoration: "underline" }} >Vedi cookies e privacy policy</span></Link>
+      <Link href="/privacy-policy" passHref><span style={{ fontSize: "13px", color: "#008069", textDecoration: "underline" }} >Vedi cookies e privacy policy</span></Link>
     </CookieConsent>
     <AnimatePresence exitBeforeEnter >
       <Component key={router.route} {...pageProps} />

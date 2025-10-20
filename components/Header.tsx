@@ -1,9 +1,6 @@
-import Link from "next/link"
-
 import SwipableMenu from "./menu/SwipableMenu"
-
 import Logo from "./menu/Logo"
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 const Header = () => {
@@ -11,7 +8,7 @@ const Header = () => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const controlNavbar = () => {
+  const controlNavbar = React.useCallback(() => {
     if (typeof window !== 'undefined') { 
       if (window.scrollY > lastScrollY) { // if scroll down hide the navbar
         setShow(false); 
@@ -22,7 +19,7 @@ const Header = () => {
       // remember current page location to use in the next move
       setLastScrollY(window.scrollY); 
     }
-  };
+  }, [lastScrollY]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -33,7 +30,7 @@ const Header = () => {
         window.removeEventListener('scroll', controlNavbar);
       };
     }
-  }, [lastScrollY]);
+  }, [lastScrollY, controlNavbar]);
 
 
  return( <header className={`header ${!show && 'hidden'}`}>

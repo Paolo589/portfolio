@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const Logo = (): JSX.Element => (
 	<div>
-		<Link href="/" >
+		<Link href="/" passHref>
 			
 				<span className="logo logo-1">PAOLO
 					<span className="logo-2">PIEZ</span>

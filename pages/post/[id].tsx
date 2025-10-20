@@ -29,12 +29,12 @@ const Post: NextPage<Props> = ({ posts, infos }) => {
     posts?.find(item => item.id.toString() === id);
 
 
-  async function navigate() {
+  const navigate = React.useCallback(async () => {
     router.push({
       pathname: "/",
 
     }, undefined, { scroll: false });
-  }
+  }, [router]);
 
   const dispatch = useAppDispatch()
 
@@ -44,12 +44,12 @@ const Post: NextPage<Props> = ({ posts, infos }) => {
     window.onpopstate = () => {
       navigate()
     };
-  }, [])
+  }, [navigate])
 
   useEffect(() => {
     dispatch(setInfo(infos))
   },
-    [])
+    [dispatch, infos])
 
   return<>
   <div className="root">
