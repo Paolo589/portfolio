@@ -59,7 +59,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 				display: "flex",
 				flexDirection: "column",
 				alignItems: "center",
-				justifyContent: "center",
+				justifyContent: "center", 
 				gap: "20px"
 			}}>
 			<div className="bg-blure"></div>
