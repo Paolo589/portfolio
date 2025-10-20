@@ -75,7 +75,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 				position: "absolute",
 				display: "flex",
 				flexDirection: "column",
-				gap: "20px"
+				gap: "20px" 
 			}}>
 				<p>This content is hosted by Youtube.com. By showing the external content you accept the <a style={{ textDecoration: "underline" }} href="https://www.youtube.com/t/terms">term and condition</a> of Youtube.com </p>
 				<Button className="open-model-btn" onClick={() => { localStorage.setItem('ytmy', "true"); setCookieConsent(true) }}>Show video</Button>
