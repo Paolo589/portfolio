@@ -72,7 +72,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 				textAlign: "center",
 				padding: "10px",
 				zIndex: "2",
-				position: "absolute",
+				position: "absolute", 
 				display: "flex",
 				flexDirection: "column",
 				gap: "20px" 
