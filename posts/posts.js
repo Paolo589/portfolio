@@ -13,7 +13,7 @@
 export const posts = [
   {
     id: 50,
-    title: "Baby Maul",
+    title: "Baby Maulino",
     sottotitolo: "Baby Maul",
     slug: "babymaul",
     anteprima_img: "50-BabyMaul/BabyMaul.jpg",
