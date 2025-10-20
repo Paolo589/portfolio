@@ -14,7 +14,6 @@ export const posts = [
   {
     id: 50,
     title: "Baby Maulino",
-    sottotitolo: "Baby Maul",
     slug: "babymaul",
     anteprima_img: "50-BabyMaul/BabyMaul.jpg",
     galleria: [
@@ -25,7 +24,6 @@ export const posts = [
   {
     id: 49,
     title: "HotDog",
-    sottotitolo: "HotDog",
     slug: "hotdog",
     anteprima_img: "49-HotDog/HotDog_01.jpg",
     galleria: [
@@ -37,7 +35,6 @@ export const posts = [
   {
     id: 48,
     title: "Hoodie",
-    sottotitolo: "Hoodie",
     slug: "hoodie",
     anteprima_img: "48-Hoodie/Hoodie.jpg",
     anteprima_video: "48-Hoodie/Hoodie.mp4",
@@ -50,7 +47,6 @@ export const posts = [
   {
     id: 47,
     title: "Art-Hungry Beast",
-    sottotitolo: "Art-Hungry Beast",
     slug: "fennec",
     anteprima_img: "47-Fennec/Fennec_01.jpg",
     anteprima_video: "47-Fennec/Fennec.mp4",
