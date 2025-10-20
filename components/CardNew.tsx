@@ -118,7 +118,7 @@ function hideVideoOnMobile() {
 			onTapCancel={() => setNeon(false)}
 		>
 			<Link href={`/${item?.slug}`} scroll={scrollTop} >
-				<a>
+			
 					<div
 						className="card-content-container">
 						<div
@@ -147,7 +147,7 @@ function hideVideoOnMobile() {
 
 					</div>
 
-				</a>
+				
 			</Link>
 
 

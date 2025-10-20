@@ -64,6 +64,7 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 			}}>
 			<div className="bg-blure"></div>
 			<Image
+				alt="img"
 				placeholder="blur"
 				blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
 				src={content?.acf?.anteprima} className="gallery-img" layout="fill" />
@@ -87,7 +88,9 @@ const ContentLayout: React.FC<Props> = ({ content }) => {
 	const contentRender = (obj: any, i: number) => {
 		if (obj && obj.type && obj.type == "image")
 			return <div className="post-img-container" key={i} >
+				
 				<Image
+					alt="img"
 					placeholder="blur"
 					blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
 					src={obj.url} className="gallery-img" layout="fill" />
