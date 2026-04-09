@@ -373,7 +373,7 @@ export const posts = [
       "15-DarkwingDuck/DD_05.jpg",
     ],
   },
-  /*
+  
   {
     id: 16,
     title: "Mauro | SlimDogs",
@@ -386,7 +386,7 @@ export const posts = [
       "16-Mauro/Mauro_04.jpg",
     ],
   },
-  */
+  
   {
     id: 17,
     title: "Aletheia 3300",
