@@ -373,7 +373,7 @@ export const posts = [
       "15-DarkwingDuck/DD_05.jpg",
     ],
   },
-
+  /*
   {
     id: 16,
     title: "Mauro | SlimDogs",
@@ -386,7 +386,7 @@ export const posts = [
       "16-Mauro/Mauro_04.jpg",
     ],
   },
-
+  */
   {
     id: 17,
     title: "Aletheia 3300",
@@ -395,7 +395,7 @@ export const posts = [
     anteprima_video: "",
     galleria: ["17-Aletheia3300/Ale3300.jpg"],
   },
-
+  /*
   {
     id: 18,
     title: "Aletheia - Anime nell'Universo di Itrhon",
@@ -404,7 +404,7 @@ export const posts = [
     anteprima_video: "",
     galleria: ["18-AletheiaAUI/AletheiaAUI.jpg"],
   },
-
+  
   {
     id: 19,
     title: "NBAGNOLI",
@@ -414,7 +414,7 @@ export const posts = [
     anteprima_video: "19-NBAGNOLI/NBAGNOLI.mp4",
     galleria: ["19-NBAGNOLI/NBAGNOLI.mp4", "19-NBAGNOLI/NBAGNOLI.jpg"],
   },
-
+  */
   {
     id: 20,
     title: "The Hero's Rest",
@@ -445,7 +445,7 @@ export const posts = [
     anteprima_video: "",
     galleria: ["22-Goodfellas/Goodfellas.jpeg"],
   },
-
+  /*
   {
     id: 23,
     title: "SaulGoodman",
@@ -455,7 +455,7 @@ export const posts = [
     anteprima_video: "",
     galleria: ["23-SaulGoodman/SaulGoodman.png"],
   },
-
+  */
   {
     id: 24,
     title: "Stormtrooper",
@@ -473,7 +473,7 @@ export const posts = [
     anteprima_video: "",
     galleria: ["25-Charmeleon/Charmeleon.jpg"],
   },
-
+  /*
   {
     id: 26,
     title: "Halloween",
@@ -485,7 +485,7 @@ export const posts = [
       "26-Halloween/Halloween_02.jpg",
     ],
   },
-
+  */
   {
     id: 27,
     title: "Batman - the Dark Knight",
@@ -521,7 +521,7 @@ export const posts = [
     anteprima_video: "",
     galleria: ["30-DarthVader/dvsmooth2.jpg"],
   },
-
+  /*
   {
     id: 31,
     title: "Birrificio Flegreo",
@@ -530,7 +530,7 @@ export const posts = [
     anteprima_video: "",
     galleria: ["31-BirrificioFlegreo/Birrificio.jpg"],
   },
-
+  
   {
     id: 32,
     title: "Elliot Stabler",
@@ -542,7 +542,7 @@ export const posts = [
       "32-ElliotStabler/Elliot_02.jpg",
     ],
   },
-
+  */
   {
     id: 33,
     title: "Bic Lighter",
