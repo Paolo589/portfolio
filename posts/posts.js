@@ -445,7 +445,17 @@ export const posts = [
     anteprima_video: "",
     galleria: ["22-Goodfellas/Goodfellas.jpeg"],
   },
-
+  /*
+  {
+    id: 23,
+    title: "SaulGoodman",
+    sottotitolo: "original concept by Mike Giblin",
+    slug: "saulgoodman",
+    anteprima_img: "23-SaulGoodman/SaulGoodman.png",
+    anteprima_video: "",
+    galleria: ["23-SaulGoodman/SaulGoodman.png"],
+  },
+  */
   {
     id: 24,
     title: "Stormtrooper",
