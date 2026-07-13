@@ -526,6 +526,7 @@ export const posts = [
     galleria: ["28-PatriBalanovsky/PBDTIYS_01.jpg"],
   },
 
+  /*
   {
     id: 29,
     title: "Malta Door",
@@ -534,6 +535,7 @@ export const posts = [
     anteprima_video: "",
     galleria: ["29-MaltaDoor/MaltaDoor.jpg"],
   },
+  */
 
   {
     id: 30,
@@ -543,6 +545,7 @@ export const posts = [
     anteprima_video: "",
     galleria: ["30-DarthVader/dvsmooth2.jpg"],
   },
+
   /*
   {
     id: 31,
@@ -574,6 +577,7 @@ export const posts = [
     galleria: ["33-BicLighter/BIC.jpg"],
   },
 
+  /*
   {
     id: 34,
     title: "Medical Stuff",
@@ -586,6 +590,7 @@ export const posts = [
       "34-MedicalStuff/MS_03.jpg",
     ],
   },
+  */
 
   {
     id: 35,
@@ -596,6 +601,7 @@ export const posts = [
     galleria: ["35-LowPolyAnimals/LPA_02.jpg"],
   },
 
+  /*
   {
     id: 36,
     title: "Abstract",
@@ -612,6 +618,7 @@ export const posts = [
       "36-Abstract/Abstract_06.jpg",
     ],
   },
+  */
 ];
 
 export const info = {
