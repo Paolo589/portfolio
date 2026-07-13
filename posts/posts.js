@@ -12,6 +12,17 @@
 
 export const posts = [
   {
+    id: 52,
+    title: "Velociraptor Mongoliensis",
+    slug: "velociraptor",
+    anteprima_img: "52-Velociraptor/Velociraptor01.jpg",
+    galleria: [
+      "52-Velociraptor/Velociraptor01.jpg",
+      "52-Velociraptor/Velociraptor02.jpg",
+    ],
+  },
+
+  {
     id: 51,
     title: "Blondie Knight",
     slug: "blondieknight",
