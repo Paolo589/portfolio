@@ -12,6 +12,17 @@
 
 export const posts = [
   {
+    id: 51,
+    title: "Blondie Knight",
+    slug: "blondieknight",
+    anteprima_img: "51-BlondieKnight/BlondieKnight.jpg",
+    anteprima_video: "48-Hoodie/Hoodie.mp4",
+    galleria: [
+      "51-BlondieKnight/BlondieKnight.mp4",
+    ],
+  },
+
+  {
     id: 50,
     title: "Baby Maul",
     slug: "babymaul",
