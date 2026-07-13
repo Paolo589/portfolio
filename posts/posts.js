@@ -16,7 +16,7 @@ export const posts = [
     title: "Blondie Knight",
     slug: "blondieknight",
     anteprima_img: "51-BlondieKnight/BlondieKnight.jpg",
-    anteprima_video: "51-BlondieKnight/LondieKnight.mp4",
+    anteprima_video: "51-BlondieKnight/BlondieKnight.mp4",
     galleria: [
       "51-BlondieKnight/BlondieKnight.mp4",
     ],
