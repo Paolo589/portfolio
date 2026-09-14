@@ -1,5 +1,6 @@
 import SwipableMenu from "./menu/SwipableMenu"
 import Logo from "./menu/Logo"
+import CategoryNav from "./menu/CategoryNav"
 import React, { useEffect, useState } from "react";
 
 
@@ -35,6 +36,7 @@ const Header = () => {
 
  return( <header className={`header ${!show && 'hidden'}`}>
     <Logo></Logo>
+    <CategoryNav />
     <SwipableMenu />
   </header>);
 };

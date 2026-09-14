@@ -1,7 +1,7 @@
 import type {NextPage } from 'next'
 import React from 'react'
 import {  motion } from 'framer-motion'
-import {posts} from '../posts/posts'
+import {filterPostsByCategory, posts} from '../posts/posts'
 import CardNew from '../components/CardNew'
 
 
@@ -9,8 +9,10 @@ interface Props {
 
 }
 
+const DEFAULT_CATEGORY_ID = 1
+
 const Casa: NextPage<Props> = ({}) => {
- 
+  const filteredPosts = filterPostsByCategory(posts, DEFAULT_CATEGORY_ID)
 
   React.useEffect(() => {
    window.onpopstate = () => { };
@@ -25,7 +27,7 @@ const Casa: NextPage<Props> = ({}) => {
        exit={{ opacity: 0 }} 
        transition={{ velocity: 50 }} id="card-list-container" >
         <ul className="card-list">
-          {posts?.map(item => (
+          {filteredPosts?.map(item => (
             <CardNew key={item.id} item={item} />
           ))}
         </ul>
