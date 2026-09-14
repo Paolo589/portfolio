@@ -85,7 +85,7 @@ const Post: React.FC<Props> = ({ postData }) => {
         <Image key={i} src={el} alt="" style={{ width: "100%", height: "auto" }} />)}  */}
    <ContentsLayoutNew content={item.galleria} />
       <div className='all-work-container'>
-      <h2>All Works </h2>
+      <h2>Related works</h2>
       <div className='divider'></div>
       <ul className="card-list">
           {reorderedPosts?.map((item:any) => (
