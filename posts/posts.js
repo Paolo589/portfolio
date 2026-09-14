@@ -19,6 +19,7 @@ export const posts = [
     galleria: [
       "50-BabyMaul/BabyMaul.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -30,6 +31,7 @@ export const posts = [
       "49-HotDog/HotDog_01.jpg",
       "49-HotDog/HotDog_02.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -42,6 +44,7 @@ export const posts = [
       "48-Hoodie/Hoodie.mp4",
       "48-Hoodie/Hoodie.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -54,6 +57,7 @@ export const posts = [
       "47-Fennec/Fennec.mp4",
       "47-Fennec/Fennec_02.jpg",
     ],
+    category: [1],  
   },
 
   {
@@ -63,6 +67,7 @@ export const posts = [
     slug: "wolverine",
     anteprima_img: "46-Wolverine/Wolverine.jpg",
     galleria: ["46-Wolverine/Wolverine.jpg"],
+    category: [1],
   },
 
   {
@@ -76,6 +81,7 @@ export const posts = [
       "45-Twins/Twins_01.mp4",
       "45-Twins/Twins_02.jpg",
     ],
+    category: [1],
   },
 
 
@@ -87,6 +93,7 @@ export const posts = [
     anteprima_img: "39-BigGuy/BigGuy_02.jpg",
     anteprima_video: "39-BigGuy/BigGuy_01.mp4",
     galleria: ["39-BigGuy/BigGuy_01.mp4"],
+    category: [1],
   },
 
   {
@@ -97,6 +104,7 @@ export const posts = [
     anteprima_img: "37-Null/Null_02.jpg",
     anteprima_video: "37-Null/Null_01.mp4",
     galleria: ["37-Null/Null_01.mp4"],
+    category: [1],
   },
 
   {
@@ -107,7 +115,8 @@ export const posts = [
     anteprima_img: "40-BigDude/BigDude_02.jpg",
     anteprima_video: "40-BigDude/BigDude_01.mp4",
     galleria: ["40-BigDude/BigDude_01.mp4"],
-  },
+    category: [1],
+  },    
 
   {
     id: 42,
@@ -117,6 +126,7 @@ export const posts = [
     anteprima_img: "42-Geeulio/Gee_02.jpg",
     anteprima_video: "42-Geeulio/Gee_01.mp4",
     galleria: ["42-Geeulio/Gee_01.mp4"],
+    category: [1],
   },
 
   {
@@ -127,6 +137,7 @@ export const posts = [
     anteprima_img: "38-Gollum/Gollum_02.jpg",
     anteprima_video: "38-Gollum/Gollum_01.mp4",
     galleria: ["38-Gollum/Gollum_01.mp4"],
+    category: [1],
   },
 
   {
@@ -137,6 +148,7 @@ export const posts = [
     anteprima_img: "41-BlueGirl/BlueGirl_02.jpg",
     anteprima_video: "41-BlueGirl/BlueGirl_01.mp4",
     galleria: ["41-BlueGirl/BlueGirl_01.mp4"],
+    category: [1],
   },
 
 
@@ -152,6 +164,7 @@ export const posts = [
       "01-Capitan/Cap_02.mp4",
       "01-Capitan/Cap_03.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -169,6 +182,7 @@ export const posts = [
       "02-Spider/Gwen_05.jpg",
       "02-Spider/Gwen_06.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -183,6 +197,7 @@ export const posts = [
       "03-Link/Link_03.jpg",
       "03-Link/Link_04.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -197,6 +212,7 @@ export const posts = [
       "04-Goddess/Goddess_Bastet_02.jpg",
       "04-Goddess/Goddess_Bastet_03.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -214,6 +230,7 @@ export const posts = [
       "09-BatRob/BatRob_05.jpg",
       "09-BatRob/BatRob_06.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -228,6 +245,7 @@ export const posts = [
       "05-RichardHTT/Htt_02.jpg",
       "05-RichardHTT/Htt_03.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -242,6 +260,7 @@ export const posts = [
       "06-Silas/Silas_02.jpg",
       "06-Silas/Silas_03.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -257,6 +276,7 @@ export const posts = [
       "07-Ryu/Ryu_03.jpg",
       "07-Ryu/Ryu_04.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -267,6 +287,7 @@ export const posts = [
     anteprima_img: "08-Ghost/GhostRider_02.jpg",
     anteprima_video: "08-Ghost/GhostRider_01.mp4",
     galleria: ["08-Ghost/GhostRider_01.mp4", "08-Ghost/GhostRider_02.jpg"],
+    category: [1],
   },
 
   {
@@ -277,6 +298,7 @@ export const posts = [
     anteprima_img: "44-Vamp/Vamp_01.jpg",
     anteprima_video: "",
     galleria: ["44-Vamp/Vamp_02.jpg"],
+    category: [1],
   },
 
   {
@@ -287,6 +309,7 @@ export const posts = [
     anteprima_img: "43-Orc/Orc.jpeg",
     anteprima_video: "",
     galleria: ["43-Orc/Orc.jpeg"],
+    category: [1],
   },
 
   {
@@ -301,6 +324,7 @@ export const posts = [
       "10-Homelander/Homelander_03.jpeg",
       "10-Homelander/Homelander_04.mp4",
     ],
+    category: [1],
   },
 
   {
@@ -321,6 +345,7 @@ export const posts = [
       "11-MarioBowser/MariovBowser_08.jpg",
       "11-MarioBowser/MariovBowser_09.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -334,6 +359,7 @@ export const posts = [
       "12-Venom/Venom_02.jpg",
       "12-Venom/Venom_03.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -348,6 +374,7 @@ export const posts = [
       "13-DarthMaul/DarthMaul_02.jpg",
       "13-DarthMaul/DarthMaul_03.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -357,6 +384,7 @@ export const posts = [
     anteprima_img: "14-BaseballFuries/Baseball_Furies.jpg",
     anteprima_video: "",
     galleria: ["14-BaseballFuries/Baseball_Furies.jpg"],
+    category: [1],
   },
 
   {
@@ -371,7 +399,8 @@ export const posts = [
       "15-DarkwingDuck/DD_03.jpg",
       "15-DarkwingDuck/DD_04.jpg",
       "15-DarkwingDuck/DD_05.jpg",
-    ],
+    ],  
+    category: [1],
   },
   /*
   {
@@ -394,6 +423,7 @@ export const posts = [
     anteprima_img: "17-Aletheia3300/Ale3300.jpg",
     anteprima_video: "",
     galleria: ["17-Aletheia3300/Ale3300.jpg"],
+    category: [1],
   },
   /*
   {
@@ -422,6 +452,7 @@ export const posts = [
     anteprima_img: "20-TheLegendofZelda/Heros_Rest.jpg",
     anteprima_video: "",
     galleria: ["20-TheLegendofZelda/Heros_Rest.jpg"],
+    category: [1],
   },
 
   {
@@ -435,6 +466,7 @@ export const posts = [
       "21-Marv/Marv_02.jpg",
       "21-Marv/Marv_03.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -444,6 +476,7 @@ export const posts = [
     anteprima_img: "22-Goodfellas/Goodfellas.jpeg",
     anteprima_video: "",
     galleria: ["22-Goodfellas/Goodfellas.jpeg"],
+    category: [1],
   },
   /*
   {
@@ -463,6 +496,7 @@ export const posts = [
     anteprima_img: "24-Stormtrooper/Stormtrooper.jpg",
     anteprima_video: "",
     galleria: ["24-Stormtrooper/Stormtrooper.jpg"],
+    category: [1],
   },
 
   {
@@ -472,6 +506,7 @@ export const posts = [
     anteprima_img: "25-Charmeleon/Charmeleon.jpg",
     anteprima_video: "",
     galleria: ["25-Charmeleon/Charmeleon.jpg"],
+    category: [1],
   },
   /*
   {
@@ -493,6 +528,7 @@ export const posts = [
     anteprima_img: "27-BatmanDK/Bat_01.jpg",
     anteprima_video: "",
     galleria: ["27-BatmanDK/Bat_01.jpg", "27-BatmanDK/Bat_02.jpg"],
+    category: [1],
   },
 
   {
@@ -502,6 +538,7 @@ export const posts = [
     anteprima_img: "28-PatriBalanovsky/PBDTIYS_01.jpg",
     anteprima_video: "",
     galleria: ["28-PatriBalanovsky/PBDTIYS_01.jpg"],
+    category: [1],
   },
 
   {
@@ -511,6 +548,7 @@ export const posts = [
     anteprima_img: "29-MaltaDoor/MaltaDoor.jpg",
     anteprima_video: "",
     galleria: ["29-MaltaDoor/MaltaDoor.jpg"],
+    category: [1],
   },
 
   {
@@ -520,6 +558,7 @@ export const posts = [
     anteprima_img: "30-DarthVader/dvsmooth2.jpg",
     anteprima_video: "",
     galleria: ["30-DarthVader/dvsmooth2.jpg"],
+    category: [1],
   },
   /*
   {
@@ -550,6 +589,7 @@ export const posts = [
     anteprima_img: "33-BicLighter/BIC.jpg",
     anteprima_video: "",
     galleria: ["33-BicLighter/BIC.jpg"],
+    category: [1],
   },
 
   {
@@ -563,6 +603,7 @@ export const posts = [
       "34-MedicalStuff/MS_02.jpg",
       "34-MedicalStuff/MS_03.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -572,6 +613,7 @@ export const posts = [
     anteprima_img: "35-LowPolyAnimals/LPA_01.jpg",
     anteprima_video: "",
     galleria: ["35-LowPolyAnimals/LPA_02.jpg"],
+    category: [1],
   },
 
   {
@@ -589,10 +631,37 @@ export const posts = [
       "36-Abstract/Abstract_07.jpg",
       "36-Abstract/Abstract_06.jpg",
     ],
+    category: [1,2],
   },
 ];
 
 export const info = {
   text: ["Hi, I’m Paolo, a 3D artist living in Naples, Italy. ","It all started back in my university days when i used to model engineering stuff like car parts, engines and clutches.","  Then I realised that making nerdy sculpts was way more fun and so I decided to switch to the art you see me doing nowadays!"],
   social: { linkedin: "http://www.linkedin.com/in/paolo-minopoli-8b0685218" ,  instagram: "http://www.instagram.com/paolopiez/" ,  gmail: "mailto:paolo.minopoli@gmail.com" },
+};
+
+// category = categorie del portfolio (id, name, slug).
+// Nei post: category è un array di id (es. [1, 2]). Se manca o è vuoto, il post resta sempre visibile.
+export const category = [
+  {
+    id: 1,
+    name: "3D",
+    slug: "3d",
+  },
+  {
+    id: 2,
+    name: "Works",
+    slug: "works",
+  },
+  
+  
+];
+
+export const filterPostsByCategory = (postsList, categoryId) => {
+  return postsList.filter((post) => {
+    if (!post.category || !Array.isArray(post.category) || post.category.length === 0) {
+      return true;
+    }
+    return post.category.includes(categoryId);
+  });
 };
