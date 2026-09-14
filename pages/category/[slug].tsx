@@ -25,7 +25,7 @@ const CategoryPage: NextPage<Props> = ({ categoryId }) => {
         id="card-list-container"
       >
         <ul className="card-list">
-          {filteredPosts?.map(item => (
+          {filteredPosts?.map((item: any) => (
             <CardNew key={item.id} item={item} />
           ))}
         </ul>

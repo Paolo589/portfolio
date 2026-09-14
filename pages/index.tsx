@@ -27,7 +27,7 @@ const Casa: NextPage<Props> = ({}) => {
        exit={{ opacity: 0 }} 
        transition={{ velocity: 50 }} id="card-list-container" >
         <ul className="card-list">
-          {filteredPosts?.map(item => (
+          {filteredPosts?.map((item: any) => (
             <CardNew key={item.id} item={item} />
           ))}
         </ul>
