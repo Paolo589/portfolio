@@ -20,6 +20,7 @@ export const posts = [
       "52-Velociraptor/Velociraptor01.jpg",
       "52-Velociraptor/Velociraptor02.jpg",
     ],
+    category: [1],
   },
 
   {
@@ -31,6 +32,7 @@ export const posts = [
     galleria: [
       "51-BlondieKnight/BlondieKnight.mp4",
     ],
+    category: [1],
   },
 
   {
