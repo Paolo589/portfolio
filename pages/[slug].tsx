@@ -6,7 +6,7 @@ import {  GetStaticProps, } from 'next'
 import {getAllPostIds} from '../posts/getAllPostIds'
 import {getPostData} from '../posts/getPost'
 import Image from 'next/image'
-import {posts} from '../posts/posts'
+import {filterPostsByCategories, posts} from '../posts/posts'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import CardNew from '../components/CardNew'
@@ -48,7 +48,8 @@ const Post: React.FC<Props> = ({ postData }) => {
     }
     return posts;
   };
-  const reorderedPosts = reorderPosts(posts, item.id);
+  const relatedPosts = filterPostsByCategories(posts, item.category);
+  const reorderedPosts = reorderPosts(relatedPosts, item.id);
 
 
 

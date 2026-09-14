@@ -696,3 +696,16 @@ export const filterPostsByCategory = (postsList, categoryId) => {
     return post.category.includes(categoryId);
   });
 };
+
+// Filtra i post che condividono almeno una categoria (i post senza category restano sempre).
+export const filterPostsByCategories = (postsList, categoryIds) => {
+  if (!categoryIds || !Array.isArray(categoryIds) || categoryIds.length === 0) {
+    return postsList;
+  }
+  return postsList.filter((post) => {
+    if (!post.category || !Array.isArray(post.category) || post.category.length === 0) {
+      return true;
+    }
+    return post.category.some((id) => categoryIds.includes(id));
+  });
+};
