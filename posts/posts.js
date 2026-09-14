@@ -12,6 +12,28 @@
 
 export const posts = [
   {
+    id: 52,
+    title: "Velociraptor Mongoliensis",
+    slug: "velociraptor",
+    anteprima_img: "52-Velociraptor/Velociraptor01.jpg",
+    galleria: [
+      "52-Velociraptor/Velociraptor01.jpg",
+      "52-Velociraptor/Velociraptor02.jpg",
+    ],
+  },
+
+  {
+    id: 51,
+    title: "Blondie Knight",
+    slug: "blondieknight",
+    anteprima_img: "51-BlondieKnight/BlondieKnight.jpg",
+    anteprima_video: "51-BlondieKnight/BlondieKnight.mp4",
+    galleria: [
+      "51-BlondieKnight/BlondieKnight.mp4",
+    ],
+  },
+
+  {
     id: 50,
     title: "Baby Maul",
     slug: "babymaul",
@@ -541,6 +563,7 @@ export const posts = [
     category: [1],
   },
 
+  /*
   {
     id: 29,
     title: "Malta Door",
@@ -550,6 +573,7 @@ export const posts = [
     galleria: ["29-MaltaDoor/MaltaDoor.jpg"],
     category: [1],
   },
+  */
 
   {
     id: 30,
@@ -560,6 +584,7 @@ export const posts = [
     galleria: ["30-DarthVader/dvsmooth2.jpg"],
     category: [1],
   },
+
   /*
   {
     id: 31,
@@ -592,6 +617,7 @@ export const posts = [
     category: [1],
   },
 
+  /*
   {
     id: 34,
     title: "Medical Stuff",
@@ -605,6 +631,7 @@ export const posts = [
     ],
     category: [1],
   },
+  */
 
   {
     id: 35,
@@ -616,6 +643,7 @@ export const posts = [
     category: [1],
   },
 
+  /*
   {
     id: 36,
     title: "Abstract",
@@ -633,6 +661,7 @@ export const posts = [
     ],
     category: [1,2],
   },
+  */
 ];
 
 export const info = {
