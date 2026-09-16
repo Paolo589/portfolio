@@ -12,10 +12,38 @@ type ChatMessage = {
 };
 
 const SUGGESTIONS = [
-  "What is his background?",
-  "Which software does he use?",
-  "What projects has he worked on?",
+  "What is your background and skills?",
+  "Which software do you use?",
+  "What projects have you worked on?",
 ];
+
+// Shared across Chat instances (Sidebar + mobile menu) and React Strict Mode remounts.
+let statusPromise: Promise<boolean> | null = null;
+let warmupPromise: Promise<void> | null = null;
+
+function fetchStatusOnce(): Promise<boolean> {
+  if (!statusPromise) {
+    statusPromise = fetch(`${RAG_URL}/status`)
+      .then((res) => res.json())
+      .then((data) => Boolean(data.ingested))
+      .catch(() => {
+        statusPromise = null;
+        return false;
+      });
+  }
+  return statusPromise;
+}
+
+function warmupOnce(): Promise<void> {
+  if (!warmupPromise) {
+    warmupPromise = fetch(`${RAG_URL}/warmup`)
+      .then(() => undefined)
+      .catch(() => {
+        warmupPromise = null;
+      });
+  }
+  return warmupPromise;
+}
 
 const Chat = (): JSX.Element => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -28,9 +56,11 @@ const Chat = (): JSX.Element => {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch(`${RAG_URL}/status`);
-        const data = await res.json();
-        if (!cancelled) setReady(Boolean(data.ingested));
+        const [ingested] = await Promise.all([
+          fetchStatusOnce(),
+          warmupOnce(),
+        ]);
+        if (!cancelled) setReady(ingested);
       } catch {
         if (!cancelled) setReady(false);
       }

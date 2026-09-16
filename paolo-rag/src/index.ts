@@ -5,6 +5,7 @@ export interface Env {
   EMBEDDING_MODEL: string;
   CHAT_MODEL: string;
   TOP_K: string;
+  MAX_COMPLETION_TOKENS: string;
   CHUNK_SIZE: string;
   CHUNK_OVERLAP: string;
   INGEST_SECRET?: string;
@@ -56,6 +57,10 @@ export default {
     try {
       if (request.method === "GET" && url.pathname === "/health") {
         return json({ ok: true, worker: "paolo-rag" });
+      }
+
+      if (request.method === "GET" && url.pathname === "/warmup") {
+        return handleWarmup(env);
       }
 
       if (request.method === "GET" && url.pathname === "/status") {
@@ -377,7 +382,7 @@ async function handleAsk(request: Request, env: Env): Promise<Response> {
       { role: "user", content: userPrompt },
     ],
     stream: true,
-    max_completion_tokens: 1024,
+    max_completion_tokens: Number(env.MAX_COMPLETION_TOKENS) || 512,
     reasoning_effort: "low",
     chat_template_kwargs: { thinking: false },
   } as Record<string, unknown>);
@@ -557,6 +562,28 @@ function extractStreamToken(chunk: unknown): string {
   }
 
   return "";
+}
+
+async function handleWarmup(env: Env): Promise<Response> {
+  const started = Date.now();
+
+  // Warm embedding + chat bindings so the first real /ask is faster.
+  const embedding = await embed(env, "warmup");
+  await env.VECTORIZE.query(embedding, { topK: 1, returnMetadata: "none" });
+
+  await env.AI.run(env.CHAT_MODEL as keyof AiModels, {
+    messages: [{ role: "user", content: "hi" }],
+    stream: false,
+    max_completion_tokens: Number(env.MAX_COMPLETION_TOKENS) || 512,
+    reasoning_effort: "low",
+    chat_template_kwargs: { thinking: false },
+  } as Record<string, unknown>);
+
+  return json({
+    ok: true,
+    warmed: true,
+    ms: Date.now() - started,
+  });
 }
 
 async function listDocs(env: Env): Promise<DocMeta[]> {

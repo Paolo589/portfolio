@@ -18,6 +18,7 @@ id = "2e09b6a4754545b2965ab79d54a2afc0"
 [vars]
 EMBEDDING_MODEL = "@cf/baai/bge-base-en-v1.5"
 CHAT_MODEL = "@cf/google/gemma-4-26b-a4b-it"
-TOP_K = "5"
+TOP_K = "3"
+MAX_COMPLETION_TOKENS = "512"
 CHUNK_SIZE = "800"
 CHUNK_OVERLAP = "150"
