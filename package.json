@@ -27,6 +27,7 @@
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^8.33.1",
     "react-loader-spinner": "^6.0.0-0",
+    "react-markdown": "^9.1.0",
     "react-player": "^2.10.0",
     "react-redux": "^7.2.6",
     "react-swipeable": "^6.2.0",

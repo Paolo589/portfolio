@@ -35,6 +35,14 @@ const CORS_HEADERS: Record<string, string> = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
+const SSE_HEADERS: Record<string, string> = {
+  "Content-Type": "text/event-stream; charset=utf-8",
+  "Cache-Control": "no-cache, no-transform",
+  Connection: "keep-alive",
+  "X-Accel-Buffering": "no",
+  ...CORS_HEADERS,
+};
+
 const DOCS_LIST_KEY = "docs:list";
 
 export default {
@@ -318,17 +326,11 @@ async function handleAsk(request: Request, env: Env): Promise<Response> {
     .map((m) => {
       const text =
         m.metadata && typeof m.metadata.text === "string" ? m.metadata.text : "";
-      const source =
-        m.metadata && typeof m.metadata.source === "string"
-          ? m.metadata.source
-          : "document";
       const docId =
         m.metadata && typeof m.metadata.docId === "string" ? m.metadata.docId : "";
       return {
         text: text.trim(),
-        source,
         docId,
-        score: m.score,
       };
     })
     .filter((c) => c.text);
@@ -339,50 +341,222 @@ async function handleAsk(request: Request, env: Env): Promise<Response> {
   }
 
   if (contextChunks.length === 0) {
-    return json({
-      answer:
-        "I could not find relevant information in the documents to answer this question.",
-      sources: [],
-    });
+    return sseResponse(
+      immediateSseStream([
+        {
+          type: "token",
+          text: "I could not find relevant information in the documents to answer this question.",
+        },
+        { type: "done" },
+      ])
+    );
   }
 
   const context = contextChunks
-    .map((c, i) => `[${i + 1}] (source: ${c.source})\n${c.text}`)
+    .map((c, i) => `[${i + 1}] ${c.text}`)
     .join("\n\n");
 
   const system = [
     "You are Paolo Minopoli. Answer in the first person as Paolo Minopoli.",
     "Use ONLY the provided document context about yourself.",
-    "If the information is not in the context, say so clearly in the first person (e.g. \"I don't have that information here\").",
+    "If the information is not in the context, say so clearly in the first person.",
     "Reply in the same language as the user's question (Italian if they write in Italian, English if they write in English).",
-    "Be clear, professional, and natural — like you are speaking about your own work and experience.",
+    "Format answers with clean Markdown: use bullet lists and **bold** for key titles or role names.",
+    "Prefer short structured lists when summarizing work or skills; keep tone warm and conversational.",
     "Do not invent experiences, skills, dates, or facts.",
-    "Do not use emoticons or special symbols.",
-    "Do not mention document source labels, file names, or that you are an AI/RAG system.",
+    "Do not use emoticons.",
+    "Do not mention documents, sources, file names, or that you are an AI/RAG system.",
     "Do not reveal sensitive or personal data beyond what is in the context.",
   ].join(" ");
 
-  const userPrompt = `Document context about Paolo Minopoli:\n${context}\n\nQuestion: ${question}`;
+  const userPrompt = `Context about you:\n${context}\n\nVisitor question: ${question}\n\nAnswer in first person using Markdown (lists and bold are welcome).`;
 
-  const result = await env.AI.run(env.CHAT_MODEL as keyof AiModels, {
+  const aiResult = await env.AI.run(env.CHAT_MODEL as keyof AiModels, {
     messages: [
       { role: "system", content: system },
       { role: "user", content: userPrompt },
     ],
+    stream: true,
+    max_completion_tokens: 1024,
+    reasoning_effort: "low",
+    chat_template_kwargs: { thinking: false },
+  } as Record<string, unknown>);
+
+  const outbound = new ReadableStream<Uint8Array>({
+    async start(controller) {
+      const encoder = new TextEncoder();
+      const send = (event: Record<string, unknown>) => {
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify(event)}\n\n`));
+      };
+
+      try {
+        await pipeAiStreamToSse(aiResult, send);
+        send({ type: "done" });
+        controller.close();
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Stream failed";
+        send({ type: "error", error: message });
+        controller.close();
+      }
+    },
   });
 
-  const answer = extractChatAnswer(result);
+  return sseResponse(outbound);
+}
 
-  return json({
-    answer,
-    sources: contextChunks.map((c, i) => ({
-      id: i + 1,
-      text: c.text,
-      source: c.source,
-      docId: c.docId,
-      score: c.score,
-    })),
+function sseResponse(body: ReadableStream<Uint8Array>): Response {
+  return new Response(body, { headers: SSE_HEADERS });
+}
+
+function immediateSseStream(
+  events: Record<string, unknown>[]
+): ReadableStream<Uint8Array> {
+  const encoder = new TextEncoder();
+  return new ReadableStream({
+    start(controller) {
+      for (const event of events) {
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify(event)}\n\n`));
+      }
+      controller.close();
+    },
   });
+}
+
+async function pipeAiStreamToSse(
+  aiResult: unknown,
+  send: (event: Record<string, unknown>) => void
+): Promise<void> {
+  const reader = getAiStreamReader(aiResult);
+  if (!reader) {
+    const fallback = extractChatAnswer(aiResult);
+    if (fallback) send({ type: "token", text: fallback });
+    return;
+  }
+
+  const decoder = new TextDecoder();
+  let sseBuffer = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    if (value == null) continue;
+
+    if (typeof value === "string") {
+      const token = extractStreamToken(value);
+      if (token) send({ type: "token", text: token });
+      continue;
+    }
+
+    if (value instanceof Uint8Array || ArrayBuffer.isView(value)) {
+      const bytes =
+        value instanceof Uint8Array
+          ? value
+          : new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+      sseBuffer += decoder.decode(bytes, { stream: true });
+
+      const lines = sseBuffer.split("\n");
+      sseBuffer = lines.pop() || "";
+
+      for (const rawLine of lines) {
+        const line = rawLine.trim();
+        if (!line || line.startsWith(":") || line.startsWith("event:")) continue;
+        if (!line.startsWith("data:")) continue;
+
+        const payload = line.slice(5).trim();
+        if (!payload || payload === "[DONE]") continue;
+
+        try {
+          const parsed = JSON.parse(payload) as unknown;
+          const token = extractStreamToken(parsed);
+          if (token) send({ type: "token", text: token });
+        } catch {
+          if (payload) send({ type: "token", text: payload });
+        }
+      }
+      continue;
+    }
+
+    if (typeof value === "object") {
+      const token = extractStreamToken(value);
+      if (token) send({ type: "token", text: token });
+    }
+  }
+
+  if (sseBuffer.trim()) {
+    const leftover = sseBuffer.trim();
+    if (leftover.startsWith("data:")) {
+      const payload = leftover.slice(5).trim();
+      if (payload && payload !== "[DONE]") {
+        try {
+          const token = extractStreamToken(JSON.parse(payload));
+          if (token) send({ type: "token", text: token });
+        } catch {
+          /* ignore trailing partial */
+        }
+      }
+    }
+  }
+}
+
+function getAiStreamReader(
+  aiResult: unknown
+): ReadableStreamDefaultReader<unknown> | null {
+  if (!aiResult) return null;
+
+  if (aiResult instanceof ReadableStream) {
+    return aiResult.getReader();
+  }
+
+  if (typeof Response !== "undefined" && aiResult instanceof Response && aiResult.body) {
+    return aiResult.body.getReader();
+  }
+
+  if (
+    typeof aiResult === "object" &&
+    aiResult !== null &&
+    "getReader" in aiResult &&
+    typeof (aiResult as ReadableStream).getReader === "function"
+  ) {
+    return (aiResult as ReadableStream).getReader();
+  }
+
+  return null;
+}
+
+function extractStreamToken(chunk: unknown): string {
+  if (typeof chunk === "string") {
+    // Ignore raw SSE wrappers if they somehow land here.
+    if (chunk.startsWith("data:")) return "";
+    return chunk;
+  }
+
+  if (!chunk || typeof chunk !== "object") return "";
+
+  const obj = chunk as Record<string, unknown>;
+
+  if (typeof obj.response === "string") return obj.response;
+  if (typeof obj.text === "string") return obj.text;
+  if (typeof obj.token === "string") return obj.token;
+
+  const choices = obj.choices;
+  if (Array.isArray(choices) && choices[0] && typeof choices[0] === "object") {
+    const choice = choices[0] as Record<string, unknown>;
+    const delta = choice.delta;
+    if (delta && typeof delta === "object") {
+      const d = delta as Record<string, unknown>;
+      if (typeof d.content === "string") return d.content;
+      if (typeof d.text === "string") return d.text;
+    }
+    if (typeof choice.text === "string") return choice.text;
+    const message = choice.message;
+    if (message && typeof message === "object") {
+      const content = (message as Record<string, unknown>).content;
+      if (typeof content === "string") return content;
+    }
+  }
+
+  return "";
 }
 
 async function listDocs(env: Env): Promise<DocMeta[]> {

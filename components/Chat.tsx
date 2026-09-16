@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import ReactMarkdown from "react-markdown";
 
 const RAG_URL =
   process.env.NEXT_PUBLIC_RAG_URL || "https://paolo-rag.d-vettura.workers.dev";
@@ -53,38 +54,108 @@ const Chat = (): JSX.Element => {
       role: "user",
       text: trimmed,
     };
-    setMessages((prev) => [...prev, userMsg]);
+    const assistantId = `a-${Date.now()}`;
+
+    setMessages((prev) => [
+      ...prev,
+      userMsg,
+      { id: assistantId, role: "assistant", text: "" },
+    ]);
     setInput("");
     setLoading(true);
 
     try {
       const res = await fetch(`${RAG_URL}/ask`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "text/event-stream",
+        },
         body: JSON.stringify({ question: trimmed }),
       });
-      const data = await res.json();
-      const text =
-        res.ok && data.answer
-          ? String(data.answer)
-          : String(data.error || "I can't answer right now.");
 
-      setMessages((prev) => [
-        ...prev,
-        { id: `a-${Date.now()}`, role: "assistant", text },
-      ]);
+      if (!res.ok) {
+        let errorText = `Error ${res.status}`;
+        try {
+          const data = await res.json();
+          if (data?.error) errorText = String(data.error);
+        } catch {
+          /* ignore */
+        }
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantId ? { ...m, text: errorText } : m
+          )
+        );
+        return;
+      }
+
+      if (!res.body) {
+        throw new Error("Streaming body missing");
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const parts = buffer.split("\n\n");
+        buffer = parts.pop() || "";
+
+        for (const part of parts) {
+          const line = part
+            .split("\n")
+            .map((l) => l.trim())
+            .find((l) => l.startsWith("data:"));
+          if (!line) continue;
+
+          const payload = line.slice(5).trim();
+          if (!payload || payload === "[DONE]") continue;
+
+          let event: { type?: string; text?: string; error?: string };
+          try {
+            event = JSON.parse(payload);
+          } catch {
+            appendAssistantText(assistantId, payload);
+            continue;
+          }
+
+          if (event.type === "token" && event.text) {
+            appendAssistantText(assistantId, event.text);
+          } else if (event.type === "error") {
+            appendAssistantText(
+              assistantId,
+              event.error || "I can't answer right now."
+            );
+          }
+        }
+      }
     } catch {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `a-${Date.now()}`,
-          role: "assistant",
-          text: "Connection error with the assistant.",
-        },
-      ]);
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === assistantId
+            ? {
+                ...m,
+                text: m.text || "Connection error with the assistant.",
+              }
+            : m
+        )
+      );
     } finally {
       setLoading(false);
     }
+  }
+
+  function appendAssistantText(assistantId: string, chunk: string) {
+    setMessages((prev) =>
+      prev.map((m) =>
+        m.id === assistantId ? { ...m, text: m.text + chunk } : m
+      )
+    );
   }
 
   function onSubmit(event: FormEvent) {
@@ -124,17 +195,25 @@ const Chat = (): JSX.Element => {
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`rag-chat__bubble rag-chat__bubble--${msg.role}`}
+            className={`rag-chat__bubble rag-chat__bubble--${msg.role}${
+              msg.role === "assistant" && loading && !msg.text
+                ? " rag-chat__bubble--loading"
+                : ""
+            }`}
           >
-            {msg.text}
+            {msg.role === "assistant" ? (
+              msg.text ? (
+                <div className="rag-chat__md">
+                  <ReactMarkdown>{msg.text}</ReactMarkdown>
+                </div>
+              ) : loading ? (
+                "Searching…"
+              ) : null
+            ) : (
+              msg.text
+            )}
           </div>
         ))}
-
-        {loading && (
-          <div className="rag-chat__bubble rag-chat__bubble--assistant rag-chat__bubble--loading">
-            Searching…
-          </div>
-        )}
       </div>
 
       <form className="rag-chat__form" onSubmit={onSubmit}>
