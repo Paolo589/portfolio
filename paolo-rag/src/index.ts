@@ -89,14 +89,94 @@ async function handleIngest(request: Request, env: Env): Promise<Response> {
     return json({ error: "Unauthorized" }, 401);
   }
 
+  const parsed = await parseIngestPayload(request);
+  if ("error" in parsed) {
+    return json({ error: parsed.error }, 400);
+  }
+
+  return ingestDocument(env, parsed);
+}
+
+async function parseIngestPayload(
+  request: Request
+): Promise<{ text: string; filename: string; docId?: string } | { error: string }> {
+  const contentType = request.headers.get("content-type") || "";
+
+  if (contentType.includes("multipart/form-data")) {
+    const form = await request.formData();
+    const docIdRaw = form.get("docId");
+    const filenameRaw = form.get("filename");
+    const textRaw = form.get("text");
+    const file = asFormFile(form.get("file"));
+
+    const docId =
+      typeof docIdRaw === "string" ? sanitizeDocId(docIdRaw) || undefined : undefined;
+    let filename =
+      (typeof filenameRaw === "string" && filenameRaw.trim()) ||
+      file?.name ||
+      "document.txt";
+    let text = typeof textRaw === "string" ? textRaw.trim() : "";
+
+    if (file && file.size > 0) {
+      filename = (typeof filenameRaw === "string" && filenameRaw.trim()) || file.name;
+      if (isPdfFile(file)) {
+        text = await extractPdfText(await file.arrayBuffer());
+      } else {
+        text = (await file.text()).trim();
+      }
+    }
+
+    if (!text) {
+      return {
+        error:
+          "Missing content. Send multipart with a text/md/pdf file, or a text field.",
+      };
+    }
+
+    return { text, filename, docId };
+  }
+
+  if (
+    contentType.includes("application/pdf") ||
+    contentType.includes("application/octet-stream")
+  ) {
+    const buffer = await request.arrayBuffer();
+    if (!buffer.byteLength) {
+      return { error: "Empty PDF body" };
+    }
+    const text = await extractPdfText(buffer);
+    if (!text) {
+      return { error: "Could not extract text from PDF" };
+    }
+    const url = new URL(request.url);
+    const filename = url.searchParams.get("filename") || "document.pdf";
+    const docId = sanitizeDocId(url.searchParams.get("docId") || undefined) || undefined;
+    return { text, filename, docId };
+  }
+
   const body = (await request.json()) as IngestBody;
   const text = body.text?.trim();
   if (!text) {
-    return json({ error: "Missing text. Send JSON { text: string }" }, 400);
+    return {
+      error:
+        "Missing text. Send JSON { text }, multipart file (txt/md/pdf), or raw PDF body.",
+    };
   }
 
-  const filename = (body.filename || "document.txt").trim();
-  const docId = sanitizeDocId(body.docId) || crypto.randomUUID();
+  return {
+    text,
+    filename: (body.filename || "document.txt").trim(),
+    docId: sanitizeDocId(body.docId) || undefined,
+  };
+}
+
+async function ingestDocument(
+  env: Env,
+  input: { text: string; filename: string; docId?: string }
+): Promise<Response> {
+  const text = input.text.trim();
+  const filename = input.filename.trim() || "document.txt";
+  const docId = input.docId || crypto.randomUUID();
 
   const chunkSize = Number(env.CHUNK_SIZE) || 800;
   const overlap = Number(env.CHUNK_OVERLAP) || 150;
@@ -106,7 +186,6 @@ async function handleIngest(request: Request, env: Env): Promise<Response> {
     return json({ error: "No usable text after chunking" }, 400);
   }
 
-  // Replace vectors if this docId already exists.
   await deleteDocVectors(env, docId);
 
   const vectors: VectorizeVector[] = [];
@@ -147,6 +226,28 @@ async function handleIngest(request: Request, env: Env): Promise<Response> {
   await upsertDocInList(env, meta);
 
   return json({ ok: true, document: meta });
+}
+
+function asFormFile(value: unknown): File | null {
+  if (value == null || typeof value === "string") return null;
+  // Workers FormData may type uploads as Blob-like without a usable File constructor.
+  if (typeof value === "object" && "arrayBuffer" in value && "name" in value) {
+    return value as File;
+  }
+  return null;
+}
+
+function isPdfFile(file: File): boolean {
+  const name = file.name.toLowerCase();
+  return file.type === "application/pdf" || name.endsWith(".pdf");
+}
+
+async function extractPdfText(buffer: ArrayBuffer): Promise<string> {
+  const { extractText, getDocumentProxy } = await import("unpdf");
+  const pdf = await getDocumentProxy(new Uint8Array(buffer));
+  const result = await extractText(pdf, { mergePages: true });
+  const text = Array.isArray(result.text) ? result.text.join("\n\n") : String(result.text || "");
+  return text.replace(/\u0000/g, "").trim();
 }
 
 async function handleDeleteDoc(
@@ -270,10 +371,7 @@ async function handleAsk(request: Request, env: Env): Promise<Response> {
     ],
   });
 
-  const answer =
-    typeof result === "object" && result && "response" in result
-      ? String((result as { response: string }).response)
-      : String(result);
+  const answer = extractChatAnswer(result);
 
   return json({
     answer,
@@ -329,6 +427,29 @@ async function embed(env: Env, text: string): Promise<number[]> {
   }
 
   return data[0];
+}
+
+function extractChatAnswer(result: unknown): string {
+  if (typeof result === "string") return result;
+
+  if (result && typeof result === "object") {
+    const obj = result as Record<string, unknown>;
+
+    if (typeof obj.response === "string") return obj.response;
+
+    const choices = obj.choices;
+    if (Array.isArray(choices) && choices[0] && typeof choices[0] === "object") {
+      const choice = choices[0] as Record<string, unknown>;
+      const message = choice.message;
+      if (message && typeof message === "object") {
+        const content = (message as Record<string, unknown>).content;
+        if (typeof content === "string") return content;
+      }
+      if (typeof choice.text === "string") return choice.text;
+    }
+  }
+
+  return String(result);
 }
 
 function chunkText(text: string, size: number, overlap: number): string[] {

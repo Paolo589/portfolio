@@ -1,7 +1,7 @@
 import { Avatar } from "@mui/material"
 import Image from "next/image"
 import Link from "next/link"
-import { info} from "../../posts/posts"
+import { info } from "../../posts/posts"
 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
@@ -11,14 +11,9 @@ import Logo from "./Logo"
 
 interface Props {
 
-
 }
 const InfoTab: React.FC<Props> = ({ }) => {
-
-
-    const infos = info.text
-    const social:any = info.social
-
+    const social: any = info.social
 
     return <div
         className="infoTab" >
@@ -28,23 +23,19 @@ const InfoTab: React.FC<Props> = ({ }) => {
                 <Image alt="Paolo Minopoli" src="https://paolominopoli.com/avatar-paolo.png" fill sizes="220px" />
             </Avatar>
         </div>
-        <span style={{ marginTop: "10px" ,zIndex:"10"}}> <Logo ></Logo></span>
-        <div style={{ display: "flex",  marginTop: "10px" }}>
+        <span style={{ marginTop: "10px", zIndex: "10" }}> <Logo ></Logo></span>
+        <div style={{ display: "flex", marginTop: "10px" }}>
 
-            <Link  href={social['instagram']} passHref>
-                <InstagramIcon className="social-link-icon"  />
+            <Link href={social['instagram']} passHref>
+                <InstagramIcon className="social-link-icon" />
             </Link>
-            <Link  href={social['linkedin']} passHref>
+            <Link href={social['linkedin']} passHref>
                 <LinkedInIcon className="social-link-icon" ></LinkedInIcon>
             </Link>
-            <Link   href={social['gmail']} passHref>
+            <Link href={social['gmail']} passHref>
                 <MailOutlineRoundedIcon className="social-link-icon" ></MailOutlineRoundedIcon>
             </Link>
         </div>
-
-
-        <div style={{ padding: "18px", marginTop: "0px" }} className='post-content-container' >{infos.map((el,i)=> <p key={i}>{el}</p>)}</div>
-
     </div>
 }
 

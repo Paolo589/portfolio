@@ -35,6 +35,8 @@ yarn-error.log*
 # Cloudflare worker
 paolo-rag/node_modules/
 paolo-rag/.wrangler/
+paolo-rag/.ingest-secret
+
 
 # vercel
 .vercel

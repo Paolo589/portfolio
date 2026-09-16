@@ -1,5 +1,4 @@
 import {
-  CSSProperties,
   FormEvent,
   useCallback,
   useEffect,
@@ -18,10 +17,17 @@ type DocMeta = {
   updatedAt: string;
 };
 
+function isPdf(file: File): boolean {
+  return (
+    file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf")
+  );
+}
+
 export default function RagAdminPage() {
   const [secret, setSecret] = useState("");
   const [filename, setFilename] = useState("");
   const [text, setText] = useState("");
+  const [file, setFile] = useState<File | null>(null);
   const [documents, setDocuments] = useState<DocMeta[]>([]);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -41,11 +47,21 @@ export default function RagAdminPage() {
     loadDocs();
   }, [loadDocs]);
 
-  async function onFileChange(file: File | null) {
-    if (!file) return;
-    setFilename(file.name);
-    const content = await file.text();
-    setText(content);
+  async function onFileChange(next: File | null) {
+    if (!next) {
+      setFile(null);
+      return;
+    }
+
+    setFile(next);
+    setFilename(next.name);
+
+    if (isPdf(next)) {
+      setText("");
+      return;
+    }
+
+    setText(await next.text());
   }
 
   async function onSubmit(event: FormEvent) {
@@ -57,24 +73,42 @@ export default function RagAdminPage() {
       setError("Enter the upload secret.");
       return;
     }
-    if (!text.trim()) {
-      setError("Paste text or choose a .txt / .md file.");
+
+    const hasPdf = Boolean(file && isPdf(file));
+    if (!hasPdf && !text.trim()) {
+      setError("Paste text or choose a .txt / .md / .pdf file.");
       return;
     }
 
     setLoading(true);
     try {
-      const res = await fetch(`${RAG_URL}/ingest`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${secret.trim()}`,
-        },
-        body: JSON.stringify({
-          text,
-          filename: filename || "document.txt",
-        }),
-      });
+      let res: Response;
+
+      if (hasPdf && file) {
+        const form = new FormData();
+        form.append("file", file);
+        form.append("filename", filename || file.name);
+        res = await fetch(`${RAG_URL}/ingest`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${secret.trim()}`,
+          },
+          body: form,
+        });
+      } else {
+        res = await fetch(`${RAG_URL}/ingest`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${secret.trim()}`,
+          },
+          body: JSON.stringify({
+            text,
+            filename: filename || "document.txt",
+          }),
+        });
+      }
+
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.error || `Error ${res.status}`);
@@ -84,6 +118,7 @@ export default function RagAdminPage() {
       );
       setText("");
       setFilename("");
+      setFile(null);
       await loadDocs();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed");
@@ -127,86 +162,99 @@ export default function RagAdminPage() {
         <meta name="robots" content="noindex,nofollow" />
       </Head>
 
-      <main style={styles.main}>
-        <h1 style={styles.title}>RAG — upload documents</h1>
-        <p style={styles.sub}>
+      <main className="rag-admin">
+        <div className="rag-admin__inner">
+        <h1 className="rag-admin__title">RAG — upload documents</h1>
+        <p className="rag-admin__sub">
           Worker: <code>{RAG_URL}</code>
         </p>
 
-        <form onSubmit={onSubmit} style={styles.form}>
-          <label style={styles.label}>
+        <form onSubmit={onSubmit} className="rag-admin__form">
+          <label className="rag-admin__label">
             Upload secret
             <input
-              type="password"
+              type="text"
+              name="ingest-secret"
               value={secret}
               onChange={(e) => setSecret(e.target.value)}
-              placeholder="INGEST_SECRET"
-              style={styles.input}
+              placeholder="Paste INGEST_SECRET here"
+              className="rag-admin__input"
               autoComplete="off"
+              spellCheck={false}
             />
           </label>
 
-          <label style={styles.label}>
-            File (.txt / .md)
+          <label className="rag-admin__label">
+            File (.txt / .md / .pdf)
             <input
               type="file"
-              accept=".txt,.md,text/plain,text/markdown"
+              accept=".txt,.md,.pdf,text/plain,text/markdown,application/pdf"
               onChange={(e) => onFileChange(e.target.files?.[0] || null)}
-              style={styles.input}
+              className="rag-admin__input"
             />
           </label>
 
-          <label style={styles.label}>
+          <label className="rag-admin__label">
             Filename
             <input
               type="text"
               value={filename}
               onChange={(e) => setFilename(e.target.value)}
-              placeholder="resume.txt"
-              style={styles.input}
+              placeholder="resume.pdf"
+              className="rag-admin__input"
             />
           </label>
 
-          <label style={styles.label}>
-            Document text
-            <textarea
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              rows={14}
-              placeholder="Paste the document content here…"
-              style={styles.textarea}
-            />
-          </label>
+          {file && isPdf(file) ? (
+            <p className="rag-admin__sub">
+              PDF selected: <strong>{file.name}</strong> — text will be extracted
+              on the worker during upload.
+            </p>
+          ) : (
+            <label className="rag-admin__label">
+              Document text
+              <textarea
+                value={text}
+                onChange={(e) => {
+                  setText(e.target.value);
+                  setFile(null);
+                }}
+                rows={14}
+                placeholder="Paste the document content here…"
+                className="rag-admin__textarea"
+              />
+            </label>
+          )}
 
-          <button type="submit" disabled={loading} style={styles.button}>
+          <button type="submit" disabled={loading} className="rag-admin__button">
             {loading ? "Uploading…" : "Upload to RAG"}
           </button>
         </form>
 
-        {message && <p style={styles.ok}>{message}</p>}
-        {error && <p style={styles.err}>{error}</p>}
+        {message && <p className="rag-admin__ok">{message}</p>}
+        {error && <p className="rag-admin__err">{error}</p>}
 
-        <section style={styles.section}>
-          <h2 style={styles.h2}>Indexed documents ({documents.length})</h2>
+        <section className="rag-admin__section">
+          <h2 className="rag-admin__h2">Indexed documents ({documents.length})</h2>
           {documents.length === 0 ? (
-            <p style={styles.sub}>No documents yet.</p>
+            <p className="rag-admin__sub">No documents yet.</p>
           ) : (
-            <ul style={styles.list}>
+            <ul className="rag-admin__list">
               {documents.map((doc) => (
-                <li key={doc.id} style={styles.item}>
-                  <div>
+                <li key={doc.id} className="rag-admin__item">
+                  <div className="rag-admin__item-body">
                     <strong>{doc.filename}</strong>
-                    <div style={styles.meta}>
+                    <div className="rag-admin__meta">
                       {doc.chunkCount} chunks · {doc.chars} chars ·{" "}
                       {new Date(doc.updatedAt).toLocaleString()}
                     </div>
-                    <code style={styles.code}>{doc.id}</code>
+                    <code className="rag-admin__code">{doc.id}</code>
                   </div>
                   <button
                     type="button"
                     onClick={() => onDelete(doc.id)}
                     disabled={loading}
-                    style={styles.deleteBtn}
+                    className="rag-admin__delete"
                   >
                     Delete
                   </button>
@@ -215,69 +263,8 @@ export default function RagAdminPage() {
             </ul>
           )}
         </section>
+        </div>
       </main>
     </>
   );
 }
-
-const styles: Record<string, CSSProperties> = {
-  main: {
-    maxWidth: 720,
-    margin: "2rem auto",
-    padding: "0 1rem 3rem",
-    fontFamily: "ui-sans-serif, system-ui, sans-serif",
-  },
-  title: { fontSize: "1.6rem", marginBottom: "0.25rem" },
-  h2: { fontSize: "1.15rem", marginBottom: "0.75rem" },
-  sub: { color: "#555", fontSize: "0.9rem", marginBottom: "1.25rem" },
-  form: { display: "grid", gap: "0.9rem", marginBottom: "1.5rem" },
-  label: { display: "grid", gap: "0.35rem", fontSize: "0.9rem", fontWeight: 600 },
-  input: {
-    padding: "0.55rem 0.7rem",
-    border: "1px solid #ccc",
-    borderRadius: 6,
-    fontSize: "0.95rem",
-    fontWeight: 400,
-  },
-  textarea: {
-    padding: "0.7rem",
-    border: "1px solid #ccc",
-    borderRadius: 6,
-    fontSize: "0.9rem",
-    fontWeight: 400,
-    fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
-    resize: "vertical",
-  },
-  button: {
-    padding: "0.7rem 1rem",
-    border: "none",
-    borderRadius: 6,
-    background: "#111",
-    color: "#fff",
-    fontWeight: 600,
-    cursor: "pointer",
-  },
-  deleteBtn: {
-    padding: "0.4rem 0.7rem",
-    border: "1px solid #c44",
-    borderRadius: 6,
-    background: "#fff",
-    color: "#c44",
-    cursor: "pointer",
-    height: "fit-content",
-  },
-  ok: { color: "#0a7a32", marginBottom: "1rem" },
-  err: { color: "#b00020", marginBottom: "1rem" },
-  section: { marginTop: "2rem" },
-  list: { listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "0.75rem" },
-  item: {
-    display: "flex",
-    justifyContent: "space-between",
-    gap: "1rem",
-    padding: "0.85rem 1rem",
-    border: "1px solid #e2e2e2",
-    borderRadius: 8,
-  },
-  meta: { fontSize: "0.85rem", color: "#666", marginTop: 4 },
-  code: { fontSize: "0.75rem", color: "#444" },
-};

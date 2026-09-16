@@ -13,5 +13,8 @@
     "@cloudflare/workers-types": "^4.20250913.0",
     "typescript": "^5.9.2",
     "wrangler": "4.86.0"
+  },
+  "dependencies": {
+    "unpdf": "^1.7.0"
   }
 }
