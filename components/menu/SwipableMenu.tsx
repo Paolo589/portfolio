@@ -4,6 +4,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import { GetStaticPropsResult } from "next";
 import InfoTab from "./InfoTab";
+import Chat from "../Chat";
 import { Avatar } from "@mui/material";
 import Image from "next/image";
 
@@ -42,6 +43,7 @@ const SwipableMenu: React.FC<Props> = ({ post }) => {
 					></ArrowCircleLeftOutlinedIcon ></div>
 				<span style={{ marginTop: "20px" }}></span>
 				<InfoTab></InfoTab>
+				<Chat />
 			</SwipeableDrawer>
 
 		</>

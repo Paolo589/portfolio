@@ -1,0 +1,22 @@
+name = "paolo-rag"
+main = "src/index.ts"
+compatibility_date = "2025-09-15"
+account_id = "9fb0b55c2f5f7b5cc042fea05052def9"
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "paolo-rag-index"
+
+[[kv_namespaces]]
+binding = "META"
+id = "2e09b6a4754545b2965ab79d54a2afc0"
+
+[vars]
+EMBEDDING_MODEL = "@cf/baai/bge-base-en-v1.5"
+CHAT_MODEL = "@cf/meta/llama-3.1-8b-instruct"
+TOP_K = "5"
+CHUNK_SIZE = "800"
+CHUNK_OVERLAP = "150"

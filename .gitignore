@@ -30,6 +30,11 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.dev.vars
+
+# Cloudflare worker
+paolo-rag/node_modules/
+paolo-rag/.wrangler/
 
 # vercel
 .vercel
