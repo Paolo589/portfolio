@@ -79,6 +79,11 @@ const Chat = (): JSX.Element => {
     const trimmed = question.trim();
     if (!trimmed || loading) return;
 
+    const history = messages
+      .filter((m) => m.text.trim())
+      .slice(-6)
+      .map((m) => ({ role: m.role, content: m.text }));
+
     const userMsg: ChatMessage = {
       id: `u-${Date.now()}`,
       role: "user",
@@ -94,6 +99,9 @@ const Chat = (): JSX.Element => {
     setInput("");
     setLoading(true);
 
+    const EMPTY_FALLBACK =
+      "I couldn't generate an answer just now. Please try asking again.";
+
     try {
       const res = await fetch(`${RAG_URL}/ask`, {
         method: "POST",
@@ -101,7 +109,7 @@ const Chat = (): JSX.Element => {
           "Content-Type": "application/json",
           Accept: "text/event-stream",
         },
-        body: JSON.stringify({ question: trimmed }),
+        body: JSON.stringify({ question: trimmed, history }),
       });
 
       if (!res.ok) {
@@ -127,6 +135,38 @@ const Chat = (): JSX.Element => {
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let buffer = "";
+      let gotToken = false;
+
+      const consumeSseChunk = (part: string) => {
+        const line = part
+          .split("\n")
+          .map((l) => l.trim())
+          .find((l) => l.startsWith("data:"));
+        if (!line) return;
+
+        const payload = line.slice(5).trim();
+        if (!payload || payload === "[DONE]") return;
+
+        let event: { type?: string; text?: string; error?: string };
+        try {
+          event = JSON.parse(payload);
+        } catch {
+          appendAssistantText(assistantId, payload);
+          gotToken = true;
+          return;
+        }
+
+        if (event.type === "token" && event.text) {
+          appendAssistantText(assistantId, event.text);
+          gotToken = true;
+        } else if (event.type === "error") {
+          appendAssistantText(
+            assistantId,
+            event.error || "I can't answer right now."
+          );
+          gotToken = true;
+        }
+      };
 
       while (true) {
         const { done, value } = await reader.read();
@@ -137,32 +177,22 @@ const Chat = (): JSX.Element => {
         buffer = parts.pop() || "";
 
         for (const part of parts) {
-          const line = part
-            .split("\n")
-            .map((l) => l.trim())
-            .find((l) => l.startsWith("data:"));
-          if (!line) continue;
-
-          const payload = line.slice(5).trim();
-          if (!payload || payload === "[DONE]") continue;
-
-          let event: { type?: string; text?: string; error?: string };
-          try {
-            event = JSON.parse(payload);
-          } catch {
-            appendAssistantText(assistantId, payload);
-            continue;
-          }
-
-          if (event.type === "token" && event.text) {
-            appendAssistantText(assistantId, event.text);
-          } else if (event.type === "error") {
-            appendAssistantText(
-              assistantId,
-              event.error || "I can't answer right now."
-            );
-          }
+          consumeSseChunk(part);
         }
+      }
+
+      if (buffer.trim()) {
+        consumeSseChunk(buffer);
+      }
+
+      if (!gotToken) {
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantId && !m.text.trim()
+              ? { ...m, text: EMPTY_FALLBACK }
+              : m
+          )
+        );
       }
     } catch {
       setMessages((prev) =>

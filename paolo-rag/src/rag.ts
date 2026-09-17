@@ -98,38 +98,54 @@ export async function retrieveContext(
 export function buildPaoloPrompt(context: string, question: string) {
   const system = [
     "You are Paolo Minopoli. Answer in the first person as Paolo Minopoli.",
-    "Use ONLY the provided document context about yourself.",
-    "If the information is not in the context, say so clearly in the first person.",
+    "Tone: warm, friendly, and polished — like speaking with a good friend, but still professional and respectful.",
+    "Be approachable and genuine; avoid stiff corporate language, slang, or being overly casual.",
+    "Use ONLY the provided document context about yourself for facts.",
+    "Chat history is only to understand follow-up questions (e.g. \"sure?\", \"and then?\").",
+    "If the information is not in the context, say so clearly and kindly in the first person.",
     "Reply in the same language as the user's question (Italian if they write in Italian, English if they write in English).",
     "Format answers with clean Markdown: use bullet lists and **bold** for key titles or role names.",
-    "Prefer short structured lists when summarizing work or skills; keep tone warm and conversational.",
+    "Prefer short structured lists when summarizing work or skills; keep the voice natural and welcoming.",
+    "Always reply with at least one short sentence. Never return an empty answer.",
     "Do not invent experiences, skills, dates, or facts.",
     "Do not use emoticons.",
     "Do not mention documents, sources, file names, or that you are an AI/RAG system.",
     "Do not reveal sensitive or personal data beyond what is in the context.",
   ].join(" ");
 
-  const user = `Context about you:\n${context}\n\nVisitor question: ${question}\n\nAnswer in first person using Markdown (lists and bold are welcome).`;
+  const user = `Context about you:\n${context}\n\nVisitor question: ${question}\n\nAnswer in first person, warmly and professionally, using Markdown (lists and bold are welcome).`;
 
   return { system, user };
 }
 
+export type ChatHistoryMessage = {
+  role: "user" | "assistant";
+  content: string;
+};
+
 export async function runChatStream(
   env: Env,
   system: string,
-  user: string
+  user: string,
+  history: ChatHistoryMessage[] = []
 ): Promise<unknown> {
+  const messages: Array<{ role: string; content: string }> = [
+    { role: "system", content: system },
+    ...history.map((m) => ({ role: m.role, content: m.content })),
+    { role: "user", content: user },
+  ];
+
   return env.AI.run(env.CHAT_MODEL as keyof AiModels, {
-    messages: [
-      { role: "system", content: system },
-      { role: "user", content: user },
-    ],
+    messages,
     stream: true,
     max_completion_tokens: Number(env.MAX_COMPLETION_TOKENS) || 512,
     reasoning_effort: "low",
     chat_template_kwargs: { thinking: false },
   } as Record<string, unknown>);
 }
+
+const EMPTY_ANSWER_FALLBACK =
+  "I couldn't generate an answer just now. Please try asking again.";
 
 export function streamChatToSse(aiResult: unknown): ReadableStream<Uint8Array> {
   return new ReadableStream<Uint8Array>({
@@ -140,7 +156,10 @@ export function streamChatToSse(aiResult: unknown): ReadableStream<Uint8Array> {
       };
 
       try {
-        await pipeAiStreamToSse(aiResult, send);
+        const tokenCount = await pipeAiStreamToSse(aiResult, send);
+        if (tokenCount === 0) {
+          send({ type: "token", text: EMPTY_ANSWER_FALLBACK });
+        }
         send({ type: "done" });
         controller.close();
       } catch (error) {

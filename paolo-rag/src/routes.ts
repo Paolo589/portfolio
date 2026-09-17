@@ -23,6 +23,7 @@ import {
   runChatStream,
   streamChatToSse,
   warmupModels,
+  type ChatHistoryMessage,
 } from "./rag";
 
 type IngestBody = {
@@ -34,7 +35,10 @@ type IngestBody = {
 type AskBody = {
   question?: string;
   docIds?: string[];
+  history?: Array<{ role?: string; content?: string }>;
 };
+
+const MAX_HISTORY_MESSAGES = 6;
 
 export async function handleHealth(): Promise<Response> {
   return json({ ok: true, worker: "paolo-rag" });
@@ -117,11 +121,14 @@ export async function handleAsk(request: Request, env: Env): Promise<Response> {
     );
   }
 
+  const history = normalizeHistory(body.history);
   const filterDocIds = Array.isArray(body.docIds)
     ? body.docIds.map(sanitizeDocId).filter((id): id is string => Boolean(id))
     : [];
 
-  const contextChunks = await retrieveContext(env, question, filterDocIds);
+  // Short follow-ups retrieve better if we include the previous user question.
+  const retrievalQuery = buildRetrievalQuery(question, history);
+  const contextChunks = await retrieveContext(env, retrievalQuery, filterDocIds);
 
   if (contextChunks.length === 0) {
     return sseResponse(
@@ -140,8 +147,34 @@ export async function handleAsk(request: Request, env: Env): Promise<Response> {
     .join("\n\n");
 
   const { system, user } = buildPaoloPrompt(context, question);
-  const aiResult = await runChatStream(env, system, user);
+  const aiResult = await runChatStream(env, system, user, history);
   return sseResponse(streamChatToSse(aiResult));
+}
+
+function normalizeHistory(
+  raw: AskBody["history"]
+): ChatHistoryMessage[] {
+  if (!Array.isArray(raw)) return [];
+
+  return raw
+    .map((item) => {
+      const role = item?.role === "assistant" ? "assistant" : item?.role === "user" ? "user" : null;
+      const content = typeof item?.content === "string" ? item.content.trim() : "";
+      if (!role || !content) return null;
+      return { role, content } satisfies ChatHistoryMessage;
+    })
+    .filter((m): m is ChatHistoryMessage => Boolean(m))
+    .slice(-MAX_HISTORY_MESSAGES);
+}
+
+function buildRetrievalQuery(
+  question: string,
+  history: ChatHistoryMessage[]
+): string {
+  if (question.length >= 40) return question;
+  const previousUser = [...history].reverse().find((m) => m.role === "user");
+  if (!previousUser) return question;
+  return `${previousUser.content}\n${question}`;
 }
 
 async function parseIngestPayload(

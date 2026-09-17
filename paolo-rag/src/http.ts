@@ -70,12 +70,20 @@ export function immediateSseStream(
 export async function pipeAiStreamToSse(
   aiResult: unknown,
   send: (event: Record<string, unknown>) => void
-): Promise<void> {
+): Promise<number> {
+  let tokenCount = 0;
+  const emit = (event: Record<string, unknown>) => {
+    if (event.type === "token" && typeof event.text === "string" && event.text) {
+      tokenCount += 1;
+    }
+    send(event);
+  };
+
   const reader = getAiStreamReader(aiResult);
   if (!reader) {
     const fallback = extractChatAnswer(aiResult);
-    if (fallback) send({ type: "token", text: fallback });
-    return;
+    if (fallback) emit({ type: "token", text: fallback });
+    return tokenCount;
   }
 
   const decoder = new TextDecoder();
@@ -89,7 +97,7 @@ export async function pipeAiStreamToSse(
 
     if (typeof value === "string") {
       const token = extractStreamToken(value);
-      if (token) send({ type: "token", text: token });
+      if (token) emit({ type: "token", text: token });
       continue;
     }
 
@@ -114,9 +122,9 @@ export async function pipeAiStreamToSse(
         try {
           const parsed = JSON.parse(payload) as unknown;
           const token = extractStreamToken(parsed);
-          if (token) send({ type: "token", text: token });
+          if (token) emit({ type: "token", text: token });
         } catch {
-          if (payload) send({ type: "token", text: payload });
+          if (payload) emit({ type: "token", text: payload });
         }
       }
       continue;
@@ -124,7 +132,7 @@ export async function pipeAiStreamToSse(
 
     if (typeof value === "object") {
       const token = extractStreamToken(value);
-      if (token) send({ type: "token", text: token });
+      if (token) emit({ type: "token", text: token });
     }
   }
 
@@ -135,13 +143,15 @@ export async function pipeAiStreamToSse(
       if (payload && payload !== "[DONE]") {
         try {
           const token = extractStreamToken(JSON.parse(payload));
-          if (token) send({ type: "token", text: token });
+          if (token) emit({ type: "token", text: token });
         } catch {
           /* ignore trailing partial */
         }
       }
     }
   }
+
+  return tokenCount;
 }
 
 function getAiStreamReader(
