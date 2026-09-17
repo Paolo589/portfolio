@@ -81,7 +81,7 @@ const Chat = (): JSX.Element => {
 
     const history = messages
       .filter((m) => m.text.trim())
-      .slice(-6)
+      .slice(-8)
       .map((m) => ({ role: m.role, content: m.text }));
 
     const userMsg: ChatMessage = {

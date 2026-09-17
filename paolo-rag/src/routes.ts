@@ -38,7 +38,7 @@ type AskBody = {
   history?: Array<{ role?: string; content?: string }>;
 };
 
-const MAX_HISTORY_MESSAGES = 6;
+const MAX_HISTORY_MESSAGES = 8;
 
 export async function handleHealth(): Promise<Response> {
   return json({ ok: true, worker: "paolo-rag" });
