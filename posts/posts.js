@@ -63,7 +63,7 @@ export const posts = [
       "52-Velociraptor/Velociraptor01.jpg",
       "52-Velociraptor/Velociraptor02.jpg",
     ],
-    category: [],
+    category: [2],
   },
 
   {
@@ -98,7 +98,7 @@ export const posts = [
       "49-HotDog/HotDog_01.jpg",
       "49-HotDog/HotDog_02.jpg",
     ],
-    category: [],
+    category: [2],
   },
 
   {
