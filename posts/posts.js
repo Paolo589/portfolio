@@ -20,7 +20,7 @@ export const posts = [
     galleria: [
       "56-MrPencil/Pencil.mp4",
     ],
-    category: [2],
+    category: [1],
   },
 
 
