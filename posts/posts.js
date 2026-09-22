@@ -11,6 +11,17 @@
 // quindi "01-Captitan/Cap_01.jpg"
 
 export const posts = [
+   {
+    id: 56,
+    title: "Baseball Badass",
+    sottotitolo: "based on concepts by: Mr. Pencil",
+    slug: "mrpencil",
+    anteprima_img: "56-MrPencil/PencilCover.jpg",
+    galleria: [
+      "56-MrPencil/Pencil.mp4",
+    ],
+    category: [2],
+  },
 
 
    {
