@@ -20,7 +20,7 @@ export const posts = [
       "52-Velociraptor/Velociraptor01.jpg",
       "52-Velociraptor/Velociraptor02.jpg",
     ],
-    category: [1],
+    category: [],
   },
 
   {
@@ -55,7 +55,7 @@ export const posts = [
       "49-HotDog/HotDog_01.jpg",
       "49-HotDog/HotDog_02.jpg",
     ],
-    category: [1],
+    category: [],
   },
 
   {
@@ -447,7 +447,7 @@ export const posts = [
     anteprima_img: "17-Aletheia3300/Ale3300.jpg",
     anteprima_video: "",
     galleria: ["17-Aletheia3300/Ale3300.jpg"],
-    category: [1],
+    category: [],
   },
   /*
   {
