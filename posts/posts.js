@@ -10,7 +10,7 @@
 // un percorso è fatto da "nome_cartella/nome_file.estensione"
 // quindi "01-Captitan/Cap_01.jpg"
 
-export const posts = [
+export const posts = [  
   {
     id: 53,
     title: "Reel MCS Binder",
@@ -19,6 +19,18 @@ export const posts = [
     anteprima_video: "53-Reel_MCS_Binder/Reel_MCS_Binder.mp4",
     galleria: [
       "53-Reel_MCS_Binder/Reel_MCS_Binder.mp4",
+    ],
+    category: [2],
+  },
+
+  {
+    id: 54,
+    title: "Reel Octopus",
+    slug: "reel_octopus",
+    anteprima_img: "54-Reel_Octopus/Reel_Octopus.jpg",
+    anteprima_video: "54-Reel_Octopus/Reel_Octopus.mp4",
+    galleria: [
+      "54-Reel_Octopus/Reel_Octopus.mp4",
     ],
     category: [2],
   },
