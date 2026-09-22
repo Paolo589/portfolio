@@ -15,7 +15,7 @@ export const posts = [
     id: 53,
     title: "Reel MCS Binder",
     slug: "reel_mcs_binder",
-    anteprima_img: "53_Reel_MCS_Binder/Reel_MCS_Binder.png",
+    anteprima_img: "53-Reel_MCS_Binder/Reel_MCS_Binder.png",
     anteprima_video: "53-Reel_MCS_Binder/Reel_MCS_Binder.mp4",
     galleria: [
       "53-Reel_MCS_Binder/Reel_MCS_Binder.mp4",
