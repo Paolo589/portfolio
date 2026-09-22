@@ -10,7 +10,24 @@
 // un percorso è fatto da "nome_cartella/nome_file.estensione"
 // quindi "01-Captitan/Cap_01.jpg"
 
-export const posts = [  
+export const posts = [
+   {
+    id: 55,
+    title: "Block Number 5",
+    sottotitolo: "Based on concepts by: Michele 'Ypsilon' Furia, Davide 'Funkamore' Abate, Emma 'Sassoraviolo' Donato",
+    slug: "bn5",
+    anteprima_img: "55-BN5/Main.jpg",
+    galleria: [
+      "55-BN5/Main.jpg",
+      "55-BN5/Monking.jpg",
+      "55-BN5/Dj.jpg",
+      "55-BN5/Cop.jpg",
+      "55-BN5/Lizard.jpg",
+      "55-BN5/Ratto.jpg",
+    ],
+    category: [2],
+  },
+
   {
     id: 53,
     title: "Reel MCS Binder",
