@@ -700,7 +700,7 @@ export const info = {
 export const category = [
   {
     id: 1,
-    name: "3D",
+    name: "Random Stuff",
     slug: "3d",
   },
   {
