@@ -11,10 +11,12 @@
 // quindi "01-Captitan/Cap_01.jpg"
 
 export const posts = [
+
+
    {
     id: 55,
     title: "Block Number 5",
-    sottotitolo: "Based on concepts by: Michele 'Ypsilon' Furia, Davide 'Funkamore' Abate, Emma 'Sassoraviolo' Donato",
+    sottotitolo: "based on concepts by: Michele 'Ypsilon' Furia, Davide 'Funkamore' Abate, Emma 'Sassoraviolo' Donato",
     slug: "bn5",
     anteprima_img: "55-BN5/Main.jpg",
     galleria: [
@@ -128,7 +130,7 @@ export const posts = [
   {
     id: 46,
     title: "Wolverine",
-    sottotitolo: "original concept by Brandon Mendoza",
+    sottotitolo: "based on concept by: Brandon Mendoza",
     slug: "wolverine",
     anteprima_img: "46-Wolverine/Wolverine.jpg",
     galleria: ["46-Wolverine/Wolverine.jpg"],
@@ -138,7 +140,7 @@ export const posts = [
   {
     id: 45,
     title: "Twins",
-    sottotitolo: "original concept by Otto Schmidt",
+    sottotitolo: "based on concept by Otto Schmidt",
     slug: "twins",
     anteprima_img: "45-Twins/Twins_03.jpg",
     anteprima_video: "45-Twins/Twins_01.mp4",
@@ -153,7 +155,7 @@ export const posts = [
   {
     id: 39,
     title: "A big cuddly guy and a kitten",
-    sottotitolo: "original concept by Tom Booth",
+    sottotitolo: "based on concept by Tom Booth",
     slug: "big-guy",
     anteprima_img: "39-BigGuy/BigGuy_02.jpg",
     anteprima_video: "39-BigGuy/BigGuy_01.mp4",
@@ -164,7 +166,7 @@ export const posts = [
   {
     id: 37,
     title: "Disappointed Guy",
-    sottotitolo: "original concept by Nula",
+    sottotitolo: "based on concept by Nula",
     slug: "disappointed-guy",
     anteprima_img: "37-Null/Null_02.jpg",
     anteprima_video: "37-Null/Null_01.mp4",
@@ -175,7 +177,7 @@ export const posts = [
   {
     id: 40,
     title: "A big dude with some hefty staches",
-    sottotitolo: "original concept by Cy L",
+    sottotitolo: "based on concept by by Cy L",
     slug: "big-dude",
     anteprima_img: "40-BigDude/BigDude_02.jpg",
     anteprima_video: "40-BigDude/BigDude_01.mp4",
@@ -186,7 +188,7 @@ export const posts = [
   {
     id: 42,
     title: "Geeulio",
-    sottotitolo: "original concept by Giulio Ferrara",
+    sottotitolo: "based on concept by Giulio Ferrara",
     slug: "geeulio",
     anteprima_img: "42-Geeulio/Gee_02.jpg",
     anteprima_video: "42-Geeulio/Gee_01.mp4",
@@ -197,7 +199,7 @@ export const posts = [
   {
     id: 38,
     title: "Gollum",
-    sottotitolo: "original concept by Lorenzo Di Santo",
+    sottotitolo: "based on concept by Lorenzo Di Santo",
     slug: "gollum",
     anteprima_img: "38-Gollum/Gollum_02.jpg",
     anteprima_video: "38-Gollum/Gollum_01.mp4",
@@ -208,7 +210,7 @@ export const posts = [
   {
     id: 41,
     title: "A beautiful blue girl with gold earrings",
-    sottotitolo: "original concept by Paul Kellam",
+    sottotitolo: "based on concept by Paul Kellam",
     slug: "blue-girl",
     anteprima_img: "41-BlueGirl/BlueGirl_02.jpg",
     anteprima_video: "41-BlueGirl/BlueGirl_01.mp4",
@@ -220,7 +222,7 @@ export const posts = [
   {
     id: 1,
     title: "Capitan America",
-    sottotitolo: "original concept by Jeff Harvey",
+    sottotitolo: "based on concept by Jeff Harvey",
     slug: "capitan-america",
     anteprima_img: "01-Capitan/Cap_01.jpg",
     anteprima_video: "01-Capitan/Cap_02.mp4",
@@ -235,7 +237,7 @@ export const posts = [
   {
     id: 2,
     title: "Spider Gwen",
-    sottotitolo: "original concept by Philip Bawasanta",
+    sottotitolo: "based on concept by Philip Bawasanta",
     slug: "spider-gwen",
     anteprima_img: "02-Spider/Gwen_03.jpg",
     anteprima_video: "02-Spider/Gwen_01.mp4",
@@ -268,7 +270,7 @@ export const posts = [
   {
     id: 4,
     title: "Goddess Bastet",
-    sottotitolo: "original concept by Dashiana",
+    sottotitolo: "based on concept by Dashiana",
     slug: "godess-bastet",
     anteprima_img: "04-Goddess/Goddess_Bastet_03.jpg",
     anteprima_video: "04-Goddess/Goddess_Bastet_01.mp4",
@@ -283,7 +285,7 @@ export const posts = [
   {
     id: 9,
     title: "Batman, Robin and Clayface",
-    sottotitolo: "original concept by Dom Scruffy Murphy",
+    sottotitolo: "based on concept by Dom Scruffy Murphy",
     slug: "batman-robin-and-clayface",
     anteprima_img: "09-BatRob/BatRob_02.jpg",
     anteprima_video: "09-BatRob/BatRob_01.mp4",
@@ -301,7 +303,7 @@ export const posts = [
   {
     id: 5,
     title: "RichardHTT",
-    sottotitolo: "original concept by Riccardo Accattatis",
+    sottotitolo: "based on concept by Riccardo Accattatis",
     slug: "richardhtt",
     anteprima_img: "05-RichardHTT/Htt_02.jpg",
     anteprima_video: "05-RichardHTT/Htt_01.mp4",
@@ -316,7 +318,7 @@ export const posts = [
   {
     id: 6,
     title: "Silas",
-    sottotitolo: "original concept by Julien Vandois",
+    sottotitolo: "based on concept by Julien Vandois",
     slug: "silas",
     anteprima_img: "06-Silas/Silas_02.jpg",
     anteprima_video: "06-Silas/Silas_01.mp4",
@@ -331,7 +333,7 @@ export const posts = [
   {
     id: 7,
     title: "Ryu",
-    sottotitolo: "original concept by Anthony Wheeler",
+    sottotitolo: "based on concept by Anthony Wheeler",
     slug: "ryu",
     anteprima_img: "07-Ryu/Ryu_03.jpg",
     anteprima_video: "07-Ryu/Ryu_01.mp4",
@@ -347,7 +349,7 @@ export const posts = [
   {
     id: 8,
     title: "Ghost Rider",
-    sottotitolo: "original concept by Skottie Young",
+    sottotitolo: "based on concept by Skottie Young",
     slug: "ghost-rider",
     anteprima_img: "08-Ghost/GhostRider_02.jpg",
     anteprima_video: "08-Ghost/GhostRider_01.mp4",
@@ -358,7 +360,7 @@ export const posts = [
   {
     id: 44,
     title: "Unrequited Love",
-    sottotitolo: "original concept by Max Grecke",
+    sottotitolo: "based on concept by Max Grecke",
     slug: "unrequited-love",
     anteprima_img: "44-Vamp/Vamp_01.jpg",
     anteprima_video: "",
@@ -369,7 +371,7 @@ export const posts = [
   {
     id: 43,
     title: "Orc",
-    sottotitolo: "original concept by Kenny Charactercube",
+    sottotitolo: "based on concept by Kenny Charactercube",
     slug: "orc",
     anteprima_img: "43-Orc/Orc.jpeg",
     anteprima_video: "",
@@ -395,7 +397,7 @@ export const posts = [
   {
     id: 11,
     title: "Mario vs Bowser",
-    sottotitolo: "original concept by Dom Scruffy Murphy",
+    sottotitolo: "based on concept by Dom Scruffy Murphy",
     slug: "mario-vs-bowser",
     anteprima_img: "11-MarioBowser/MariovBowser_05.jpg",
     anteprima_video: "11-MarioBowser/MariovBowser_01.mp4",
